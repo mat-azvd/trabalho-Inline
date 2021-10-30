@@ -1,9 +1,17 @@
 import styled from "styled-components/";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
+import { HiOutlineChevronDoubleRight } from "react-icons/hi";
+import { Container } from "../../globalStyles";
 
 export const Nav = styled.nav`
-  background: #233f78;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(35, 63, 120, 1) 57%,
+    rgba(0, 155, 255, 1) 100%
+  );
   height: 80px;
   /* margin-top: -80px; */
   display: flex;
@@ -26,6 +34,8 @@ export const NavbarContainer = styled.div`
   width: 100%;
   padding: 0 24px;
   max-width: 1100px;
+
+  ${Container}
 `;
 
 export const NavLogo = styled(LinkR)`
@@ -38,6 +48,10 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+`;
+
+export const NavIcon = styled(HiOutlineChevronDoubleRight)`
+  margin-right: 0.1rem;
 `;
 
 export const MobileIcon = styled.div`
@@ -85,11 +99,16 @@ export const NavLinks = styled(LinkScroll)`
   &.active {
     border-bottom: 3px solid #1976d2;
   }
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: #29c4ec;
+  }
 `;
 
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  border-radius: 10px;
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -97,7 +116,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(LinkScroll)`
-  border-radius: 20px;
+  border-radius: 10px;
   background: #fff;
   white-space: nowrap;
   padding: 10px 32px;
@@ -110,7 +129,7 @@ export const NavBtnLink = styled(LinkScroll)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #1976d2;
+    background: #233f78;
     color: #fff;
   }
 `;
