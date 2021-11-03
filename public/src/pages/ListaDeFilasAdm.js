@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { /*Component,*/ useState } from "react";
+
+import Principal from "../components/principal/Principal"
 
 import Navbar from "../components/Navbar/Navbar";
 //import SectionMain from "../components/SectionMain/SectionMain";
@@ -15,6 +17,9 @@ const ListaDeFilasAdm = () => {
         <>
             
             <Navbar toggle={toggle} />
+
+            <Principal />
+
             
         </>
     );
