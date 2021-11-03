@@ -23,3 +23,18 @@ background: rgb(2, 0, 36);
   z-index: 1;
   
 `;
+
+export const Div1 = styled.div`
+
+display: inline-block;
+color: yellow;
+background-color: rgb(0, 165, 226);
+width: 70%;
+height: 80%;
+border: rgb(0, 100, 255);
+border-style: double;
+border-width: 20px;
+border-radius: 10%;
+
+
+`;

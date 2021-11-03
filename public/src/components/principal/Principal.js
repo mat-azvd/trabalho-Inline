@@ -1,6 +1,6 @@
 import React /*,{ useState }*/ from "react";
 
-import { MainSection } from "./PrincipalElements";
+import { MainSection,Div1 } from "./PrincipalElements";
 
 const Principal = () => {
 
@@ -8,6 +8,11 @@ return(
 
 
     <MainSection>
+
+        <Div1>
+
+
+        </Div1>
 
 
 
