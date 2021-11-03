@@ -10,23 +10,19 @@ import {
     NavLinks,
     NavBtn,
     NavBtnLink,
-    NavIcon,
 } from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
     return (
         <Nav>
             <NavbarContainer>
-                <NavLogo to="/">
-                    Inline
-                    <NavIcon />
-                </NavLogo>
+                <NavLogo to="/">inline</NavLogo>
                 <MobileIcon onClick={toggle}>
                     <FaBars />
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLinks to="create">Criar Fila</NavLinks>
+                        <NavLinks to="create">Criar Filas</NavLinks>
                     </NavItem>
                     <NavItem>
                         <NavLinks to="manage">Gerenciar Filas</NavLinks>
