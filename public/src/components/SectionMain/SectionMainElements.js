@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
-
-export const SectionInfo = styled.div`
-  color: #fff;
-  padding: 160px 0;
-  background: ${({ ligthBg }) => (ligthBg ? "#fff" : "#101522")};
-`;
+import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 
 export const SectionContainer = styled.div`
   background: rgb(2, 0, 36);
@@ -19,50 +14,16 @@ export const SectionContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  padding: 0 30px;
-  height: 800px;
+  padding: 0 10px;
+  height: 100vh;
   position: relative;
   z-index: 1;
-`;
-
-export const SectionRow = styled.div`
-  display: flex;
-  margin: 0 -15px -15px -15px;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: ${({ imgStart }) => (imgStart ? "row-reverse" : "row")};
-`;
-
-export const SectionColumn = styled.div`
-  margin-bottom: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  flex: 1;
-  max-width: 50%;
-  flex-basis: 50%;
-
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-  }
-`;
-
-export const TextWrapper = styled.div`
-  max-width: 540px;
-  padding-top: 0;
-  padding-bottom: 60px;
-
-  @media screen and (max-width: 768px) {
-    padding-bottom: 65px;
-  }
+  overflow: hidden;
 `;
 
 /* toDo: adicionar  :before styles */
 
 export const SectionBg = styled.div`
-  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -91,21 +52,39 @@ export const ImgCode = styled.div`
 export const SectionContent = styled.div`
   /* background: #fff; */
   width: 100%;
+  height: 100%;
   border-radius: 30px;
   z-index: 3;
-  max-width: 1200px;
+  max-width: 1280px;
   position: absolute;
   padding: 8px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 200px;
   /* -webkit-box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51);
   box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51); */
 `;
 
+export const SectionLogo = styled.div`
+  color: #fff;
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  font-weight: bold;
+  text-decoration: none;
+`;
+
+export const SectionIcon = styled(HiOutlineChevronDoubleRight)`
+  margin-right: 0.1rem;
+`;
+
 export const SectionTitle = styled.h1`
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   margin-right: 8px;
   -webkit-text-stroke-width: 0.4px; /* largura da borda */
@@ -124,6 +103,23 @@ export const SectionTopWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const SectionRowCreate = styled.div`
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  h4 {
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  a {
+    color: #fff;
+    font-weight: bold;
+  }
 `;
 
 export const Icon = styled.div`

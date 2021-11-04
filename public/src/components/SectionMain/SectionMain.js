@@ -3,21 +3,23 @@ import {
     ArrowForward,
     ArrowRight,
     Icon,
-    ImgBg,
     ImgCode,
-    SectionBg,
     SectionContainer,
     SectionContent,
+    // SectionBg,
+    // SectionIcon,
+    // SectionLogo,
+    SectionQrCode,
+    SectionRowCreate,
     SectionTitle,
-    SectionWrapper,
     SectionTopWrapper,
-    SectionQrCode
+    SectionWrapper,
 } from "./SectionMainElements";
-import Img from "../../assets/img1.jpeg";
-import ImgCod from "../../assets/code.png";
+// import ImgBack from "../../assets/img1.jpeg";
 import { BsInfoCircle } from "react-icons/bs";
 import { Button } from "../ButtonElements";
 import QrCodeReader from "./QrCodeReader";
+import CreateQueue from "../CreateQueue/CreateQueue";
 
 const SectionMain = () => {
     const [hover, setHover] = useState(false);
@@ -29,8 +31,11 @@ const SectionMain = () => {
 
     return (
         <SectionContainer>
-            <SectionBg>{/* <ImgBg src={ImgBack} type="image/png" /> */}</SectionBg>
             <SectionContent>
+                {/* <SectionLogo to="/">
+          Inline
+          <SectionIcon />
+        </SectionLogo> */}
                 <SectionTopWrapper>
                     <SectionTitle>Scan QR Code para acesso a fila</SectionTitle>
                     <Icon>
@@ -51,6 +56,14 @@ const SectionMain = () => {
                     <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover}>
                         ENTRAR {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
+                    <SectionRowCreate>
+                        <h4>
+                            Crie sua própria fila{" "}
+                            <a href="/create-queue" onClick={CreateQueue}>
+                                AQUI
+                            </a>
+                        </h4>
+                    </SectionRowCreate>
                 </SectionWrapper>
             </SectionContent>
         </SectionContainer>
