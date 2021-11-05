@@ -7,10 +7,30 @@ export type UsuarioDocument = Usuario & Document;
 export class Usuario {
   @Prop()
   deletado: boolean;
-  @Prop()
+  @Prop({
+    default: new Date(),
+  })
   dataCriacao: Date;
   @Prop()
   dataAtualizacao: Date;
+  @Prop({
+    required: true,
+    unique: true,
+    minlength: 11
+  })
+  cpf: string;
+  @Prop({
+    required: true,
+  })
+  senha: string;
+  @Prop({
+    required: true,
+  })
+  nome: string;
+  @Prop()
+  telefone: string;
+  @Prop()
+  lojaId: string;
 }
 
 export const UsuarioSchema = SchemaFactory.createForClass(Usuario);

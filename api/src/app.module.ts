@@ -1,19 +1,24 @@
 import { Module } from '@nestjs/common';
 import { FilasModule } from './modules/filas/filas.module';
-import { EmpresasModule } from './modules/empresas/empresas.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
-import { EstabelecimentosModule } from './modules/estabelecimentos/estabelecimentos.module';
+import { LojasModule } from './modules/lojas/lojas.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING, {
+      useCreateIndex: true,
+    }),
     FilasModule,
-    EmpresasModule,
     UsuariosModule,
-    EstabelecimentosModule
+    LojasModule,
+    AuthModule
   ],
   controllers: [],
-  providers: [],
+  providers: [
+  ],
 })
 export class AppModule {}

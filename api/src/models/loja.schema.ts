@@ -1,20 +1,25 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type FilaDocument = Fila & Document;
+export type LojaDocument = Loja & Document;
 
 @Schema()
-export class Fila {
+export class Loja {
   @Prop({ required: true })
   nome: string;
   @Prop({ required: true })
-  codigo: string;
-  @Prop()
-  ativo: boolean;
+  cnpj: string;
   @Prop({ required: true })
-  inicio: Date;
+  endereco: string;
   @Prop({ required: true })
-  fim: Date;
+  telefone: string;
+  @Prop({ required: true })
+  email: string;
+  @Prop({
+    required: true,
+    enum: ['BASICO', 'ESSENCIAL', 'PREMIUM'],
+  })
+  plano: string;
   @Prop()
   deletado: boolean;
   @Prop({
@@ -23,8 +28,6 @@ export class Fila {
   dataCriacao: Date;
   @Prop()
   dataAtualizacao: Date;
-  @Prop({ required: true })
-  lojaId: string;
 }
 
-export const FilaSchema = SchemaFactory.createForClass(Fila);
+export const LojaSchema = SchemaFactory.createForClass(Loja);
