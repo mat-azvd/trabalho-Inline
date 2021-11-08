@@ -61,7 +61,7 @@ export class FilasService {
 
     const fila = new this.filaModel(data);
     fila.lojaId = lojaId;
-    fila.codigo = Math.random().toString(36);
+    fila.codigo = Math.random().toString(36).toUpperCase();
     fila.nome = `Fila #${fila.codigo}`
 
     return fila.save();
