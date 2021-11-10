@@ -34,9 +34,9 @@ export class FilasController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('/:filaId/ingressar')
-  async ingressar(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
-    return await this.filasService.ingressar(filaId, usuario.id);
+  @Post('/:codigo/ingressar')
+  async ingressar(@CurrentUser() usuario: UsuarioPayload, @Param('codigo') codigo: string) {
+    return await this.filasService.ingressar(codigo, usuario.id);
   }
 
   @UseGuards(LocalAuthGuard)
