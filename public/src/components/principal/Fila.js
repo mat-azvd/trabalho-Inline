@@ -9,7 +9,6 @@ const Fila = ({fila}) => (
         {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
     </div>
 );
-
 /*
 class Fila extends React.Component {
 
