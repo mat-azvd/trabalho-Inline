@@ -12,9 +12,15 @@ export class UsuariosController {
   ) {}
 
   @UseGuards(LocalAuthGuard)
-  @Get('/:id')
+  @Get('/detalhes/:id')
   buscar(@CurrentUser() usuario: UsuarioPayload, @Param('id') id: string) {
     return this.usuariosService.buscar(id, usuario.lojaId);
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Get('/logado')
+  buscarUsuarioLogado(@CurrentUser() usuario: UsuarioPayload) {
+    return this.usuariosService.buscarUsuarioLogado(usuario.id);
   }
 
   @UseGuards(LocalAuthGuard)

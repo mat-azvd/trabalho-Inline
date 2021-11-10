@@ -5,8 +5,6 @@ export type UsuarioDocument = Usuario & Document;
 
 @Schema()
 export class Usuario {
-  @Prop()
-  deletado: boolean;
   @Prop({
     default: new Date(),
   })
