@@ -13,14 +13,20 @@ export class FilasService {
   ) {}
 
   async buscar (filaId: string) {
-    const fila = await this.filaModel.findById(filaId);
+    const fila = await this.filaModel
+      .findById(filaId)
+      .select('-__v')
+      .lean();
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    fila.set('usuarios', await this.usuarioFilaModel.find({ filaId }));
-    console.log(fila);
+    fila['usuarios'] = await this.usuarioFilaModel
+      .find({ filaId })
+      .select('-__v')
+      .lean();
+
     return fila;
   }
 
@@ -46,7 +52,8 @@ export class FilasService {
     return this.usuarioFilaModel.create({
       filaId,
       usuarioId,
-      posicao: quantidadeFila + 1
+      posicao: quantidadeFila + 1,
+      atendido: false
     });
   }
 
@@ -81,6 +88,26 @@ export class FilasService {
 
   retomar (filaId: string, lojaId: string) {
     return this.toggleStatus(lojaId, filaId, true);
+  }
+
+  sairDaFila (filaId: string, usuarioId: string) {
+    const fila = this.filaModel.findById(filaId);
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    return this.usuarioFilaModel.deleteOne({ filaId, usuarioId });
+  }
+
+  removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
+    const fila = this.filaModel.findOne({ _id: filaId, lojaId });
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    return this.usuarioFilaModel.deleteOne({ filaId, usuarioId });
   }
 
   private async toggleStatus (lojaId: string, filaId: string, ativo: boolean) {

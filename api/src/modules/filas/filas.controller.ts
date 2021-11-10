@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { UsuarioPayload } from '../auth/dto/login.dto';
 import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 import { CurrentUser } from '../auth/strategies/jwt.strategy';
@@ -21,7 +21,6 @@ export class FilasController {
     return await this.filasService.buscar(filaId);
   }
 
-
   @UseGuards(LocalAuthGuard)
   @Put('/:filaId/pausar')
   async pausar(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
@@ -35,8 +34,20 @@ export class FilasController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('/:filaId/retomar')
+  @Post('/:filaId/ingressar')
   async ingressar(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
     return await this.filasService.ingressar(filaId, usuario.id);
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Delete('/:filaId/sair')
+  async sair(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
+    return await this.filasService.sairDaFila(filaId, usuario.id);
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Delete('/:filaId/remover/:usuarioId')
+  async remover(@CurrentUser() usuario: UsuarioPayload, @Param('usuarioId') usuarioId: string, @Param('filaId') filaId: string) {
+    return await this.filasService.removerUsuarioFila(usuario.lojaId, filaId, usuarioId);
   }
 }
