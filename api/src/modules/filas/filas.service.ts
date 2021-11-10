@@ -24,7 +24,7 @@ export class FilasService {
 
     fila['usuarios'] = await this.usuarioFilaModel
       .find({ filaId })
-      .select('-__v')
+      .select('-__v -_id')
       .lean();
 
     return fila;
@@ -90,8 +90,8 @@ export class FilasService {
     return this.toggleStatus(lojaId, filaId, true);
   }
 
-  sairDaFila (filaId: string, usuarioId: string) {
-    const fila = this.filaModel.findById(filaId);
+  async sairDaFila (filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findById(filaId);
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
@@ -100,8 +100,8 @@ export class FilasService {
     return this.usuarioFilaModel.deleteOne({ filaId, usuarioId });
   }
 
-  removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
-    const fila = this.filaModel.findOne({ _id: filaId, lojaId });
+  async removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ _id: filaId, lojaId });
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
