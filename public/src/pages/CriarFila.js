@@ -4,8 +4,6 @@ const CriarFila = () => {
 
     return <div>Criar fila aqui</div>
 
-
-
 }
 
 export default CriarFila;
