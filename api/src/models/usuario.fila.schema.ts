@@ -19,6 +19,10 @@ export class UsuarioFila {
   posicao: number;
   @Prop()
   atendido: boolean;
+  @Prop()
+  atendidoEm: Date;
+  @Prop()
+  atendidoPor: string;
 }
 
 export const UsuarioFilaSchema = SchemaFactory.createForClass(UsuarioFila);

@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Fila, FilaDocument } from 'src/models/fila.schema';
 import { UsuarioFila, UsuarioFilaDocument } from 'src/models/usuario.fila.schema';
+import { UsuarioPayload } from '../auth/dto/login.dto';
 import { FilaDto } from './dto/fila.dto';
 
 @Injectable()
@@ -13,14 +14,20 @@ export class FilasService {
   ) {}
 
   async buscar (filaId: string) {
-    const fila = await this.filaModel.findById(filaId);
+    const fila = await this.filaModel
+      .findById(filaId)
+      .select('-__v')
+      .lean();
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    fila.set('usuarios', await this.usuarioFilaModel.find({ filaId }));
-    console.log(fila);
+    fila['usuarios'] = await this.usuarioFilaModel
+      .find({ filaId })
+      .select('-__v -_id')
+      .lean();
+
     return fila;
   }
 
@@ -46,7 +53,8 @@ export class FilasService {
     return this.usuarioFilaModel.create({
       filaId,
       usuarioId,
-      posicao: quantidadeFila + 1
+      posicao: quantidadeFila + 1,
+      atendido: false
     });
   }
 
@@ -79,6 +87,45 @@ export class FilasService {
 
   retomar (filaId: string, lojaId: string) {
     return this.toggleStatus(lojaId, filaId, true);
+  }
+
+  async sairDaFila (filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findById(filaId);
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+  }
+
+  async removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ _id: filaId, lojaId });
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+  }
+
+  async atender (atendente: UsuarioPayload, filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ _id: filaId, lojaId: atendente.lojaId });
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    const usuarioFila = await this.usuarioFilaModel.updateOne(
+      { filaId, usuarioId, atendido: false },
+      { atendido: true, atendidoEm: new Date(), atendidoPor: atendente.id }
+    );
+
+    if (usuarioFila.nModified === 0) {
+      throw new NotFoundException('Usuário não encontrado na fila');
+    }
+
+    return usuarioFila;
   }
 
   private async toggleStatus (lojaId: string, filaId: string, ativo: boolean) {
