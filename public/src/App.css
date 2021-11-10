@@ -4,3 +4,13 @@
   padding: 0;
   font-family: 'Poppins', 'Encode Sans Expanded', sans-serif;
 }
+
+#botao{
+  background-color: black;
+  color: yellow;
+  border-style: double;
+  border-width: 20px;
+  border-color: yellow;
+  margin-bottom: 5px;
+  
+}

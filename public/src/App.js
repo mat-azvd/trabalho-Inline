@@ -7,7 +7,7 @@ import ListaDeFilasAdm from "./pages/ListaDeFilasAdm"
 function App() {
   return (
       <Router>
-        <ListaDeFilasAdm/>
+        <ListaDeFilasAdm teste="ola"/>
       </Router>
   );
 }
