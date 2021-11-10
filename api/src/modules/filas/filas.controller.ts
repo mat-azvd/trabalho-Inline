@@ -50,4 +50,10 @@ export class FilasController {
   async remover(@CurrentUser() usuario: UsuarioPayload, @Param('usuarioId') usuarioId: string, @Param('filaId') filaId: string) {
     return await this.filasService.removerUsuarioFila(usuario.lojaId, filaId, usuarioId);
   }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('/:filaId/atender/:usuarioId')
+  async atender(@CurrentUser() usuario: UsuarioPayload, @Param('usuarioId') usuarioId: string, @Param('filaId') filaId: string) {
+    return await this.filasService.atender(usuario, filaId, usuarioId);
+  }
 }

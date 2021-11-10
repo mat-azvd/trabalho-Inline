@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Fila, FilaDocument } from 'src/models/fila.schema';
 import { UsuarioFila, UsuarioFilaDocument } from 'src/models/usuario.fila.schema';
+import { UsuarioPayload } from '../auth/dto/login.dto';
 import { FilaDto } from './dto/fila.dto';
 
 @Injectable()
@@ -97,7 +98,7 @@ export class FilasService {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    return this.usuarioFilaModel.deleteOne({ filaId, usuarioId });
+    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
   }
 
   async removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
@@ -107,7 +108,26 @@ export class FilasService {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    return this.usuarioFilaModel.deleteOne({ filaId, usuarioId });
+    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+  }
+
+  async atender (atendente: UsuarioPayload, filaId: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ _id: filaId, lojaId: atendente.lojaId });
+
+    if (!fila) {
+      throw new NotFoundException('Fila não encontrada');
+    }
+
+    const usuarioFila = await this.usuarioFilaModel.findOneAndUpdate(
+      { filaId, usuarioId, atendido: false },
+      { atendido: true, atendidoEm: new Date(), atendidoPor: atendente.id }
+    );
+
+    if (!usuarioFila) {
+      throw new NotFoundException('Usuário não encontrado na fila');
+    }
+
+    return usuarioFila;
   }
 
   private async toggleStatus (lojaId: string, filaId: string, ativo: boolean) {
