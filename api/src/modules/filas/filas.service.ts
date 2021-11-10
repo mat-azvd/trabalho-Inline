@@ -63,14 +63,6 @@ export class FilasService {
       throw new UnauthorizedException('Usuário não tem acesso a este recurso');
     }
 
-    if (!data.inicio) {
-      throw new UnauthorizedException('Fila precisa ter horário de inicio');
-    }
-
-    if (!data.fim) {
-      throw new UnauthorizedException('Fila precisa ter horário de término');
-    }
-
     if (data.inicio > data.fim) {
       throw new UnauthorizedException('Início deve ser menor que o fim');
     }
@@ -79,8 +71,14 @@ export class FilasService {
     fila.lojaId = lojaId;
     fila.codigo = Math.random().toString(36).substr(2, 8).toUpperCase();
     fila.nome = `Fila #${fila.codigo}`
+    
+    try {
+      await fila.save();
+    } catch (error) {
+      throw new BadRequestException((error as Error).message);
+    }
 
-    return fila.save();
+    return fila;
   }
 
   pausar (filaId: string, lojaId: string) {

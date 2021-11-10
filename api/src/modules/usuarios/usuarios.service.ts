@@ -21,6 +21,11 @@ export class UsuariosService {
       .select('-senha');
   }
 
+  buscarUsuarioLogado (id: string) {
+    return this.usuarioModel
+      .findOne({ _id: id });
+  }
+
   async listar (lojaId: string, parametros: ParametrosUsuariosDto) {
     if (!lojaId) {
       throw new UnauthorizedException('Usuário não tem acesso a este recurso');
