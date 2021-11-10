@@ -118,12 +118,12 @@ export class FilasService {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    const usuarioFila = await this.usuarioFilaModel.findOneAndUpdate(
+    const usuarioFila = await this.usuarioFilaModel.updateOne(
       { filaId, usuarioId, atendido: false },
       { atendido: true, atendidoEm: new Date(), atendidoPor: atendente.id }
     );
 
-    if (!usuarioFila) {
+    if (usuarioFila.nModified === 0) {
       throw new NotFoundException('Usuário não encontrado na fila');
     }
 
