@@ -1,8 +1,9 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Usuario, UsuarioDocument } from 'src/models/usuario.schema';
 import { ParametrosUsuariosDto, UsuarioDto } from './dto/usuario.dto';
+import { validarCPF } from 'src/utils';
 import * as argon2 from 'argon2';
 
 @Injectable()
@@ -65,9 +66,17 @@ export class UsuariosService {
   }
 
   async cadastrar (data: UsuarioDto) {
+    if (!validarCPF(data.cpf)) {
+      throw new BadRequestException('CPF inválido')
+    }
+
     data.senha = await argon2.hash(data.senha);
     const usuario = new this.usuarioModel(data);
 
-    return usuario.save();
+    try {
+      await usuario.save();
+    } catch (error) {
+      throw new BadRequestException((error as Error).message)
+    }
   }
 }

@@ -1,8 +1,9 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Loja, LojaDocument } from 'src/models/loja.schema';
 import { LojaDto } from './dto/loja.dto';
+import { validarCNPJ } from 'src/utils';
 
 @Injectable()
 export class LojasService {
@@ -19,6 +20,10 @@ export class LojasService {
   }
 
   async cadastrar (data: LojaDto) {
+    if (!validarCNPJ(data.cnpj)) {
+      throw new BadRequestException('CNPJ inválido')
+    }
+
     const loja = new this.lojaModel(data);
 
     return loja.save();
