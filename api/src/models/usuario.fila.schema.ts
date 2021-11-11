@@ -32,6 +32,9 @@ export class UsuarioFila {
 
   @Prop()
   atendidoPor: string;
+
+  @Prop()
+  tempoPrevistoAtendimento: number;
 }
 
 export const UsuarioFilaSchema = SchemaFactory.createForClass(UsuarioFila);

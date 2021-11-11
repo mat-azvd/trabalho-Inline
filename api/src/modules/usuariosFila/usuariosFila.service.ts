@@ -16,13 +16,14 @@ export class UsuariosFilaService {
     if (!filaId) {
       throw new UnauthorizedException('É necessário informar uma fila para buscar um usuario na fila');
     }
-  
+
     if (!usuarioId) {
       throw new UnauthorizedException('É necessário estar logado para buscar o usuário na fila');
     }
 
     return this.usuarioFilaModel
-      .findOne({ filaId, usuarioId })
+      .findOne({ filaId, usuarioId, atendido: false })
+      .select('-__v')
   }
 
   async ingressar (filaId: string, usuarioId: string) {
