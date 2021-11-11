@@ -21,5 +21,6 @@ export class UsuariosFilaService {
 
     return this.usuarioFilaModel
       .findOne({ filaId, usuarioId, atendido: false })
+      .select('-__v')
   }
 }
