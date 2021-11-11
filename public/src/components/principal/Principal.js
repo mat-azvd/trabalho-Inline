@@ -1,15 +1,13 @@
 import React ,{ useEffect, useState } from "react";
 import Botao from "./Botao";
 import Fila from "./Fila";
-
+import {Link} from 'react-router-dom';
 import axios from "axios";
-
-import { MainSection,Div1,Filas } from "./PrincipalElements";
+import { MainSection,Div1,Filas,BotaoStyle } from "./PrincipalElements";
 
 
 const Principal = () => {
     
-
     const [fila, setFila] = useState([]);
 
     useEffect(() => {
@@ -35,24 +33,20 @@ const Principal = () => {
     };
 */
 return(
-
-
     <MainSection>
-
-        <Div1>
-                
-                
-                    {fila.map((fila) => (                       
-                        <Filas>
-                            <Fila fila={fila}/>
-                        </Filas>
-                    ))}
-
-                <Botao/>
-                
+        <Div1>               
+            {fila.map((fila) => (                       
+                <Filas>
+                    <Fila fila={fila}/>
+                </Filas>
+            ))}              
         </Div1>
 
-
+        <BotaoStyle>
+         <Link to={"/CriarFila"}>              
+            <Botao name="Cadastrar Fila"></Botao>
+        </Link>
+        </BotaoStyle>
 
     </MainSection>
 

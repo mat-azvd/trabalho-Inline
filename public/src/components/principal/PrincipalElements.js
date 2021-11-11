@@ -9,13 +9,13 @@ background: rgb(2, 0, 36);
     rgba(35, 63, 120, 1) 57%,
     rgba(0, 155, 255, 1) 100%
   );
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-
   padding: 0 30px;
-  height: 800px;
+  height: 900px;
   position: relative;
   z-index: 1;
   
@@ -26,14 +26,14 @@ export const Div1 = styled.div`
 display: inline-block;
 justify-content: center;
 align-items: center;
-color: yellow;
-background-color: rgb(0, 165, 226);
+color: black;
+background-color: rgb(100, 100, 255);
 width: 70%;
 max-width: 1000px;
 height: 80%;
-border: rgb(0, 100, 255);
+border: rgb(0, 0, 0);
 border-style: double;
-border-width: 20px;
+border-width: 5px;
 border-radius: 8px;
 
 overflow: hidden;
@@ -59,18 +59,36 @@ border-style: double;
 border-width: 5px;
 border-radius: 8px;
 
+&:hover {
+  transition: all 0.2s ease-in-out;
+  border: 1px solid white;
+}
 
 
 
 `;
 
-export const Botao = styled.div`
+export const BotaoStyle = styled.button`
 
-background-color: black;
-  color: yellow;
-  border-style: double;
-  border-width: 5px;
-  border-color: yellow;
-  margin-bottom: 5px;
+  border-radius: 20px;
+  background: #fff;
+  white-space: nowrap;
+ 
+  color: #010606;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 
+
+  
+
+  margin-top: 4%;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #1976d2;
+    color: #fff;
+  }
 `;

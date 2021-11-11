@@ -11,8 +11,8 @@ const Routes = () => {
 
         <Router>
             <Switch>
-                <Route path="/" component={ListaDeFilasAdm}/>
-                <Route path="/CriarFila" component={CriarFila}/>
+                <Route path="/" exact component={ListaDeFilasAdm}/>
+                <Route path="/CriarFila/" component={CriarFila}/>
             </Switch>
         </Router>
 
