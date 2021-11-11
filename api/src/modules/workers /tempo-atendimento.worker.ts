@@ -14,7 +14,7 @@ export class TempoAtendimentoWorker {
     @InjectModel(Fila.name) private readonly filaModel: Model<FilaDocument>,
   ) {}
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   async handleCron() {
     const TEMPO_ATENDIMENTO_PADRAO = 60; // em segundos
     const filas = await this.filaModel.find({ ativo: true });
