@@ -1,10 +1,13 @@
 import { Body, Controller, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsuarioPayload } from '../auth/dto/login.dto';
 import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 import { CurrentUser } from '../auth/strategies/jwt.strategy';
 import { ParametrosUsuariosDto, UsuarioDto } from './dto/usuario.dto';
 import { UsuariosService } from './usuarios.service';
 
+@ApiTags('usuarios')
+@ApiBearerAuth()
 @Controller('usuarios')
 export class UsuariosController {
   constructor (

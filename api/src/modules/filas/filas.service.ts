@@ -31,8 +31,8 @@ export class FilasService {
     return fila;
   }
 
-  async ingressar (filaId: string, usuarioId: string) {
-    const fila = await this.filaModel.findById(filaId);
+  async ingressar (codigo: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ codigo });
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
@@ -42,16 +42,16 @@ export class FilasService {
       throw new UnauthorizedException('Fila não está ativa');
     }
 
-    const usuarioFila = await this.usuarioFilaModel.findOne({ filaId, usuarioId, atendido: false });
+    const usuarioFila = await this.usuarioFilaModel.findOne({ filaId: fila.id, usuarioId, atendido: false });
 
     if (usuarioFila) {
       throw new BadRequestException('Usuário já está na fila');
     }
 
-    const quantidadeFila = await this.usuarioFilaModel.countDocuments({ filaId, atendido: false });
+    const quantidadeFila = await this.usuarioFilaModel.countDocuments({ filaId: fila.id, atendido: false });
 
     return this.usuarioFilaModel.create({
-      filaId,
+      filaId: fila.id,
       usuarioId,
       posicao: quantidadeFila + 1,
       atendido: false
@@ -69,7 +69,7 @@ export class FilasService {
 
     const fila = new this.filaModel(data);
     fila.lojaId = lojaId;
-    fila.codigo = Math.random().toString(36).toUpperCase();
+    fila.codigo = Math.random().toString(36).substr(2, 8).toUpperCase();
     fila.nome = `Fila #${fila.codigo}`
     
     try {
@@ -121,11 +121,13 @@ export class FilasService {
       { atendido: true, atendidoEm: new Date(), atendidoPor: atendente.id }
     );
 
-    if (usuarioFila.nModified === 0) {
+    if (usuarioFila.ok === 0) {
       throw new NotFoundException('Usuário não encontrado na fila');
     }
 
-    return usuarioFila;
+    return {
+      mensagem: 'Usuário atendido com sucesso'
+    };
   }
 
   private async toggleStatus (lojaId: string, filaId: string, ativo: boolean) {
@@ -133,12 +135,14 @@ export class FilasService {
       throw new UnauthorizedException('Usuário não tem acesso a este recurso');
     }
 
-    const fila = await this.filaModel.findOneAndUpdate({ _id: filaId, lojaId }, { ativo });
+    const fila = await this.filaModel.updateOne({ _id: filaId, lojaId }, { ativo });
 
-    if (!fila) {
+    if (fila.ok === 0) {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    return fila;
+    return {
+      mensagem: ativo ? 'Fila retomada' : 'Fila pausada'
+    };
   }
 }

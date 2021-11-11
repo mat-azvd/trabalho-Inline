@@ -2,13 +2,15 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
+const APP_NAME = process.env.npm_package_name;
+const APP_VERSION = process.env.npm_package_version;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Inline')
-    .setDescription('The Inline API description')
-    .setVersion('1.0')
-    .addTag('inline')
+    .setTitle(APP_NAME)
+    .setDescription(`The ${APP_NAME} API description`)
+    .setVersion(APP_VERSION)
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

@@ -1,10 +1,13 @@
 import { Body, Controller, Delete, Get, Post, Put, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsuarioPayload } from '../auth/dto/login.dto';
 import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 import { CurrentUser } from '../auth/strategies/jwt.strategy';
 import { LojaDto } from './dto/loja.dto';
 import { LojasService } from './lojas.service';
 
+@ApiTags('lojas')
+@ApiBearerAuth()
 @Controller('lojas')
 export class LojasController {
   constructor(private lojasService: LojasService) {}
