@@ -9,24 +9,31 @@ export class Usuario {
     default: new Date(),
   })
   dataCriacao: Date;
+
   @Prop()
   dataAtualizacao: Date;
+
   @Prop({
     required: true,
     unique: true,
-    minlength: 11
+    minlength: 11,
+    maxlength: 11
   })
   cpf: string;
+
   @Prop({
     required: true,
   })
   senha: string;
+
   @Prop({
     required: true,
   })
   nome: string;
+
   @Prop()
   telefone: string;
+
   @Prop()
   lojaId: string;
 }

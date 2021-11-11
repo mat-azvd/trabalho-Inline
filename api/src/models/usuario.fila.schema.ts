@@ -7,20 +7,27 @@ export type UsuarioFilaDocument = UsuarioFila & Document;
 export class UsuarioFila {
   @Prop({ required: true })
   usuarioId: string;
+
   @Prop({
     default: new Date()
   })
   dataCriacao: Date;
+
   @Prop()
   dataAtualizacao: Date;
+
   @Prop({ required: true })
   filaId: string;
+
   @Prop({ required: true })
   posicao: number;
+
   @Prop()
   atendido: boolean;
+
   @Prop()
   atendidoEm: Date;
+
   @Prop()
   atendidoPor: string;
 }

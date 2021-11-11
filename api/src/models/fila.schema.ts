@@ -2,10 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import {
   IsDate,
-  IsNotEmpty,
-  Length,
-  Min,
-  Max,
+  IsNotEmpty
 } from 'class-validator';
 
 export type FilaDocument = Fila & Document;
