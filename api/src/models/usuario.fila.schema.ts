@@ -22,7 +22,9 @@ export class UsuarioFila {
   @Prop({ required: true })
   posicao: number;
 
-  @Prop()
+  @Prop({
+    default: false
+  })
   atendido: boolean;
 
   @Prop()
