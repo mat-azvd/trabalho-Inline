@@ -42,11 +42,7 @@ return(
             ))}              
         </Div1>
 
-        <BotaoStyle>
-         <Link to={"/CriarFila"}>              
-            <Botao name="Cadastrar Fila"></Botao>
-        </Link>
-        </BotaoStyle>
+        <BotaoStyle to="CriarFila">Criar fila</BotaoStyle>
 
     </MainSection>
 

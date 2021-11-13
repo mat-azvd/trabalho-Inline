@@ -1,6 +1,14 @@
+import {Link} from "react-router-dom";
 import styled from "styled-components/";
 
+
 export const MainSection = styled.div`
+
+
+display: block;
+align-items: center;
+justify-content: center;
+
 
 background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -10,35 +18,39 @@ background: rgb(2, 0, 36);
     rgba(0, 155, 255, 1) 100%
   );
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   padding: 0 30px;
   height: 900px;
-  position: relative;
-  z-index: 1;
+ 
+  
+  
+  
   
 `;
 
 export const Div1 = styled.div`
 
-display: inline-block;
-justify-content: center;
+display: block;
 align-items: center;
 color: black;
-background-color: rgb(100, 100, 255);
-width: 70%;
+background-color: white;
+width: 50%;
 max-width: 1000px;
-height: 80%;
+height: 50%;
 border: rgb(0, 0, 0);
-border-style: double;
+
 border-width: 5px;
 border-radius: 8px;
+padding-bottom: 10px;
 
 overflow: hidden;
 overflow-y: scroll;
 
+
+
+margin-bottom: 20px;
+
+    
+    
 
 `;
 
@@ -53,38 +65,37 @@ max-width: 1000px;
 height: 20%;
 margin-top: 4%;
 margin-left: 10%;
+
 box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
-border: 1px solid black;
-border-style: double;
-border-width: 5px;
+
 border-radius: 8px;
+font-size: 10px;
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 1px solid white;
+  border: 3px solid #1976d2;
 }
 
 
 
 `;
 
-export const BotaoStyle = styled.button`
+export const BotaoStyle = styled(Link)`
 
+  position: relative;
   border-radius: 20px;
   background: #fff;
-  white-space: nowrap;
- 
+  
   color: #010606;
   font-size: 20px;
-  outline: none;
-  border: none;
+
   transition: all 0.2s ease-in-out;
+
   text-decoration: none;
 
-
+  padding: 10px 20px;
   
-
-  margin-top: 4%;
+ 
 
   &:hover {
     transition: all 0.2s ease-in-out;
@@ -92,3 +103,4 @@ export const BotaoStyle = styled.button`
     color: #fff;
   }
 `;
+
