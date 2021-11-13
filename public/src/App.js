@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import CreateQueue from "./components/CreateQueue/CreateQueue";
+import Queue from "./pages/Queue";
 import GlobalStyle from "./globalStyles";
 import Home from "./pages/Home";
+import Setup from "./pages/Setup";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/create-queue" exact component={CreateQueue} />
+        <Route path="/create-queue" exact component={Queue} />
+        <Route path="/setup-screen" exact component={Setup} />
+
       </Switch>
     </Router>
   );

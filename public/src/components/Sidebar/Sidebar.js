@@ -1,4 +1,7 @@
 import React from "react";
+import Queue from "../../pages/Queue";
+import Setup from "../../pages/Setup";
+
 import {
     Icon,
     CloseIcon,
@@ -18,21 +21,24 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to="create" onClick={toggle}>
+                    <SidebarLink href="/create-queue" onClick={Queue}>
                         Criar Filas
                     </SidebarLink>
-                    <SidebarLink to="manage" onClick={toggle}>
+                    <SidebarLink to="/manage" onClick={toggle}>
                         Gerenciar Filas
                     </SidebarLink>
-                    <SidebarLink to="row" onClick={toggle}>
+                    <SidebarLink to="/row" onClick={toggle}>
                         Filas
                     </SidebarLink>
-                    <SidebarLink to="about" onClick={toggle}>
-                        Sobre
+                    <SidebarLink to="/about" onClick={toggle}>
+                        Performance
+                    </SidebarLink>
+                    <SidebarLink href="/setup-screen" onClick={Setup}>
+                        Configurações
                     </SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to="/signin">LOGIN</SidebarRoute>
+                    <SidebarRoute to="/signout">Sair</SidebarRoute>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

@@ -12,15 +12,15 @@ export const Nav = styled.nav`
     rgba(35, 63, 120, 1) 57%,
     rgba(0, 155, 255, 1) 100%
   );
-  height: 80px;
-  /* margin-top: -80px; */
+
+  margin-top: -40px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
@@ -55,14 +55,14 @@ export const NavIcon = styled(HiOutlineChevronDoubleRight)`
 `;
 
 export const MobileIcon = styled.div`
-  display: none;
+  display: block;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 280px) {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-150%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
     color: #fff;

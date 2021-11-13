@@ -6,20 +6,17 @@ import {
     ImgCode,
     SectionContainer,
     SectionContent,
-    // SectionBg,
-    // SectionIcon,
-    // SectionLogo,
     SectionQrCode,
     SectionRowCreate,
     SectionTitle,
     SectionTopWrapper,
     SectionWrapper,
 } from "./SectionMainElements";
-// import ImgBack from "../../assets/img1.jpeg";
+
 import { BsInfoCircle } from "react-icons/bs";
 import { Button } from "../ButtonElements";
 import QrCodeReader from "./QrCodeReader";
-import CreateQueue from "../CreateQueue/CreateQueue";
+import Queue from "../../pages/Queue";
 
 const SectionMain = () => {
     const [hover, setHover] = useState(false);
@@ -32,10 +29,6 @@ const SectionMain = () => {
     return (
         <SectionContainer>
             <SectionContent>
-                {/* <SectionLogo to="/">
-          Inline
-          <SectionIcon />
-        </SectionLogo> */}
                 <SectionTopWrapper>
                     <SectionTitle>Scan QR Code para acesso a fila</SectionTitle>
                     <Icon>
@@ -59,7 +52,7 @@ const SectionMain = () => {
                     <SectionRowCreate>
                         <h4>
                             Crie sua própria fila{" "}
-                            <a href="/create-queue" onClick={CreateQueue}>
+                            <a href="/create-queue" onClick={Queue}>
                                 AQUI
                             </a>
                         </h4>

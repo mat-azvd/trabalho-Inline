@@ -25,7 +25,7 @@ export const FormContent = styled.div`
   min-width: 300px;
   padding: 30px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 2rem;
   -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
@@ -95,7 +95,7 @@ export const FormBtn = styled.nav`
 `;
 export const FormBtnLink = styled.button`
   border-radius: 10px;
-  background: #1976d2;
+  background: #233f78;
   white-space: nowrap;
   margin-top: 30px;
   padding: 10px 32px;
@@ -108,7 +108,7 @@ export const FormBtnLink = styled.button`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #233f78;
+    background: #1976d2;
     color: #fff;
   }
 `;

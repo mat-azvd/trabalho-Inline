@@ -15,7 +15,7 @@ export const SectionContainer = styled.div`
   align-items: center;
 
   padding: 0 10px;
-  height: 100vh;
+  height: 97vh;
   position: relative;
   z-index: 1;
   overflow: hidden;
