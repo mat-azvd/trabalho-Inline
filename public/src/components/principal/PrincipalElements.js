@@ -4,11 +4,9 @@ import styled from "styled-components/";
 
 export const MainSection = styled.div`
 
-
 display: block;
 align-items: center;
 justify-content: center;
-
 
 background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -48,6 +46,7 @@ overflow-y: scroll;
 
 
 margin-bottom: 20px;
+margin:auto auto 0 auto;
 
     
     
@@ -86,6 +85,8 @@ export const BotaoStyle = styled(Link)`
   border-radius: 20px;
   background: #fff;
   
+  
+
   color: #010606;
   font-size: 20px;
 
@@ -95,8 +96,7 @@ export const BotaoStyle = styled(Link)`
 
   padding: 10px 20px;
   
- 
-
+  margin:auto auto 0 200px;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #1976d2;
