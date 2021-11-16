@@ -11,6 +11,8 @@ export class UsuarioDto {
   lojaId?: string
   @ApiProperty()
   cpf: string
+  @ApiProperty()
+  email: string
 }
 
 export class ParametrosUsuariosDto {

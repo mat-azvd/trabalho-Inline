@@ -8,6 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './modules/auth/auth.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { WorkersModule } from './modules/workers /workers.module';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
 @Module({
   imports: [
@@ -21,7 +23,20 @@ import { WorkersModule } from './modules/workers /workers.module';
     LojasModule,
     UsuariosFilaModule,
     AuthModule,
-    WorkersModule
+    WorkersModule,
+    MailerModule.forRoot({
+      transport: 'smtps://user@domain.com:pass@smtp.domain.com',
+      defaults: {
+        from: '"nest-modules" <modules@nestjs.com>',
+      },
+      template: {
+        dir: __dirname + '/templates',
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
+      },
+    }),
   ],
   controllers: [],
   providers: [
