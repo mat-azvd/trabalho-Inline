@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 
-import Navbar from "../components/Navbar/Navbar";
-import SetupScreen from "../components/SetupScreen/SetupScreen";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Navbar from "../components/Navbar/Navbar"
+import SetupScreen from "../components/SetupScreen/SetupScreen"
+import Sidebar from "../components/Sidebar/Sidebar"
 
 const Queue = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
 
     const toggle = () => {
-        setIsOpen(!isOpen);
-    };
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>
@@ -18,7 +18,7 @@ const Queue = () => {
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <SetupScreen />
         </>
-    );
-};
+    )
+}
 
-export default Queue;
+export default Queue

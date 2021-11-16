@@ -21,9 +21,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  height: 97vh;
+  height: 100vh;
   background: #b1d4e0;
-  border-radius: 2rem;
 `;
 
 export const ContainerContent = styled.div`

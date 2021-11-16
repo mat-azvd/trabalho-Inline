@@ -28,7 +28,6 @@ const QrCodeReader = ({ textQrCode }) => {
                 onError={handleError}
                 onScan={handleScan}
             />
-            <h3 style={{ color: "#fff" }}>Scanned Code: {scanResult}</h3>
         </div>
     );
 };

@@ -44,7 +44,6 @@ const SidebarSetup = () => {
 const Container = styled.div`
   width: 20%;
   height: 100% !important;
-  border-radius: 2rem;
   background: rgb(4, 4, 41);
   background: linear-gradient(
     90deg,
@@ -88,14 +87,14 @@ const LinksContainer = styled.div`
   background-color: #fff;
   height: 50%;
   width: 90%;
-  border-radius: 2rem;
+  border-radius: 1rem;
 `;
 
 const Links = styled.div`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  padding-top: 2rem;
+  padding-top: 1rem;
   height: 60%;
 `;
 
