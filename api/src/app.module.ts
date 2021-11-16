@@ -1,19 +1,45 @@
 import { Module } from '@nestjs/common';
 import { FilasModule } from './modules/filas/filas.module';
-import { EmpresasModule } from './modules/empresas/empresas.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
-import { EstabelecimentosModule } from './modules/estabelecimentos/estabelecimentos.module';
+import { LojasModule } from './modules/lojas/lojas.module';
+import { UsuariosFilaModule } from './modules/usuariosFila/usuariosFila.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './modules/auth/auth.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { WorkersModule } from './modules/workers /workers.module';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
+    ConfigModule.forRoot(),
+    ScheduleModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING, {
+      useCreateIndex: true,
+    }),
     FilasModule,
-    EmpresasModule,
     UsuariosModule,
-    EstabelecimentosModule
+    LojasModule,
+    UsuariosFilaModule,
+    AuthModule,
+    WorkersModule,
+    MailerModule.forRoot({
+      transport: 'smtps://user@domain.com:pass@smtp.domain.com',
+      defaults: {
+        from: '"nest-modules" <modules@nestjs.com>',
+      },
+      template: {
+        dir: __dirname + '/templates',
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
+      },
+    }),
   ],
   controllers: [],
-  providers: [],
+  providers: [
+  ],
 })
 export class AppModule {}
