@@ -87,8 +87,10 @@ export class UsuariosFilaService {
     if (!usuarioFilaDeleted) {
       throw new NotFoundException('Usuário não encontrado na fila');
     }
-
-    this.reestruturarFila(filaId, usuarioFilaDeleted.posicao);
+    
+    if (usuarioFilaDeleted.posicao !== 1 || (usuarioFilaDeleted.posicao === 1 && !usuarioFilaDeleted.atendido)) {
+      this.reestruturarFila(filaId, usuarioFilaDeleted.posicao);
+    }
 
     return {
       mensagem: 'Usuário deletado com sucesso'
