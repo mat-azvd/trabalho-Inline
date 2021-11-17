@@ -78,5 +78,9 @@ export class UsuariosService {
     } catch (error) {
       throw new BadRequestException((error as Error).message)
     }
+
+    return {
+      mensagem: 'Usuário cadastrado com sucesso'
+    }
   }
 }
