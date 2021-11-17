@@ -1,13 +1,13 @@
 import React /*,{ useState }*/ from "react";
 
 
-const Fila = ({fila}) => (
+const Fila = ({fila, onClickFila}) => (
 
-    <div> 
+    <buttom onClick={onClickFila}> 
         <h1> Nome: {fila.titulo}</h1>
         <h2> {fila.pessoas.length}
         {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
-    </div>
+    </buttom>
 );
 /*
 class Fila extends React.Component {

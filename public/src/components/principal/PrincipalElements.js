@@ -85,8 +85,6 @@ export const BotaoStyle = styled(Link)`
   border-radius: 20px;
   background: #fff;
   
-  
-
   color: #010606;
   font-size: 20px;
 

@@ -2,14 +2,12 @@ import React, {Children, useEffect, useState} from "react";
 import Fila from "../principal/Fila";
 import axios from "axios";
 import Principal from "../principal/Principal";
-
 import ReactDOM from "react-dom";
-
 import { DivModal, Div2Modal,BotaoModal } from "./ModalElements";
 
 const portalRoot = document.getElementById('portal-root');
 
-const Modal = ({children}) => {
+const ModalAI = ({children, isOpen, isClose}) => {
 /*
     const [fila, getFila] = useState([]);
 
@@ -22,12 +20,20 @@ const Modal = ({children}) => {
 
     }, []);
 */
+if (!isOpen){
+    return null;
+}
+
 return ReactDOM.createPortal (
     <DivModal className="overlay">
         <Div2Modal className="Modal">
-            <h1>ola</h1>
             <div>{children}</div>
-            <BotaoModal>Fechar</BotaoModal>
+            <BotaoModal onClick={isClose}>
+                Fechar
+            </BotaoModal>
+            <BotaoModal >
+                Editar Fila
+            </BotaoModal>
         </Div2Modal>
     </DivModal>
     ,portalRoot,
@@ -35,4 +41,4 @@ return ReactDOM.createPortal (
 
 };
 
-export default Modal;
+export default ModalAI;

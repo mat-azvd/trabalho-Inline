@@ -16,27 +16,32 @@ aligh-items: center;
 
 `;
 
-export const Div2Modal = styled(DivModal)`
+export const Div2Modal = styled.div`
 
+display: flex;
 position:relative;
 background-color: #fff;
 color: #000;
 width: 60%;
 height: 60%;
+border-radius: 10px;
 
 margin: 80px auto 0 auto;
-
+justify-content: center;
+aligh-items: center;
 
 `;
 
 export const BotaoModal = styled.button`
 
-float: right;
-bottom: 0;
+margin-top: 50%;
 position: relative;
 width: 80px;
 height: 40px;
+padding: 5px;
+border-width: 10px;
 border-radius: 20px;
+border: rgb(0, 0, 0);
 background: #fff;
 transition: all 0.2s ease-in-out;
 &:hover {
