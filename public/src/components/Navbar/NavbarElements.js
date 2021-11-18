@@ -40,7 +40,6 @@ export const NavbarContainer = styled.div`
 
 export const NavLogo = styled(LinkR)`
   color: #fff;
-  justify-self: flex-start;
   cursor: pointer;
   font-size: 1.8rem;
   display: flex;
@@ -48,6 +47,7 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  justify-content: center;
 `;
 
 export const NavIcon = styled(HiOutlineChevronDoubleRight)`
@@ -115,21 +115,3 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavBtnLink = styled(LinkScroll)`
-  border-radius: 10px;
-  background: #fff;
-  white-space: nowrap;
-  padding: 10px 32px;
-  color: #010606;
-  font-size: 14px;
-  outline: none;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #233f78;
-    color: #fff;
-  }
-`;
