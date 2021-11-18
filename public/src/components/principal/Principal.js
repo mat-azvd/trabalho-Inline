@@ -1,10 +1,13 @@
 import React ,{ useEffect, useState } from "react";
-import Botao from "./Botao";
 import Fila from "./Fila";
-import {Link} from 'react-router-dom';
 import axios from "axios";
-import { MainSection,Div1,Filas,BotaoStyle } from "./PrincipalElements";
-import ModalAI from "../Modal/ModalAI";
+import { 
+    MainSection,
+    Div1,
+    Filas,
+    FormBtnLink,
+    FormBtn,
+    BtnDiv } from "./PrincipalElements";
 import FilaModal from "../Modal/FilaModal";
 
 
@@ -25,6 +28,7 @@ const Principal = () => {
 
 return(
     <MainSection>
+        <BtnDiv>
         <Div1 className="container filas">               
             {fila.map((fila) => (                       
                 <Filas className="filas" key={fila.id} >
@@ -38,9 +42,12 @@ return(
             ) }
             
         </Div1>
-
-        <BotaoStyle to="CriarFila">Criar fila</BotaoStyle>
-
+    
+        
+            <FormBtn>
+                <FormBtnLink to="/create-queue">Criar fila</FormBtnLink>
+            </FormBtn>
+        </BtnDiv>
     </MainSection>
 
 );

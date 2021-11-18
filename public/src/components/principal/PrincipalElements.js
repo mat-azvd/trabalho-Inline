@@ -4,7 +4,7 @@ import styled from "styled-components/";
 
 export const MainSection = styled.div`
 
-display: block;
+display: flex;
 align-items: center;
 justify-content: center;
 
@@ -17,13 +17,31 @@ background: rgb(2, 0, 36);
   );
 
   padding: 0 30px;
-  height: 900px;
- 
-  
-  
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+
   
   
 `;
+
+export const BtnDiv = styled.div`
+
+display: block;
+align-items: center;
+background-color: white;
+width: 50%;
+min-width: 300px;
+max-width: 1000px;
+height: 50%;
+border: rgb(0, 0, 0);
+
+
+border-width: 5px;
+border-radius: 8px;
+padding-bottom: 10px;
+
+`
 
 export const Div1 = styled.div`
 
@@ -31,11 +49,10 @@ display: block;
 align-items: center;
 color: black;
 background-color: white;
-width: 50%;
+width: 100%;
 max-width: 1000px;
-height: 50%;
+height: 70%;
 border: rgb(0, 0, 0);
-
 border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
@@ -44,9 +61,8 @@ overflow: hidden;
 overflow-y: scroll;
 
 
-
 margin-bottom: 20px;
-margin:auto auto 0 auto;
+margin:40px auto 0 auto;
 
     
     
@@ -58,7 +74,7 @@ export const Filas = styled.div`
 align-items: center;
 position: relative;
 color: black;
-background-color: rgb(0, 165, 226);
+background-color: #1976d2;
 width: 80%;
 max-width: 1000px;
 height: 20%;
@@ -72,29 +88,34 @@ font-size: 10px;
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 3px solid #1976d2;
+  border: 3px solid rgb(0, 165, 226);
 }
 
 
 
 `;
 
-export const BotaoStyle = styled(Link)`
+export const FormBtn = styled.nav`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+`;
 
-  position: relative;
-  border-radius: 20px;
-  background: #fff;
-  
-  color: #010606;
-  font-size: 20px;
-
+export const FormBtnLink = styled(Link)`
+  border-radius: 10px;
+  background: #233f78;
+  white-space: nowrap;
+  margin-top: 30px;
+  padding: 10px 32px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  border: none;
   transition: all 0.2s ease-in-out;
-
   text-decoration: none;
-
-  padding: 10px 20px;
   
-  margin:auto auto 0 200px;
+
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #1976d2;
