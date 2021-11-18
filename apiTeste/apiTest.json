@@ -62,21 +62,25 @@
     "pessoas" : [
         {
             "nome":"Matheus",
-            "id":1
+            "id":1,
+            "filaId": 1
         },
 
         {
             "nome":"Lucas",
-            "id":2
+            "id":2,
+            "filaId": 1
         },
         {
             "nome":"Caio",
-            "id":3
+            "id":3,
+            "filaId": 2
         },
 
         {
             "nome":"Paulo",
-            "id":4
+            "id":4,
+            "filaId": 4
         }
     ]
 

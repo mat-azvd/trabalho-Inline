@@ -12,7 +12,6 @@ const Principal = () => {
     
     const [filaId, setfilaID] = useState(null);
     
-    
     const [fila, setFila] = useState([]);
 
     useEffect(() => {
@@ -23,34 +22,6 @@ const Principal = () => {
         });
 
     }, []);
-    /*const [load, loadInfo] = useAPI({
-        url:"http://localhost:5000/fila?_embed=pessoas",
-
-        params:{
-            _embed: 'pessoas'
-        }
-
-    });
-*/
-
- 
-/*
-    const fila = {
-
-        "id": 1,
-        "titulo": "teste",
-        "pessoas": [
-            {"nome":"matheus",
-            "id":1,
-            }
-        ],
-       
-    };
-*/
-
-/*
- 
-*/
 
 return(
     <MainSection>
