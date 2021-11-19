@@ -9,35 +9,5 @@ const Fila = ({fila, onClickFila}) => (
         {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
     </buttom>
 );
-/*
-class Fila extends React.Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            titulo: "Primeira",
-            tempo: 0,           
-            pessoas: []
-        }
-    }
-
-    render() {
-
-        const { titulo, tempo } = this.state
-
-        return(
-
-            <div>
-            <h1>Nome:{ titulo }</h1>
-            <h1>Tempo:{ tempo }</h1>
-            </div>
-
-        );
-
-    }
-    
-
-}
-*/
 
 export default Fila;

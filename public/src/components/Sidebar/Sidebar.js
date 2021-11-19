@@ -1,4 +1,5 @@
 import React from "react";
+import ListaDeFilasAdm from "../../pages/ListaDeFilasAdm";
 import Queue from "../../pages/Queue";
 import Setup from "../../pages/Setup";
 
@@ -27,7 +28,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                     <SidebarLink to="/manage" onClick={toggle}>
                         Gerenciar Filas
                     </SidebarLink>
-                    <SidebarLink to="/row" onClick={toggle}>
+                    <SidebarLink to="/ListaDeFilasAdm" onClick={ListaDeFilasAdm}>
                         Filas
                     </SidebarLink>
                     <SidebarLink to="/about" onClick={toggle}>

@@ -1,10 +1,11 @@
-import React, { /*Component,*/ useState } from "react";
-
+import React, { useState } from "react";
 import Principal from "../components/principal/Principal"
-
 import Navbar from "../components/Navbar/Navbar";
-//import SectionMain from "../components/SectionMain/SectionMain";
-//import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
+
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
 
 const ListaDeFilasAdm = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,8 @@ const ListaDeFilasAdm = () => {
     return (
         <>
             
-            <Navbar toggle={toggle} />
-
+            <Navbar isOpen={isOpen} toggle={toggle} />
+            <Sidebar isOpen={isOpen} toggle={toggle} />
             <Principal />
 
             
@@ -27,7 +28,3 @@ const ListaDeFilasAdm = () => {
 
 export default ListaDeFilasAdm;
 
-
-//<Sidebar isOpen={isOpen} toggle={toggle} />
-
-//<SectionMain />

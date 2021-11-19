@@ -11,7 +11,7 @@ import {
 import FilaModal from "../Modal/FilaModal";
 
 
-const Principal = () => {
+const Principal = ({ isOpen, toggle }) => {
     
     const [filaId, setfilaID] = useState(null);
     
@@ -26,31 +26,31 @@ const Principal = () => {
 
     }, []);
 
-return(
-    <MainSection>
-        <BtnDiv>
-        <Div1 className="container filas">               
-            {fila.map((fila) => (                       
-                <Filas className="filas" key={fila.id} >
-                    <Fila fila={fila} 
-                    onClickFila={() => setfilaID(fila.id)} />                  
-                </Filas>
-            ))}
+    return(
+        <MainSection isOpen={isOpen} onClick={toggle}>
+            <BtnDiv>
+            <Div1 className="container filas">               
+                {fila.map((fila) => (                       
+                    <Filas className="filas" key={fila.id} >
+                        <Fila fila={fila} 
+                        onClickFila={() => setfilaID(fila.id)} />                  
+                    </Filas>
+                ))}
 
-            {filaId && (
-            <FilaModal filaId={filaId} isClose={() => setfilaID(null)}/>
-            ) }
-            
-        </Div1>
-    
+                {filaId && (
+                <FilaModal filaId={filaId} isClose={() => setfilaID(null)}/>
+                ) }
+                
+            </Div1>
         
-            <FormBtn>
-                <FormBtnLink to="/create-queue">Criar fila</FormBtnLink>
-            </FormBtn>
-        </BtnDiv>
-    </MainSection>
+            
+                <FormBtn>
+                    <FormBtnLink to="/create-queue">Criar fila</FormBtnLink>
+                </FormBtn>
+            </BtnDiv>
+        </MainSection>
 
-);
+    );
 
 };
 
