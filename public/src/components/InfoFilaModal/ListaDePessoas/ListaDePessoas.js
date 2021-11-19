@@ -1,4 +1,5 @@
 import React from "react";
+import {ListaPessoasStyle,BtnDeletePessoa,Div1} from "./ListaDePessoasElements"
 
 const ListaDePessoas = ({pessoas}) => {
 
@@ -10,9 +11,12 @@ const ListaDePessoas = ({pessoas}) => {
 
         <ul className="Lista-de-pessoas">
             {pessoas.map((pessoa) => (
-                <li >
-                    <p>{pessoa.nome}</p>
-                </li>
+                <Div1>    
+                    <ListaPessoasStyle >
+                        {pessoa.nome}
+                    </ListaPessoasStyle >               
+                    <BtnDeletePessoa>X</BtnDeletePessoa>
+                </Div1>
             )
             
             )}

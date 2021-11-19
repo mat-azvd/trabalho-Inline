@@ -7,6 +7,7 @@ const Fila = ({fila, onClickFila}) => (
         <h1> Nome: {fila.titulo}</h1>
         <h2> {fila.pessoas.length}
         {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
+        <h3>Tempo: {fila.tempo}</h3>
     </buttom>
 );
 

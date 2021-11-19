@@ -20,10 +20,15 @@ background: rgb(2, 0, 36);
   height: 100vh;
   position: relative;
   z-index: 1;
-
-  
   
 `;
+
+export const Titulo = styled.label`
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 30px;
+`
 
 export const BtnDiv = styled.div`
 
@@ -62,7 +67,7 @@ overflow-y: scroll;
 
 
 margin-bottom: 20px;
-margin:40px auto 0 auto;
+margin:20px auto 0 auto;
 
     
     
@@ -77,7 +82,7 @@ color: black;
 background-color: #1976d2;
 width: 80%;
 max-width: 1000px;
-height: 20%;
+height: 30%;
 margin-top: 4%;
 margin-left: 10%;
 

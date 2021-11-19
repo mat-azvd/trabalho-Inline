@@ -7,7 +7,8 @@ import {
     Filas,
     FormBtnLink,
     FormBtn,
-    BtnDiv } from "./ListaFilasPrincipalElements";
+    BtnDiv,
+    Titulo } from "./ListaFilasPrincipalElements";
 import InfoFilaModal from "../InfoFilaModal/InfoFilaModal";
 
 
@@ -28,7 +29,10 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 
     return(
         <MainSection isOpen={isOpen} onClick={toggle}>
+
+            
             <BtnDiv>
+            <Titulo>Minhas Filas</Titulo>
             <Div1 className="container filas">               
                 {fila.map((fila) => (                       
                     <Filas className="filas" key={fila.id} >
