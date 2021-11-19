@@ -14,7 +14,6 @@ return ReactDOM.createPortal (
     <DivModal className="overlay">
         <Div2Modal className="Modal">
             <div>{children}</div>
-        
             <BotaoModal1>
                 <BotaoModal2 onClick={isClose}>
                     Fechar
