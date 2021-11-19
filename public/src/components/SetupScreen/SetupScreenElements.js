@@ -1,27 +1,8 @@
 import styled from "styled-components";
 
-// export const SetupContainer = styled.div`
-//   background: rgb(2, 0, 36);
-//   background: linear-gradient(
-//     90deg,
-//     rgba(2, 0, 36, 1) 0%,
-//     rgba(35, 63, 120, 1) 57%,
-//     rgba(0, 155, 255, 1) 100%
-//   );
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   padding: 0 10px;
-//   height: 100vh;
-//   position: relative;
-//   z-index: 1;
-//   overflow: hidden;
-// `;
-
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 70px);
   background: #b1d4e0;
 `;
 

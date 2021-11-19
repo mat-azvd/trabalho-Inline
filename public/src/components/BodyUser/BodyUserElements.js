@@ -15,7 +15,7 @@ export const SectionContainer = styled.div`
   align-items: center;
 
   padding: 0 30px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: relative;
   z-index: 1;
 `;

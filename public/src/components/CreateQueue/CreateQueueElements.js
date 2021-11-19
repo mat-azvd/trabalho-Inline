@@ -13,7 +13,7 @@ export const FormContainer = styled.div`
   align-items: center;
 
   padding: 0 10px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: relative;
   z-index: 1;
   overflow: hidden;

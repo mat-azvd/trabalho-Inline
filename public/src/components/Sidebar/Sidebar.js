@@ -11,8 +11,28 @@ import {
     SideBtnWrap,
     SidebarRoute,
 } from "./SidebarElements";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = ({ isOpen, toggle }) => {
+    const history = useHistory();
+
+    function exit() {
+        localStorage.clear();
+        history.push(`/`);
+    }
+
+    function isLogged () {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            return (
+                <SideBtnWrap>
+                    <SidebarRoute onClick={() => exit()}>Sair</SidebarRoute>
+                </SideBtnWrap>
+            )
+        }
+    }
+
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
@@ -27,9 +47,8 @@ const Sidebar = ({ isOpen, toggle }) => {
                         Configurações
                     </SidebarLink>
                 </SidebarMenu>
-                <SideBtnWrap>
-                    <SidebarRoute to="/signout">Sair</SidebarRoute>
-                </SideBtnWrap>
+
+                {isLogged()}
             </SidebarWrapper>
         </SidebarContainer>
     );

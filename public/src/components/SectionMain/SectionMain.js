@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ArrowForward,
     ArrowRight,
@@ -12,6 +12,7 @@ import {
     SectionTopWrapper,
     SectionWrapper,
 } from "./SectionMainElements";
+import { useParams } from "react-router-dom";
 
 import { BsInfoCircle } from "react-icons/bs";
 import { Button } from "../ButtonElements";
@@ -25,13 +26,30 @@ const SectionMain = () => {
     const [hover, setHover] = useState(false);
     const [textQrCode, setTextQrCode] = useState("");
     const history = useHistory();
+    let { queueCode } = useParams();
 
     const onHover = () => {
         setHover(!hover);
     };
 
-    async function onSubmit (code) {
+    useEffect(() => {
+        if (queueCode) {
+            enterQueue(queueCode);
+        }
+    }, [])
+
+    function onSubmit (code) {
+        if (!localStorage.getItem('token')) {
+            localStorage.setItem('code', code);
+            return history.push('/login')
+        }
+
+        enterQueue(code)
+    }
+
+    async function enterQueue(code) {
         try {
+
             const queue = await queueService.enter(code);
 
             history.push(`/user/queue/${queue.filaId}`);

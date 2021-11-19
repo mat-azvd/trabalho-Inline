@@ -13,6 +13,7 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/queue/enter/:queueCode" exact component={Home} />
         <Route path="/create-queue" exact component={Queue} />
         <Route path="/setup-screen" exact component={Setup} />
         <Route path="/login" exact component={Login} />

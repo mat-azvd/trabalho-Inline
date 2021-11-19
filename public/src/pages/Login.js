@@ -17,6 +17,11 @@ const Home = () => {
     async function onSubmit(cpf, senha) {
         try {
             await authService.login(cpf, senha);
+            const code = localStorage.getItem('code');
+
+            if (code) {
+                return history.push(`/queue/enter/${code}`);
+            }
 
             history.push("/");
         } catch (error) {
@@ -28,7 +33,6 @@ const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle} />
-            here
             <BodyLogin onSubmit={onSubmit}/>
         </>
     );

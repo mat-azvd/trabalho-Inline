@@ -12,7 +12,6 @@ export const Nav = styled.nav`
     rgba(0, 155, 255, 1) 100%
   );
 
-  margin-top: -40px;
   display: flex;
   justify-content: center;
   align-items: center;

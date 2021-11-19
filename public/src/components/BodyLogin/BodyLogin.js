@@ -34,9 +34,6 @@ const BodyLogin = (props) => {
     return (
         <SectionContainer>
             <SectionContent>
-                <SectionTopWrapper>
-                    <SectionTitle> </SectionTitle>
-                </SectionTopWrapper>
                 <WhiteBG>
                     <h1>LOGIN</h1>
                     <LabelTitle>CPF:</LabelTitle>

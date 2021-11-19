@@ -20,6 +20,7 @@ const SidebarSetup = () => {
 
     setName(user.nome)
   }
+
   return (
     <Container>
       <ProfileContainer>
