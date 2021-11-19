@@ -44,6 +44,8 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
                 {filaId && (
                 <InfoFilaModal filaId={filaId} isClose={() => setfilaID(null)}/>
                 ) }
+
+                
                 
             </Div1>
         
