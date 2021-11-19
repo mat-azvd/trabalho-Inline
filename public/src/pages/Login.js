@@ -5,7 +5,7 @@ import BodyLogin from "../components/BodyLogin/BodyLogin";
 import Sidebar from "../components/Sidebar/Sidebar";
 import authService from '../services/auth'
 import { useHistory } from "react-router-dom";
-import Modal from "../components/ModalError/Modal";
+import Modal from "../components/ModalAlert/Modal";
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
