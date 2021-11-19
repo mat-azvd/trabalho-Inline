@@ -1,5 +1,4 @@
 import React from "react";
-import Queue from "../../pages/Queue";
 import Setup from "../../pages/Setup";
 
 import {
@@ -21,9 +20,6 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink href="/create-queue" onClick={Queue}>
-                        Criar Filas
-                    </SidebarLink>
                     <SidebarLink to="/manage" onClick={toggle}>
                         Gerenciar Filas
                     </SidebarLink>
