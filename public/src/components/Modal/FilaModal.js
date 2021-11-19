@@ -3,6 +3,7 @@ import ModalAI from "./ModalAI";
 import useApi from "../utils/useApi";
 import FilaEstatisticas from "../Fila/FilaEstatisticas";
 import ListaDePessoas from "../ListaDePessoas/ListaDePessoas";
+import {ListaPessoasModal} from "./ModalElements"
 
 
 const FilaModal = ({filaId, isClose}) => {
@@ -39,8 +40,10 @@ const FilaModal = ({filaId, isClose}) => {
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-            <FilaEstatisticas fila={loadInfoFila.data} />
-            <ListaDePessoas pessoas={loadInfoPessoa.data} />             
+                <FilaEstatisticas fila={loadInfoFila.data} />
+            <ListaPessoasModal>
+                <ListaDePessoas pessoas={loadInfoPessoa.data} />
+            </ListaPessoasModal>             
         </ModalAI> 
     )
 
