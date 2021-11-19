@@ -1,5 +1,4 @@
 import styled from "styled-components/";
-import { Link as LinkR } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { Container } from "../../globalStyles";
@@ -13,7 +12,6 @@ export const Nav = styled.nav`
     rgba(0, 155, 255, 1) 100%
   );
 
-  margin-top: -40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,9 +36,8 @@ export const NavbarContainer = styled.div`
   ${Container}
 `;
 
-export const NavLogo = styled(LinkR)`
+export const NavLogo = styled.a`
   color: #fff;
-  justify-self: flex-start;
   cursor: pointer;
   font-size: 1.8rem;
   display: flex;
@@ -48,6 +45,7 @@ export const NavLogo = styled(LinkR)`
   margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+  justify-content: center;
 `;
 
 export const NavIcon = styled(HiOutlineChevronDoubleRight)`
@@ -115,21 +113,3 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavBtnLink = styled(LinkScroll)`
-  border-radius: 10px;
-  background: #fff;
-  white-space: nowrap;
-  padding: 10px 32px;
-  color: #010606;
-  font-size: 14px;
-  outline: none;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #233f78;
-    color: #fff;
-  }
-`;

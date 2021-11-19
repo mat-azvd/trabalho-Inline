@@ -1,11 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import QrReader from "react-qr-reader";
 
-const QrCodeReader = ({ textQrCode }) => {
+const QrCodeReader = (props) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const qrRef = useRef(null);
-
-    const [scanResult, setScanResult] = useState("");
 
     const handleError = (error) => {
         console.log(error);
@@ -13,8 +11,7 @@ const QrCodeReader = ({ textQrCode }) => {
 
     const handleScan = (result) => {
         if (result) {
-            setScanResult(result);
-            window.open(result, "_blank");
+            props.onSubmit(result);
         }
     };
 

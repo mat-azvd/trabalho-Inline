@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ArrowForward,
     ArrowRight,
@@ -12,19 +12,51 @@ import {
     SectionTopWrapper,
     SectionWrapper,
 } from "./SectionMainElements";
+import { useParams } from "react-router-dom";
 
 import { BsInfoCircle } from "react-icons/bs";
 import { Button } from "../ButtonElements";
 import QrCodeReader from "./QrCodeReader";
 import Queue from "../../pages/Queue";
+import queueService from '../../services/queue'
+import { useHistory } from "react-router-dom";
+
 
 const SectionMain = () => {
     const [hover, setHover] = useState(false);
     const [textQrCode, setTextQrCode] = useState("");
+    const history = useHistory();
+    let { queueCode } = useParams();
 
     const onHover = () => {
         setHover(!hover);
     };
+
+    useEffect(() => {
+        if (queueCode) {
+            enterQueue(queueCode);
+        }
+    }, [])
+
+    function onSubmit (code) {
+        if (!localStorage.getItem('token')) {
+            localStorage.setItem('code', code);
+            return history.push('/login')
+        }
+
+        enterQueue(code)
+    }
+
+    async function enterQueue(code) {
+        try {
+
+            const queue = await queueService.enter(code);
+
+            history.push(`/user/queue/${queue.filaId}`);
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <SectionContainer>
@@ -38,7 +70,7 @@ const SectionMain = () => {
                 <SectionWrapper>
                     <SectionQrCode>
                         <ImgCode>
-                            <QrCodeReader textQrCode={textQrCode}></QrCodeReader>
+                            <QrCodeReader onSubmit={onSubmit}></QrCodeReader>
                         </ImgCode>
                         <input
                             value={textQrCode}
@@ -46,7 +78,7 @@ const SectionMain = () => {
                             placeholder="Ou digite o código da fila"
                         ></input>
                     </SectionQrCode>
-                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover}>
+                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover} onClick={() => onSubmit(textQrCode)}>
                         ENTRAR {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                     <SectionRowCreate>

@@ -26,8 +26,8 @@ export class UsuariosFilaService {
       .select('-__v')
   }
 
-  async ingressar (filaId: string, usuarioId: string) {
-    const fila = await this.filaModel.findById(filaId);
+  async ingressar (codigoFila: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ codigo: codigoFila });
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
@@ -37,10 +37,14 @@ export class UsuariosFilaService {
       throw new UnauthorizedException('Fila não está ativa');
     }
 
+    if (fila.fim < new Date()) {
+      throw new UnauthorizedException('Fila expirada');
+    }
+
     const usuarioFila = await this.usuarioFilaModel.findOne({ filaId: fila.id, usuarioId, atendido: false });
 
     if (usuarioFila) {
-      throw new BadRequestException('Usuário já está na fila');
+      return usuarioFila
     }
 
     const quantidadeFila = await this.usuarioFilaModel.countDocuments({ filaId: fila.id, atendido: false });
@@ -60,7 +64,19 @@ export class UsuariosFilaService {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+    const usuarioFilaDeleted = await this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+
+
+    if (!usuarioFilaDeleted) {
+      throw new NotFoundException('Usuário não encontrado na fila');
+    }
+
+    this.reestruturarFila(filaId, usuarioFilaDeleted.posicao);
+
+    return {
+      mensagem: 'Usuário saiu da fila com sucesso'
+    }
+
   }
 
   async removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {
@@ -70,27 +86,55 @@ export class UsuariosFilaService {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    return this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+    const usuarioFilaDeleted = await this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
+
+    if (!usuarioFilaDeleted) {
+      throw new NotFoundException('Usuário não encontrado na fila');
+    }
+
+    if (usuarioFilaDeleted.posicao !== 1 || (usuarioFilaDeleted.posicao === 1 && !usuarioFilaDeleted.atendido)) {
+      this.reestruturarFila(filaId, usuarioFilaDeleted.posicao);
+    }
+
+    return {
+      mensagem: 'Usuário deletado com sucesso'
+    }
   }
 
   async atender (atendente: UsuarioPayload, filaId: string, usuarioId: string) {
+    if (!atendente) {
+      throw new NotFoundException('Atendente não foi informado')
+    }
+
     const fila = await this.filaModel.findOne({ _id: filaId, lojaId: atendente.lojaId });
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
     }
 
-    const usuarioFila = await this.usuarioFilaModel.updateOne(
+    const usuarioFila = await this.usuarioFilaModel.findOneAndUpdate(
       { filaId, usuarioId, atendido: false },
       { atendido: true, atendidoEm: new Date(), atendidoPor: atendente.id }
     );
 
-    if (usuarioFila.ok === 0) {
+    if (!usuarioFila) {
       throw new NotFoundException('Usuário não encontrado na fila');
     }
+
+    this.reestruturarFila(filaId, usuarioFila.posicao);
 
     return {
       mensagem: 'Usuário atendido com sucesso'
     };
+  }
+
+  reestruturarFila (filaId: string, posicao: number) {
+    return this.usuarioFilaModel.updateMany(
+      { filaId, atendido: false, posicao: { $gt: posicao } },
+      { $inc: { posicao: -1 } },
+      { multi: true }
+    ).catch(err => {
+      throw new BadRequestException((err as Error).message);
+    });
   }
 }

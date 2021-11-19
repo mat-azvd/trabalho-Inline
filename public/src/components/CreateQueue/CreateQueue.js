@@ -10,10 +10,28 @@ import {
     FormInput,
     FormTitle,
 } from "./CreateQueueElements";
+import queueService from "../../services/queue";
+import { useHistory } from "react-router-dom";
 
 const CreateQueue = ({ isOpen, toggle }) => {
-    const [startDate, setStartDate] = useState();
-    const [endDate, setEndDate] = useState();
+    const [name, setName] = useState("");
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const history = useHistory();
+
+    async function onSubmit() {
+        try {
+            await queueService.create({
+                nome: name,
+                inicio: startDate,
+                fim: endDate,
+            });
+
+            history.push(`/`);
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <>
@@ -22,11 +40,12 @@ const CreateQueue = ({ isOpen, toggle }) => {
                     <FormTitle>
                         <h1>Criar Fila</h1>
                     </FormTitle>
-                    <label htmlFor="name">Nome da Loja:</label>
+                    <label htmlFor="name">Nome da fila:</label>
                     <FormInput
                         type="text"
                         name="name"
-                        placeholder="Digite o nome da Loja"
+                        placeholder="Digite o nome da fila"
+                        onClick={(e) => setName(e.target.value)}
                     />
                     <label htmlFor="date">Data Início:</label>
                     <Datepicker
@@ -53,7 +72,7 @@ const CreateQueue = ({ isOpen, toggle }) => {
                         isClearable
                     />
                     <FormBtn>
-                        <FormBtnLink to="/signup">CRIAR</FormBtnLink>
+                        <FormBtnLink onClick={() => onSubmit()}>CRIAR</FormBtnLink>
                     </FormBtn>
                 </FormContent>
             </FormContainer>

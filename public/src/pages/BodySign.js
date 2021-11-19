@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
-import SectionMain from "../components/SectionMain/SectionMain";
+import BodySign from "../components/BodySign/BodySign";
 import Sidebar from "../components/Sidebar/Sidebar";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle} />
-            <SectionMain/>
+            <BodySign/>
         </>
     );
 };

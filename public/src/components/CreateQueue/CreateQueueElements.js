@@ -13,7 +13,7 @@ export const FormContainer = styled.div`
   align-items: center;
 
   padding: 0 10px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -43,7 +43,7 @@ export const FormTitle = styled.div`
 `;
 
 export const FormInput = styled.input`
-  margin: 6px 0px 40px 0px;
+  margin: 6px 0px 30px 0px;
   display: flex;
   width: 100%;
   font-size: 14px;

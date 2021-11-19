@@ -24,7 +24,8 @@ export class UsuariosService {
 
   buscarUsuarioLogado (id: string) {
     return this.usuarioModel
-      .findOne({ _id: id });
+      .findOne({ _id: id })
+      .select('-senha');
   }
 
   async listar (lojaId: string, parametros: ParametrosUsuariosDto) {
@@ -77,6 +78,10 @@ export class UsuariosService {
       await usuario.save();
     } catch (error) {
       throw new BadRequestException((error as Error).message)
+    }
+
+    return {
+      mensagem: 'Usuário cadastrado com sucesso'
     }
   }
 }

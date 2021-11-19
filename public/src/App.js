@@ -4,6 +4,9 @@ import Queue from "./pages/Queue";
 import GlobalStyle from "./globalStyles";
 import Home from "./pages/Home";
 import Setup from "./pages/Setup";
+import Login from "./pages/Login";
+import BodyUserQ from "./pages/BodyUserQ";
+import BodySign from "./pages/BodySign";
 import ListaDeFilasAdm from "./pages/ListaDeFilasAdm";
 
 function App() {
@@ -12,9 +15,14 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/queue/enter/:queueCode" exact component={Home} />
         <Route path="/create-queue" exact component={Queue} />
         <Route path="/setup-screen" exact component={Setup} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/signin" exact component={BodySign} />
+        <Route path="/user/queue/:queueId" exact component={BodyUserQ} />
         <Route path="/ListaDeFilasAdm" exact component={ListaDeFilasAdm}/>
+
       </Switch>
     </Router>
   );

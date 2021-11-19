@@ -7,12 +7,19 @@ import {
   MobileIcon,
   NavIcon,
 } from "./NavbarElements";
+import { useHistory } from "react-router-dom";
 
 const Navbar = ({ toggle }) => {
+  const history = useHistory();
+
+  function clickNavbar () {
+    history.push(`/`);
+  }
+
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/">
+        <NavLogo href="" to="/" onClick={() => clickNavbar()}>
           Inline
           <NavIcon />
         </NavLogo>

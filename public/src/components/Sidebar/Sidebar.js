@@ -1,7 +1,6 @@
 import React from "react";
-import ListaDeFilasAdm from "../../pages/ListaDeFilasAdm";
-import Queue from "../../pages/Queue";
 import Setup from "../../pages/Setup";
+import ListaDeFilasAdm from "../../pages/ListaDeFilasAdm";
 
 import {
     Icon,
@@ -13,8 +12,28 @@ import {
     SideBtnWrap,
     SidebarRoute,
 } from "./SidebarElements";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = ({ isOpen, toggle }) => {
+    const history = useHistory();
+
+    function exit() {
+        localStorage.clear();
+        history.push(`/`);
+    }
+
+    function isLogged () {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            return (
+                <SideBtnWrap>
+                    <SidebarRoute onClick={() => exit()}>Sair</SidebarRoute>
+                </SideBtnWrap>
+            )
+        }
+    }
+
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
@@ -22,25 +41,18 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink href="/create-queue" onClick={Queue}>
-                        Criar Filas
-                    </SidebarLink>
                     <SidebarLink to="/manage" onClick={toggle}>
                         Gerenciar Filas
                     </SidebarLink>
                     <SidebarLink to="/ListaDeFilasAdm" onClick={ListaDeFilasAdm}>
                         Filas
                     </SidebarLink>
-                    <SidebarLink to="/about" onClick={toggle}>
-                        Performance
-                    </SidebarLink>
                     <SidebarLink href="/setup-screen" onClick={Setup}>
                         Configurações
                     </SidebarLink>
                 </SidebarMenu>
-                <SideBtnWrap>
-                    <SidebarRoute to="/signout">Sair</SidebarRoute>
-                </SideBtnWrap>
+
+                {isLogged()}
             </SidebarWrapper>
         </SidebarContainer>
     );
