@@ -1,8 +1,8 @@
 import api from '../lib/api'
 
-async function loggedUser (payload) {
+async function getLoggedUser (payload) {
   try {
-    const { data } = await api.post('/usuarios/logado', payload)
+    const { data } = await api.get('/usuarios/logado', payload)
 
     return data
   } catch (error) {
@@ -20,9 +20,9 @@ async function create (payload) {
   }
 }
 
-async function update (payload) {
+async function update (userId, payload) {
   try {
-    const { data } = await api.put('/usuarios', payload)
+    const { data } = await api.put(`/usuarios/${userId}`, payload)
 
     return data
   } catch (error) {
@@ -31,7 +31,7 @@ async function update (payload) {
 }
 
 export default {
-  loggedUser,
+  getLoggedUser,
   create,
   update
 }

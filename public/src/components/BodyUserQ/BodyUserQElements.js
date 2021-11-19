@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
+import styled from "styled-components"
+import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md"
 
 
 export const SectionContainer = styled.div`
@@ -18,7 +18,7 @@ export const SectionContainer = styled.div`
   height: 100vh;
   position: relative;
   z-index: 1;
-`;
+`
 
 export const WrapperTime = styled.div`
   border-radius: 30px;
@@ -29,24 +29,24 @@ export const WrapperTime = styled.div`
     text-align: center;
     color: #fff;
   }
-`;
+`
 
 export const TimeCounter = styled.div`
   font-size:30px;
   color:#fff;
   text-align: center;
+`
 
-`;
-
-export const ExitQ = styled.div`
+export const ExitQ = styled.button`
+  cursor: pointer;
   border-radius: 30px;
   padding: 20px;
   background-color:#bc544b;
-  margin-top: 20px;
+  margin: 20px auto;
   text-align: center;
   color: #fff;
   width:40%;
-`;
+`
 
 export const GiveQ = styled.div`
   border-radius: 30px;
@@ -56,7 +56,7 @@ export const GiveQ = styled.div`
   text-align: center;
   color: #fff;
   width:40%;
-`;
+`
 
 
 
@@ -70,14 +70,14 @@ export const WrapperPosition = styled.div`
     text-align: center;
     color: #233f78;
   }
-`;
+`
 
 export const PositionQ = styled.div`
     font-size:60px;
     display:flex;
     justify-content: center;
     color: #233f78;
-`;
+`
 
 
 
@@ -97,11 +97,10 @@ export const WhiteBG = styled.div`
   @media screen and (max-width: 800px) {
     padding:20px 5px;
   }
- `;
+ `
 
 export const SectionContent = styled.div`
   /* background: #fff; */
-  width: 30%;
   border-radius: 30px;
   z-index: 3;
   max-width: 1200px;
@@ -127,14 +126,14 @@ export const SectionContent = styled.div`
   }
 
 
-`;
+`
 
 export const SectionTopWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 
 
@@ -143,14 +142,14 @@ export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const ArrowForward = styled(MdArrowForward)`
   margin-left: 8px;
   font-size: 20px;
-`;
+`
 
 export const ArrowRight = styled(MdKeyboardArrowRight)`
   margin-left: 8px;
   font-size: 20px;
-`;
+`

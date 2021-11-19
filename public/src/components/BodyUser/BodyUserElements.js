@@ -30,8 +30,6 @@ export const WhiteBG = styled.div`
   height: 70%;
   border-radius: 30px;
   justify-content: center;
-  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   @media screen and (max-width: 800px) {
     padding:20px 5px;

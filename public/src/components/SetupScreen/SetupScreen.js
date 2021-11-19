@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Btn,
     BtnSetup,
@@ -9,20 +9,53 @@ import {
     LabelTitle,
 } from "./SetupScreenElements";
 import SidebarSetup from "./SidebarSetup/SidebarSetup";
+import userService from '../../services/user';
 
 const SetupScreen = () => {
+    const [name, setName] = React.useState("");
+    const [cpf, setCpf] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [id, setId] = React.useState("");
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+    async function getUser () {
+        const user = await userService.getLoggedUser();
+
+        setCpf(user.cpf)
+        setName(user.nome)
+        setId(user._id)
+    }
+
+    async function onSubmit () {
+        try {
+            await userService.update(id, {
+                cpf,
+                nome: name,
+            });
+
+            alert("Usuário atualizado com sucesso!");
+        } catch (error) {
+            alert(error.message)
+        }
+    }
+
     return (
         <Container>
             <SidebarSetup />
             <ContainerContent>
                 <ContainerSection>
-                    <h1>Alterar nome</h1>
-                    <LabelTitle>Nome anterior</LabelTitle>
-                    <InputSetup placeholder="nome anterior"></InputSetup>
-                    <LabelTitle>Nome Novo</LabelTitle>
-                    <InputSetup placeholder="nome novo"></InputSetup>
+                    <h1>Alterar informações</h1>
+                    <LabelTitle>Nome</LabelTitle>
+                    <InputSetup type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)}></InputSetup>
+                    <LabelTitle>CPF</LabelTitle>
+                    <InputSetup type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)}></InputSetup>
+                    <LabelTitle>Senha</LabelTitle>
+                    <InputSetup type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}></InputSetup>
                     <BtnSetup>
-                        <Btn>Alterar</Btn>
+                        <Btn onClick={() => onSubmit()}>Alterar</Btn>
                     </BtnSetup>
                 </ContainerSection>
             </ContainerContent>

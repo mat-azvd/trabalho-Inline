@@ -30,11 +30,11 @@ const SectionMain = () => {
         setHover(!hover);
     };
 
-    async function onSubmit () {
+    async function onSubmit (code) {
         try {
-            await queueService.enter(textQrCode);
+            const queue = await queueService.enter(code);
 
-            history.push("/user/queue");
+            history.push(`/user/queue/${queue.filaId}`);
         } catch (error) {
             alert(error.message)
         }
@@ -52,7 +52,7 @@ const SectionMain = () => {
                 <SectionWrapper>
                     <SectionQrCode>
                         <ImgCode>
-                            <QrCodeReader textQrCode={textQrCode}></QrCodeReader>
+                            <QrCodeReader onSubmit={onSubmit}></QrCodeReader>
                         </ImgCode>
                         <input
                             value={textQrCode}
@@ -60,7 +60,7 @@ const SectionMain = () => {
                             placeholder="Ou digite o código da fila"
                         ></input>
                     </SectionQrCode>
-                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover} onClick={() => onSubmit()}>
+                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover} onClick={() => onSubmit(textQrCode)}>
                         ENTRAR {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                     <SectionRowCreate>

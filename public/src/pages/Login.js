@@ -16,7 +16,7 @@ const Home = () => {
 
     async function onSubmit(cpf, senha) {
         try {
-            const token = await authService.login(cpf, senha);
+            await authService.login(cpf, senha);
 
             history.push("/");
         } catch (error) {

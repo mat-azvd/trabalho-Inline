@@ -24,7 +24,8 @@ export class UsuariosService {
 
   buscarUsuarioLogado (id: string) {
     return this.usuarioModel
-      .findOne({ _id: id });
+      .findOne({ _id: id })
+      .select('-senha');
   }
 
   async listar (lojaId: string, parametros: ParametrosUsuariosDto) {

@@ -27,12 +27,18 @@ export const Container = styled.div`
 
 export const ContainerContent = styled.div`
   background-color: #b1d4e0;
+  display: flex;
   width: 70%;
-  padding: 70px;
+  padding: 0 70px;
   box-sizing: border-box;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 0;
+  }
 
   h1 {
     color: #233f78;
@@ -43,28 +49,30 @@ export const ContainerContent = styled.div`
 `;
 
 export const ContainerSection = styled.div`
+  padding: 80px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 70%;
-  border-radius: 2rem;
+  border-radius: 1rem;
   justify-content: center;
-  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+  @media screen and (max-width: 800px) {
+    padding: 80px 20px;
+    height: 100%;
+  }
 `;
 
 export const LabelTitle = styled.div`
   color: #233f78;
   text-align: start;
-  margin: 24px 0px -10px 120px;
+  margin: 24px 0px -10px 0px;
 `;
 
 export const InputSetup = styled.input`
-  margin: 24px 0px 30px 120px;
+  margin: 24px 0px 30px 0px;
   display: flex;
-  width: 60%;
+  width: 100%;
   font-size: 14px;
   padding: 2px;
   flex-direction: column;
@@ -81,7 +89,6 @@ export const InputSetup = styled.input`
   @media screen and (max-width: 480px) {
     justify-content: center;
     align-items: center;
-    width: 60%;
     font-size: 16px;
   }
 `;
@@ -92,12 +99,12 @@ export const BtnSetup = styled.nav`
   align-items: center;
   border-radius: 10px;
 `;
+
 export const Btn = styled.button`
   border-radius: 10px;
   background: #233f78;
   white-space: nowrap;
   margin-top: 20px;
-  margin-right: 70px;
   padding: 10px 32px;
   color: #fff;
   font-size: 14px;

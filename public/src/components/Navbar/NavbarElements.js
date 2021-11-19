@@ -1,5 +1,4 @@
 import styled from "styled-components/";
-import { Link as LinkR } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { Container } from "../../globalStyles";
@@ -38,7 +37,7 @@ export const NavbarContainer = styled.div`
   ${Container}
 `;
 
-export const NavLogo = styled(LinkR)`
+export const NavLogo = styled.a`
   color: #fff;
   cursor: pointer;
   font-size: 1.8rem;

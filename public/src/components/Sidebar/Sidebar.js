@@ -23,12 +23,6 @@ const Sidebar = ({ isOpen, toggle }) => {
                     <SidebarLink to="/manage" onClick={toggle}>
                         Gerenciar Filas
                     </SidebarLink>
-                    <SidebarLink to="/row" onClick={toggle}>
-                        Filas
-                    </SidebarLink>
-                    <SidebarLink to="/about" onClick={toggle}>
-                        Performance
-                    </SidebarLink>
                     <SidebarLink href="/setup-screen" onClick={Setup}>
                         Configurações
                     </SidebarLink>
