@@ -40,7 +40,7 @@ const EditarFilaModal = ({filaId, isClose}) => {
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-                            
+                    <FilaEstatisticas fila={loadInfoFila.data} />   
         </ModalAI> 
     )
 

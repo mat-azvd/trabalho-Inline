@@ -41,13 +41,15 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     console.log(loadInfoFila);
 
+    console.log(id);
+
     return (
         <ModalAI  isOpen isClose={isClose}>
                 <FilaEstatisticas fila={loadInfoFila.data} />
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={loadInfoPessoa.data} />
             </ListaPessoasModal> 
-            <BotaoModal2 onClick={() => setEditarFila(loadInfoFila.data)}>
+            <BotaoModal2 onClick={() => setEditarFila(filaId)}>
                     Editar Fila
             </BotaoModal2>
 
