@@ -1,12 +1,12 @@
 import React, {useEffect} from "react";
 import ModalAI from "./ModalAI";
 import useApi from "../utils/useApi";
-import FilaEstatisticas from "../Fila/FilaEstatisticas";
-import ListaDePessoas from "../ListaDePessoas/ListaDePessoas";
+import FilaEstatisticas from "./Fila/FilaEstatisticas"
+import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal} from "./ModalElements"
 
 
-const FilaModal = ({filaId, isClose}) => {
+const InfoFilaModal = ({filaId, isClose}) => {
 
     const id = filaId;
 
@@ -50,4 +50,4 @@ const FilaModal = ({filaId, isClose}) => {
 
 }
 
-export default FilaModal;
+export default InfoFilaModal;

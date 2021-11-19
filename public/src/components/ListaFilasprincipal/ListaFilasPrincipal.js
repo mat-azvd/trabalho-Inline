@@ -7,11 +7,11 @@ import {
     Filas,
     FormBtnLink,
     FormBtn,
-    BtnDiv } from "./PrincipalElements";
-import FilaModal from "../Modal/FilaModal";
+    BtnDiv } from "./ListaFilasPrincipalElements";
+import InfoFilaModal from "../InfoFilaModal/InfoFilaModal";
 
 
-const Principal = ({ isOpen, toggle }) => {
+const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     
     const [filaId, setfilaID] = useState(null);
     
@@ -38,7 +38,7 @@ const Principal = ({ isOpen, toggle }) => {
                 ))}
 
                 {filaId && (
-                <FilaModal filaId={filaId} isClose={() => setfilaID(null)}/>
+                <InfoFilaModal filaId={filaId} isClose={() => setfilaID(null)}/>
                 ) }
                 
             </Div1>
@@ -54,5 +54,5 @@ const Principal = ({ isOpen, toggle }) => {
 
 };
 
-export default Principal;
+export default ListaFilasPrincipal;
 
