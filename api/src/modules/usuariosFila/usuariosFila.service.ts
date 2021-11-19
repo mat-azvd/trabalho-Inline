@@ -40,7 +40,7 @@ export class UsuariosFilaService {
     const usuarioFila = await this.usuarioFilaModel.findOne({ filaId: fila.id, usuarioId, atendido: false });
 
     if (usuarioFila) {
-      throw new BadRequestException('Usuário já está na fila');
+      return usuarioFila
     }
 
     const quantidadeFila = await this.usuarioFilaModel.countDocuments({ filaId: fila.id, atendido: false });
