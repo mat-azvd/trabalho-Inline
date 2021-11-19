@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Setup from "./pages/Setup";
 import Login from "./pages/Login";
 import BodyUserQ from "./pages/BodyUserQ";
+import BodySign from "./pages/BodySign";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/create-queue" exact component={Queue} />
         <Route path="/setup-screen" exact component={Setup} />
         <Route path="/login" exact component={Login} />
+        <Route path="/signin" exact component={BodySign} />
         <Route path="/user/queue/:queueId" exact component={BodyUserQ} />
 
       </Switch>

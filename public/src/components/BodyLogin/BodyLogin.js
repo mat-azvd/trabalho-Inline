@@ -16,12 +16,13 @@ import { Button } from "../ButtonElements";
 import {
     FormInput,
 } from "../CreateQueue/CreateQueueElements";
-
+import { useHistory } from "react-router-dom";
 
 const BodyLogin = (props) => {
     const [hover, setHover] = useState(false);
     const [cpf, setCpf] = useState('');
     const [senha, setSenha] = useState('');
+    const history = useHistory();
 
     const onHover = () => {
         setHover(!hover);
@@ -29,6 +30,10 @@ const BodyLogin = (props) => {
 
     function onSubmit() {
         props.onSubmit(cpf, senha);
+    }
+
+    function onRedirect() {
+        history.push(`/signin`);
     }
 
     return (
@@ -53,7 +58,7 @@ const BodyLogin = (props) => {
                         onChange={(e) => setSenha(e.target.value)}
                     />
                     <div className="row">
-                        <p>Ainda não possui conta?</p><a>Cadastre-se</a>
+                        <p>Ainda não possui conta?</p><a onClick={() => onRedirect()}>Cadastre-se</a>
                     </div>
                 </WhiteBG>
 

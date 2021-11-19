@@ -23,7 +23,7 @@ export const SectionContainer = styled.div`
 export const WhiteBG = styled.div`
   z-index: 3;
   background-color: #fff;
-  padding: 100px 100px;
+  padding: 80px 80px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -77,7 +77,7 @@ export const LabelTitle = styled.div`
 export const InputSetup = styled.input`
   margin: 24px 0px 30px 5px;
   display: flex;
-  width: 60%;
+  width:100%;
   font-size: 14px;
   padding: 2px;
   flex-direction: column;
@@ -107,8 +107,6 @@ export const SectionTitle = styled.h1`
   font-size: 18px;
   text-align: center;
   margin-right: 8px;
-  -webkit-text-stroke-width: 0.4px; /* largura da borda */
-  -webkit-text-stroke-color: #233f78; /* cor da borda */
   @media (min-width: 768px) {
     font-size: 20px;
 
