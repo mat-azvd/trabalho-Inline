@@ -37,6 +37,10 @@ export class UsuariosFilaService {
       throw new UnauthorizedException('Fila não está ativa');
     }
 
+    if (fila.fim < new Date()) {
+      throw new UnauthorizedException('Fila expirada');
+    }
+
     const usuarioFila = await this.usuarioFilaModel.findOne({ filaId: fila.id, usuarioId, atendido: false });
 
     if (usuarioFila) {
