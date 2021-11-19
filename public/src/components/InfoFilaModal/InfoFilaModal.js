@@ -1,12 +1,15 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ModalAI from "./ModalAI";
 import useApi from "../utils/useApi";
 import FilaEstatisticas from "./Fila/FilaEstatisticas"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
-import {ListaPessoasModal} from "./ModalElements"
+import {ListaPessoasModal,BotaoModal2} from "./ModalElements"
+import EditarFilaModal from "./EditarFilaModal";
 
 
 const InfoFilaModal = ({filaId, isClose}) => {
+
+    const [editarFila, setEditarFila] = useState(null);
 
     const id = filaId;
 
@@ -43,7 +46,14 @@ const InfoFilaModal = ({filaId, isClose}) => {
                 <FilaEstatisticas fila={loadInfoFila.data} />
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={loadInfoPessoa.data} />
-            </ListaPessoasModal>             
+            </ListaPessoasModal> 
+            <BotaoModal2 onClick={() => setEditarFila(loadInfoFila.data)}>
+                    Editar Fila
+            </BotaoModal2>
+
+            {editarFila && (
+            <EditarFilaModal filaId={editarFila} isClose={() => setEditarFila(null)}/>
+            ) }          
         </ModalAI> 
     )
 

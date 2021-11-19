@@ -13,7 +13,7 @@ if (!isOpen){
     return null;
 }
 
-
+console.log(children);
 
 return ReactDOM.createPortal (
     <DivModal className="overlay">
@@ -23,9 +23,7 @@ return ReactDOM.createPortal (
                 <BotaoModal2 onClick={isClose}>
                     Fechar
                 </BotaoModal2>
-                <BotaoModal2 onClickEditar={() => setEditarFila(children.fila.id)}>
-                    Editar Fila
-                </BotaoModal2>
+                
             </BotaoModal1>
         </Div2Modal>
 
@@ -40,3 +38,9 @@ return ReactDOM.createPortal (
 };
 
 export default ModalAI;
+/*
+<BotaoModal2 onClick={() => setEditarFila(children.fila)}>
+                    Editar Fila
+                </BotaoModal2> 
+
+*/
