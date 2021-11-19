@@ -3,19 +3,25 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import BodyLogin from "../components/BodyLogin/BodyLogin";
 import Sidebar from "../components/Sidebar/Sidebar";
-import auth from '../services/auth'
+import authService from '../services/auth'
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const history = useHistory();
 
     const toggle = () => {
         setIsOpen(!isOpen);
     };
 
     async function onSubmit(cpf, senha) {
-        const token = await auth.login(cpf, senha);
+        try {
+            const token = await authService.login(cpf, senha);
 
-        console.log(token)
+            history.push("/");
+        } catch (error) {
+            alert(error.message)
+        }
     }
 
     return (

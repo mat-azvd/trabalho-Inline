@@ -5,6 +5,7 @@ import GlobalStyle from "./globalStyles";
 import Home from "./pages/Home";
 import Setup from "./pages/Setup";
 import Login from "./pages/Login";
+import BodyUserQ from "./pages/BodyUserQ";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/create-queue" exact component={Queue} />
         <Route path="/setup-screen" exact component={Setup} />
         <Route path="/login" exact component={Login} />
+        <Route path="/user/queue" exact component={BodyUserQ} />
 
       </Switch>
     </Router>

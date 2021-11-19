@@ -1,13 +1,16 @@
 import api from '../lib/api'
 
-async function login (login, senha) {
-  console.log(api.post, login, senha)
-  const { data } = await api.post('/login', {
-    login,
-    senha
-  })
+async function login (cpf, senha) {
+  try {
+    const { data } = await api.post('/auth', {
+      cpf,
+      senha
+    })
 
-  window.localStorage.setItem('token', data.token)
+    window.localStorage.setItem('token', data.token)
+  } catch (error) {
+    throw error.response.data
+  }
 }
 
 export default {

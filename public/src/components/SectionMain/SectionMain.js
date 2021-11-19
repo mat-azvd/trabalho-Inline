@@ -17,14 +17,28 @@ import { BsInfoCircle } from "react-icons/bs";
 import { Button } from "../ButtonElements";
 import QrCodeReader from "./QrCodeReader";
 import Queue from "../../pages/Queue";
+import queueService from '../../services/queue'
+import { useHistory } from "react-router-dom";
+
 
 const SectionMain = () => {
     const [hover, setHover] = useState(false);
     const [textQrCode, setTextQrCode] = useState("");
+    const history = useHistory();
 
     const onHover = () => {
         setHover(!hover);
     };
+
+    async function onSubmit () {
+        try {
+            await queueService.enter(textQrCode);
+
+            history.push("/user/queue");
+        } catch (error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <SectionContainer>
@@ -46,7 +60,7 @@ const SectionMain = () => {
                             placeholder="Ou digite o código da fila"
                         ></input>
                     </SectionQrCode>
-                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover}>
+                    <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover} onClick={() => onSubmit()}>
                         ENTRAR {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                     <SectionRowCreate>

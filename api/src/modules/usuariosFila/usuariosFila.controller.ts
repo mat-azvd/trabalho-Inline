@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UsuarioPayload } from '../auth/dto/login.dto';
 import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
 import { CurrentUser } from '../auth/strategies/jwt.strategy';
 import { UsuariosFilaService } from './usuariosFila.service';
-
+@ApiTags('usuarios-fila')
 @Controller('usuarios-fila')
 export class UsuariosFilaController {
   constructor (
@@ -17,9 +18,9 @@ export class UsuariosFilaController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('/:filaId/ingressar')
-  async ingressar(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
-    return await this.usuariosFilaService.ingressar(filaId, usuario.id);
+  @Post('/:codigoFila/ingressar')
+  async ingressar(@CurrentUser() usuario: UsuarioPayload, @Param('codigoFila') codigoFila: string) {
+    return await this.usuariosFilaService.ingressar(codigoFila, usuario.id);
   }
 
   @UseGuards(LocalAuthGuard)

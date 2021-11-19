@@ -26,8 +26,8 @@ export class UsuariosFilaService {
       .select('-__v')
   }
 
-  async ingressar (filaId: string, usuarioId: string) {
-    const fila = await this.filaModel.findById(filaId);
+  async ingressar (codigoFila: string, usuarioId: string) {
+    const fila = await this.filaModel.findOne({ codigo: codigoFila });
 
     if (!fila) {
       throw new NotFoundException('Fila não encontrada');
@@ -61,7 +61,7 @@ export class UsuariosFilaService {
     }
 
     const usuarioFilaDeleted = await this.usuarioFilaModel.findOneAndDelete({ filaId, usuarioId });
- 
+
 
     if (!usuarioFilaDeleted) {
       throw new NotFoundException('Usuário não encontrado na fila');
@@ -87,7 +87,7 @@ export class UsuariosFilaService {
     if (!usuarioFilaDeleted) {
       throw new NotFoundException('Usuário não encontrado na fila');
     }
-    
+
     if (usuarioFilaDeleted.posicao !== 1 || (usuarioFilaDeleted.posicao === 1 && !usuarioFilaDeleted.atendido)) {
       this.reestruturarFila(filaId, usuarioFilaDeleted.posicao);
     }
