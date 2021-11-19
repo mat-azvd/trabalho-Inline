@@ -1,5 +1,8 @@
 import React from "react";
-import {ListaPessoasStyle,BtnDeletePessoa,Div1} from "./ListaDePessoasElements"
+import {ListaPessoasStyle,
+        BtnDeletePessoa,
+        Div1,
+        Div2} from "./ListaDePessoasElements"
 
 const ListaDePessoas = ({pessoas}) => {
 
@@ -9,18 +12,19 @@ const ListaDePessoas = ({pessoas}) => {
 
     return (
 
-        <ul className="Lista-de-pessoas">
+        <Div1 className="Lista-de-pessoas">
             {pessoas.map((pessoa) => (
-                <Div1>    
+                <Div2>    
                     <ListaPessoasStyle >
                         {pessoa.nome}
-                    </ListaPessoasStyle >               
                     <BtnDeletePessoa>X</BtnDeletePessoa>
-                </Div1>
+                    </ListaPessoasStyle >               
+                    
+                </Div2>
             )
             
             )}
-        </ul>
+        </Div1>
 
     );
 

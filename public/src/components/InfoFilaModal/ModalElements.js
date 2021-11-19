@@ -68,6 +68,5 @@ export const BotaoModal2 = styled.button`
 `
 
 export const ListaPessoasModal = styled.div`
-overflow: hidden;
-overflow-y: scroll;
+
 `
