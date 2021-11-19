@@ -43,7 +43,7 @@ export class FilasService {
     fila.lojaId = lojaId;
     fila.codigo = Math.random().toString(36).substr(2, 8).toUpperCase();
     fila.nome = `Fila #${fila.codigo}`
-    
+
     try {
       await fila.save();
     } catch (error) {
