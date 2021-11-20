@@ -25,6 +25,10 @@ export class FilasService {
     fila['usuarios'] = await this.usuarioFilaModel
       .find({ filaId })
       .select('-__v -_id')
+      .populate({
+        path: 'usuarioId',
+        select: '-__v -senha'
+      })
       .lean();
 
     return fila;
