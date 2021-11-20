@@ -11,7 +11,7 @@ const FilaEstatisticas = ({fila}) => {
 
     var timeNow = moment().format('DD/MM/yyyy HH:mm:ss');
     var timeFila = moment(fila.fim).format('DD/MM/yyyy HH:mm:ss');
-
+    var timeFilaInicio = moment(fila.inicio).format('DD/MM/yyyy HH:mm:ss');
     let diff = moment(timeFila,"DD/MM/YYYY HH:mm:ss").diff(moment(timeNow,"DD/MM/YYYY HH:mm:ss"));
     var duracao = moment.duration(diff)
     var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
@@ -27,8 +27,9 @@ const FilaEstatisticas = ({fila}) => {
             
                 <li >
                     <h1>{fila.nome}</h1>
-                    <p><strong>{formato.match(/-/) ? "Fila Encerrada.": "Tempo: " + formato }
-                    </strong></p>
+                    <p><strong>{formato.match(/-/) ? "Fila Encerrada.": "Tempo: " + formato }</strong></p>
+                    <p><strong>Inicio: {timeFilaInicio}</strong></p>
+                    <p><strong>Fim: {timeFila}</strong></p>
                 </li>
            
         </ul>
