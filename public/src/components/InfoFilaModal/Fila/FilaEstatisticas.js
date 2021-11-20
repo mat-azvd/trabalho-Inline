@@ -3,10 +3,9 @@ import React /*,{ useState }*/ from "react";
 
 const FilaEstatisticas = ({fila}) => {
 
-    console.log(fila)
     if(!fila) {
         return (
-            console.log("entrou")
+            <div>carregando</div>
         );
     }
 

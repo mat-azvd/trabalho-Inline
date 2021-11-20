@@ -11,9 +11,14 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     const [editarFila, setEditarFila] = useState({});
 
-    const [modalOpen, setModalOpen] = useState(false)
+    //const [deleteFila, setDeleteFila] = useState();
 
     const id = filaId;
+
+    async function clickDelete(){
+        await queueService.deleteQueue(id);   
+
+    }
 
     async function getList() {
         const queue = await queueService.get(id)    
@@ -31,7 +36,10 @@ const InfoFilaModal = ({filaId, isClose}) => {
                 <FilaEstatisticas fila={editarFila} />
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
-            </ListaPessoasModal>                 
+            </ListaPessoasModal>
+            <BotaoModal2 onClick={() => clickDelete()}>
+                    Excluir Fila
+            </BotaoModal2>                 
         </ModalAI> 
     )
 

@@ -8,18 +8,13 @@ const portalRoot = document.getElementById('portal-root');
 const ModalAI = ({children, isOpen, isClose}) => {
 
 //const id = children.fila.fila._id;
-    
-async function clickDelete(){
-
-
-}
 
 
 if (!isOpen){
     return null;
 }
 
-//console.log(children.fila);
+console.log(children)
 
 return ReactDOM.createPortal (
     <DivModal className="overlay">
@@ -28,10 +23,7 @@ return ReactDOM.createPortal (
             <BotaoModal1>
                 <BotaoModal2 onClick={isClose}>
                     Fechar
-                </BotaoModal2> 
-                <BotaoModal2 onClick={() => clickDelete()}>
-                    Excluir Fila
-                </BotaoModal2>   
+                </BotaoModal2>                
             </BotaoModal1>
         </Div2Modal>      
 

@@ -94,9 +94,8 @@ async function exit (queueId) {
 
 async function deleteQueue (queueId) {
   try {
-    const { data } = await api.delete(`/filas/${queueId}`)
+    await api.delete(`/filas/${queueId}`)
 
-    return data
   } catch (error) {
     console.log(error)
     throw error.response.data
