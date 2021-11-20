@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
-import BodySign from "../components/BodySign/BodySign";
+import StoreRegister from "../components/StoreRegister/StoreRegister";
 import Sidebar from "../components/Sidebar/Sidebar";
 
-const BodySignn = () => {
+const Store = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -13,11 +13,11 @@ const BodySignn = () => {
 
     return (
         <>
-            <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle} />
-            <BodySign />
+            <Sidebar isOpen={isOpen} toggle={toggle} />
+            <StoreRegister />
         </>
     );
 };
 
-export default BodySignn;
+export default Store;

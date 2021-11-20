@@ -7,6 +7,7 @@ import Setup from "./pages/Setup";
 import Login from "./pages/Login";
 import BodyUserQ from "./pages/BodyUserQ";
 import BodySign from "./pages/BodySign";
+import StoreRegister from "./pages/StoreRegister";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
         <Route path="/setup-screen" exact component={Setup} />
         <Route path="/login" exact component={Login} />
         <Route path="/signin" exact component={BodySign} />
+        <Route path="/signin/:storeId" exact component={BodySign} />
         <Route path="/user/queue/:queueId" exact component={BodyUserQ} />
+        <Route path="/store-register" exact component={StoreRegister} />
 
       </Switch>
     </Router>

@@ -7,7 +7,7 @@ import authService from '../services/auth'
 import { useHistory } from "react-router-dom";
 import Modal from "../components/ModalAlert/Modal";
 
-const Home = () => {
+const Login = () => {
     const [isOpen, setIsOpen] = useState(false);
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
@@ -50,4 +50,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Login;
