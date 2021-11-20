@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import BodyUserQ from "../components/BodyUserQ/BodyUserQ";
 import Sidebar from "../components/Sidebar/Sidebar";
 
-const Home = () => {
+const BodyUser = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -15,9 +15,9 @@ const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle} />
-            <BodyUserQ/>
+            <BodyUserQ />
         </>
     );
 };
 
-export default Home;
+export default BodyUser;

@@ -1,15 +1,19 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import AvatarImg from "../../../assets/005.jpeg"
+import AvatarImg from "../../../assets/avatar.jpg"
 import {
   RiUserSettingsLine,
 } from "react-icons/ri"
 import ChangeName from "./ChangeName"
 import userService from '../../../services/user'
 
+
 const SidebarSetup = () => {
-  const [name, setName] = React.useState("")
+  const [nameUser, setNameUser] = useState("")
+  const [nameStore, setNameStore] = useState("")
+
+
 
   useEffect(() => {
     getUser()
@@ -17,16 +21,16 @@ const SidebarSetup = () => {
 
   async function getUser() {
     const user = await userService.getLoggedUser()
-
-    setName(user.nome)
+    setNameUser(user.nome)
+    setNameStore(user.loja.nome)
   }
 
   return (
     <Container>
       <ProfileContainer>
         <Avatar src={AvatarImg} />
-        <NameStore>Geek Nerd Anime´s</NameStore>
-        <NameUser>{name || '-'}</NameUser>
+        <NameStore>{nameStore || '-'}</NameStore>
+        <NameUser>{nameUser || '-'}</NameUser>
       </ProfileContainer>
       <LinksContainer>
         <Links>

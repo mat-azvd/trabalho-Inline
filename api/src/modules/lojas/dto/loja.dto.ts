@@ -9,16 +9,6 @@ export class LojaDto {
   endereco: string;
   @ApiProperty()
   telefone: string;
-  @ApiProperty()
-  email: string;
-  @ApiProperty({
-    enum: ['BASICO', 'PREMIUM', 'ESSENCIAL'],
-  })
-  plano: EnumPlano;
+
 }
 
-enum EnumPlano {
-  BASICO = 'BASICO',
-  ESSENCIAL = 'ESSENCIAL',
-  PREMIUM = 'PREMIUM'
-}

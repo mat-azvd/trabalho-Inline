@@ -25,9 +25,20 @@ export class FilasService {
     fila['usuarios'] = await this.usuarioFilaModel
       .find({ filaId })
       .select('-__v -_id')
+      .populate({
+        path: 'usuarioId',
+        select: '-__v -senha'
+      })
       .lean();
 
     return fila;
+  }
+
+  async listar () {
+    return await this.filaModel
+      .find()
+      .select('-__v')
+      .lean();
   }
 
   async cadastrar (lojaId: string, data: FilaDto) {
@@ -42,6 +53,7 @@ export class FilasService {
     const fila = new this.filaModel(data);
     fila.lojaId = lojaId;
     fila.codigo = Math.random().toString(36).substr(2, 8).toUpperCase();
+    fila.ativo = true;
     fila.nome = `Fila #${fila.codigo}`
 
     try {

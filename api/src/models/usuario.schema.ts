@@ -19,9 +19,7 @@ export class Usuario {
 
   @Prop({
     required: true,
-    unique: true,
-    minlength: 11,
-    maxlength: 11
+    unique: true
   })
   cpf: string;
 

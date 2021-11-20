@@ -76,7 +76,6 @@ export class UsuariosFilaService {
     return {
       mensagem: 'Usuário saiu da fila com sucesso'
     }
-
   }
 
   async removerUsuarioFila (lojaId: string, filaId: string, usuarioId: string) {

@@ -1,6 +1,6 @@
 import api from '../lib/api'
 
-async function create (payload) {
+async function create(payload) {
   try {
     const { data } = await api.post('/lojas', payload)
 
@@ -10,7 +10,7 @@ async function create (payload) {
   }
 }
 
-async function update (payload) {
+async function update(payload) {
   try {
     const { data } = await api.put('/lojas', payload)
 
@@ -20,6 +20,8 @@ async function update (payload) {
   }
 }
 
+
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,
   update
