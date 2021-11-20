@@ -6,6 +6,15 @@ const Fila = ({fila, onClickFila}) => {
 
     const [usuariosFila, setUsuariosFila] = useState({});
 
+    useEffect(() => {
+        getUsuarios()
+    }, []);
+
+
+    if(!fila) {
+        return <div>carregando</div>
+    }
+
     const id = fila._id;
 
     async function getUsuarios() {
@@ -14,17 +23,7 @@ const Fila = ({fila, onClickFila}) => {
         
     }
 
-    useEffect(() => {
-        getUsuarios()
-    }, []);
-
-    console.log(usuariosFila)
-
-
-    if(!fila) {
-        return <div>carregando</div>
-    }
-
+    console.log(usuariosFila);
     
     return(
     <table>

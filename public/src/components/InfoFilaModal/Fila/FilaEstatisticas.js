@@ -6,7 +6,7 @@ const FilaEstatisticas = ({fila}) => {
     if(!fila) {
         return <div>carregando</div>
     }
-console.log(fila);
+    
     return(
 
         <ul className="Lista-de-pessoas">

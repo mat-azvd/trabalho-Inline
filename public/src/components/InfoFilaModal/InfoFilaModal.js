@@ -26,8 +26,6 @@ const InfoFilaModal = ({filaId, isClose}) => {
     }, []);
 
 
-    console.log(filaId)
-
     return (
         <ModalAI  isOpen isClose={isClose}>
                 <FilaEstatisticas fila={editarFila} />

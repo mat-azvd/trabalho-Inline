@@ -14,6 +14,7 @@ async function clickDelete(){
 
 }
 
+
 if (!isOpen){
     return null;
 }

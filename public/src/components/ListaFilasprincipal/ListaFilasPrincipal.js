@@ -29,6 +29,7 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     useEffect(() => {
         getList()
     }, []);
+    
 
 
     return(
