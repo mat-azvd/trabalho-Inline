@@ -22,7 +22,7 @@ const Sidebar = ({ isOpen, toggle }) => {
         history.push(`/`);
     }
 
-    function isLogged () {
+    function isLogged() {
         const token = localStorage.getItem('token');
 
         if (token) {
@@ -41,7 +41,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink href="/queue-manger" onClick={ListaDeFilasAdm}>
+                    <SidebarLink href="/queue-manager" onClick={ListaDeFilasAdm}>
                         Gerenciar Filas
                     </SidebarLink>
                     <SidebarLink href="/setup-screen" onClick={Setup}>

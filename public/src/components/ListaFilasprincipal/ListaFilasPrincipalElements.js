@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components/";
 
 
@@ -28,6 +28,14 @@ display: flex;
 align-items: center;
 justify-content: center;
 font-size: 30px;
+color: #233f78;
+font-weight: 500;
+margin-top: 20px;
+
+@media screen and (max-width: 640px) {
+  font-size: 22px;
+  font-weight: 500;
+}
 `
 
 export const BtnDiv = styled.div`
@@ -38,7 +46,7 @@ background-color: white;
 width: 50%;
 min-width: 400px;
 max-width: 1000px;
-height: 60%;
+height: 65%;
 border: rgb(0, 0, 0);
 
 
@@ -67,22 +75,20 @@ overflow-y: scroll;
 
 
 margin-bottom: 20px;
-margin:20px auto 0 auto;
-
-    
-    
+margin:20px auto 0 auto;    
 
 `;
 
 export const Filas = styled.div`
+display:flex;
 
 align-items: center;
 position: relative;
 color: black;
-background-color: #1976d2;
+background-color: #233f78;
 width: 80%;
 max-width: 1000px;
-height: 30%;
+height: 25%;
 margin-top: 4%;
 margin-left: 10%;
 
@@ -101,7 +107,7 @@ border-radius: 8px;
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 3px solid rgb(0, 165, 226);
+  border: 3px solid #233f78;
 }
 
 
@@ -113,6 +119,8 @@ export const FormBtn = styled.nav`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+margin-bottom: 20px;
+padding: 4px;
 `;
 
 export const FormBtnLink = styled(Link)`
@@ -122,7 +130,7 @@ export const FormBtnLink = styled(Link)`
   margin-top: 30px;
   padding: 10px 32px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
   border: none;
   transition: all 0.2s ease-in-out;

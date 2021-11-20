@@ -12,6 +12,7 @@ import {
 import InfoFilaModal from "../InfoFilaModal/InfoFilaModal"
 import queueService from "../../services/queue"
 
+
 const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     const [filaId, setfilaID] = useState(null)
     const [fila, setFila] = useState([])

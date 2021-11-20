@@ -1,6 +1,30 @@
 import React, {useEffect, useState} from "react";
 import queueService from "../../services/queue"
+import styled from 'styled-components'
+import moment from "moment";
 
+const TitlePrincipal = styled.div`
+    color: #fff;
+    font-size: 20px;
+    padding: 6px;
+
+
+    @media only screen and (max-width: 640px) {
+        font-size: 14px;
+    }
+
+`;
+
+const TitleSecondary = styled.div`
+    color: #fff;
+    font-size: 20px;
+    padding: 6px;
+
+    @media only screen and (max-width: 640px) {
+        font-size: 14px;
+    }
+
+`;
 
 const Fila = ({fila, onClickFila}) => {
 
@@ -27,16 +51,12 @@ const Fila = ({fila, onClickFila}) => {
 
      
     return(
-    <table>
-        <tr></tr>
-    <buttom onClick={onClickFila}>    
-        <h1>Nome: {fila.nome}</h1>
-        <h1>Inicio: {fila.inicio}</h1>
+        <div onClick={onClickFila}>
+        <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
+        <TitleSecondary><strong>Início: </strong>{moment(fila.inicio).format('DD/MM/yyyy HH:mm:ss')}</TitleSecondary>
         <h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</h2>
-       
-    </buttom>
-    </table>
+        </div>
 
     );
 };

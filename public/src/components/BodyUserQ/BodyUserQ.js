@@ -68,20 +68,20 @@ const BodyUserQ = () => {
             <SectionContent>
                 <SectionTopWrapper>
                 </SectionTopWrapper>
-                <WhiteBG>
-                    <h1>{nameQueue}</h1>
-                    <WrapperPosition>
-                        <p>Você está no</p>
 
-                        {getLabelPosition()}
-                        <p>lugar da fila</p>
-                    </WrapperPosition>
-                    <WrapperTime>
-                        <p>Seu tempo estimado de espera:</p>
-                        <TimeCounter>{time}</TimeCounter>
-                    </WrapperTime>
-                    <ExitQ onClick={() => exitQueue()}>Sair</ExitQ>
-                </WhiteBG>
+                <h1>{nameQueue}</h1>
+                <WrapperPosition>
+                    <p>Você está no</p>
+
+                    {getLabelPosition()}
+                    <p>lugar da fila</p>
+                </WrapperPosition>
+                <WrapperTime>
+                    <p>Seu tempo estimado de espera:</p>
+                    <TimeCounter>{time}</TimeCounter>
+                </WrapperTime>
+                <ExitQ onClick={() => exitQueue()}>SAIR</ExitQ>
+
             </SectionContent>
         </SectionContainer>
     );
