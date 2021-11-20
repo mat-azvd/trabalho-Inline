@@ -13,6 +13,11 @@ display: flex;
 
 `;
 
+export const DivChild = styled.div`
+
+height: 90%;
+`;
+
 export const Div2Modal = styled.div`
 
 display: block; 
@@ -35,11 +40,6 @@ padding-bottom: 10px;
 
 
 export const BotaoModal1 = styled.div`
-  flex-direction: column;
-  display: flex; 
-  vertical-align: bottom;
-  align-items: center;
-  border-radius: 10px;
   
 `;
 
@@ -66,7 +66,38 @@ export const BotaoModal2 = styled.button`
   }
 
 `
+export const BotaoModal3 = styled.button`
+
+  border-radius: 10px;
+  background: rgb(160, 0, 0);
+  white-space: nowrap;
+  margin-top: 10px;
+  padding: 10px 32px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  width: 50%;
+  max-width: 200px;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: rgb(215, 0, 0);
+    color: #fff;
+  }
+
+`
 
 export const ListaPessoasModal = styled.div`
 
 `
+
+/*
+flex-direction: column;
+  display: flex; 
+  vertical-align: bottom;
+  align-items: center;
+  border-radius: 10px;
+  */

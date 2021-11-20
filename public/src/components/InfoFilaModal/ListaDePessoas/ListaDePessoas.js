@@ -6,9 +6,15 @@ import {ListaPessoasStyle,
 
 const ListaDePessoas = ({pessoas}) => {
 
+    console.log(pessoas)
     if(!pessoas) {
         return <div>carregando</div>
-    }
+    } else{
+
+        if(!pessoas.length) {
+            return <div>Sem Usuarios</div>
+        }
+    } 
 
     return (
 

@@ -19,7 +19,6 @@ const Fila = ({fila, onClickFila}) => {
         getUsuarios()
     }, []);
 
-    console.log(usuariosFila)
 
     if(!fila || usuariosFila == null){
         return <div>carregando</div> 

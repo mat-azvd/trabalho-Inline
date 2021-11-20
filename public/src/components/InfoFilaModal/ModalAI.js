@@ -1,6 +1,6 @@
 import React, {  } from "react";
 import ReactDOM from "react-dom";
-import { DivModal, Div2Modal,BotaoModal1, BotaoModal2 } from "./ModalElements";
+import { DivModal, Div2Modal,BotaoModal1, BotaoModal2,DivChild } from "./ModalElements";
 
 
 const portalRoot = document.getElementById('portal-root');
@@ -16,7 +16,7 @@ const ModalAI = ({children, isOpen, isClose}) => {
     return ReactDOM.createPortal (
         <DivModal className="overlay">
             <Div2Modal className="Modal">
-                <div>{children}</div>
+                <DivChild className="Children">{children}</DivChild>
                 <BotaoModal1>
                     <BotaoModal2 onClick={isClose}>
                         Fechar
