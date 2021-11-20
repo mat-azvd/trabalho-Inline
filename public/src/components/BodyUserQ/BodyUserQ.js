@@ -24,6 +24,7 @@ const BodyUserQ = () => {
     useEffect(() => {
         getUserQueue()
         getQueue()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     async function getQueue() {
@@ -32,7 +33,7 @@ const BodyUserQ = () => {
         setNameQueue(info.nome);
     }
 
-    async function getUserQueue () {
+    async function getUserQueue() {
         try {
             const info = await queueService.getInfoUser(queueId)
             const timeFormatted = new Date((info.tempoPrevistoAtendimento || 0) * 1000).toISOString().substr(11, 8)
@@ -44,7 +45,7 @@ const BodyUserQ = () => {
         }
     }
 
-    async function exitQueue () {
+    async function exitQueue() {
         try {
             await queueService.exit(queueId)
 
@@ -54,7 +55,7 @@ const BodyUserQ = () => {
         }
     }
 
-    function getLabelPosition () {
+    function getLabelPosition() {
         if (position === 1) {
             return <PositionQ>Próximo</PositionQ>
         }

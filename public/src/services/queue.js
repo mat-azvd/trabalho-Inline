@@ -1,6 +1,6 @@
 import api from '../lib/api'
 
-async function create (payload) {
+async function create(payload) {
   try {
     const { data } = await api.post('/filas', payload)
 
@@ -10,7 +10,7 @@ async function create (payload) {
   }
 }
 
-async function get (queueId) {
+async function get(queueId) {
   try {
     const { data } = await api.get(`/filas/${queueId}`)
 
@@ -20,7 +20,7 @@ async function get (queueId) {
   }
 }
 
-async function getInfoUser (queueId) {
+async function getInfoUser(queueId) {
   try {
     const { data } = await api.get(`/usuarios-fila/${queueId}`)
 
@@ -30,7 +30,7 @@ async function getInfoUser (queueId) {
   }
 }
 
-async function resume (queueId) {
+async function resume(queueId) {
   try {
     const { data } = await api.put(`/filas/${queueId}/retomar`)
 
@@ -40,7 +40,7 @@ async function resume (queueId) {
   }
 }
 
-async function pause (queueId) {
+async function pause(queueId) {
   try {
     const { data } = await api.put(`/filas/${queueId}/pausar`)
 
@@ -50,7 +50,7 @@ async function pause (queueId) {
   }
 }
 
-async function enter (code) {
+async function enter(code) {
   try {
     const { data } = await api.post(`/usuarios-fila/${code}/ingressar`)
 
@@ -60,7 +60,7 @@ async function enter (code) {
   }
 }
 
-async function toMeet (queueId, userId) {
+async function toMeet(queueId, userId) {
   try {
     const { data } = await api.post(`/usuarios-fila/${queueId}/atender/${userId}`)
 
@@ -70,7 +70,7 @@ async function toMeet (queueId, userId) {
   }
 }
 
-async function exit (queueId) {
+async function exit(queueId) {
   try {
     const { data } = await api.delete(`/usuarios-fila/${queueId}/sair`)
 
@@ -80,6 +80,7 @@ async function exit (queueId) {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,
   resume,

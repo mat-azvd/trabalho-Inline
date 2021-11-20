@@ -45,7 +45,7 @@ export const WhiteBG = styled.div`
     color: #233f78;
     text-align: center;
     font-weight: bold;
-    padding 8x;
+    padding: 8px;
     float: right;
 
     &:hover{

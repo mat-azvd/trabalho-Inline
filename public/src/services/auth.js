@@ -1,6 +1,6 @@
 import api from '../lib/api'
 
-async function login (cpf, senha) {
+async function login(cpf, senha) {
   try {
     const { data } = await api.post('/auth', {
       cpf,
@@ -13,6 +13,7 @@ async function login (cpf, senha) {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   login
 }
