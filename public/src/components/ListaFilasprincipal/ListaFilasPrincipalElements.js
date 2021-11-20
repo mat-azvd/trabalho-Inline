@@ -88,7 +88,7 @@ color: black;
 background-color: #233f78;
 width: 80%;
 max-width: 1000px;
-height: 25%;
+height: 30%;
 margin-top: 4%;
 margin-left: 10%;
 

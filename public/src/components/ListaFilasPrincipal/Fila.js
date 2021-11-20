@@ -54,8 +54,8 @@ const Fila = ({fila, onClickFila}) => {
         <div onClick={onClickFila}>
         <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
         <TitleSecondary><strong>Início: </strong>{moment(fila.inicio).format('DD/MM/yyyy HH:mm:ss')}</TitleSecondary>
-        <h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
-            {usuariosFila.usuarios.length}</h2>
+        <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
+            {usuariosFila.usuarios.length}</TitleSecondary>
         </div>
 
     );
