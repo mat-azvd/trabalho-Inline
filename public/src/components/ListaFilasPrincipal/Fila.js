@@ -1,10 +1,36 @@
 import React from "react";
+import styled from 'styled-components'
+import moment from "moment";
 
-const Fila = ({fila, onClickFila}) => (
-    <buttom onClick={onClickFila}>
-        <h1> Nome: {fila.nome}</h1>
-        <h1>Inicio:</h1>
-    </buttom>
+
+const TitlePrincipal = styled.div`
+    color: #fff;
+    font-size: 20px;
+    padding: 6px;
+
+
+    @media only screen and (max-width: 640px) {
+        font-size: 14px;
+    }
+
+`;
+
+const TitleSecondary = styled.div`
+    color: #fff;
+    font-size: 20px;
+    padding: 6px;
+
+    @media only screen and (max-width: 640px) {
+        font-size: 14px;
+    }
+
+`;
+
+const Fila = ({ fila, onClickFila }) => (
+    <div onClick={onClickFila}>
+        <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
+        <TitleSecondary><strong>Início: </strong>{moment(fila.inicio).format('DD/MM/yyyy HH:mm:ss')}</TitleSecondary>
+    </div>
 );
 
 export default Fila;

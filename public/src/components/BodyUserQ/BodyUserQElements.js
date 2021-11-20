@@ -18,13 +18,21 @@ export const SectionContainer = styled.div`
   height: calc(100vh - 70px);
   position: relative;
   z-index: 1;
+
+  h1{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
 `
 
 export const WrapperTime = styled.div`
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 20px;
   background-color:#233f78;
   margin-top: 20px;
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
   p{
     text-align: center;
     color: #fff;
@@ -38,14 +46,21 @@ export const TimeCounter = styled.div`
 `
 
 export const ExitQ = styled.button`
+
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 20px;
-  background-color:#bc544b;
+  background-color:	#B22222;
   margin: 20px auto;
   text-align: center;
   color: #fff;
-  width:40%;
+  font-size: 18px;
+  font-weight: bold;
+  width:60%;
+  border: none;
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
 `
 
 export const GiveQ = styled.div`
@@ -58,13 +73,13 @@ export const GiveQ = styled.div`
   width:40%;
 `
 
-
-
 export const WrapperPosition = styled.div`
-  border-radius: 30px;
-  border-color: #233f78;
-  border-width: 2px;
-  padding: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.55);
+  border-width: 1px;
+  padding: 20px;  
   border-style: solid;
   p{
     text-align: center;
@@ -73,35 +88,18 @@ export const WrapperPosition = styled.div`
 `
 
 export const PositionQ = styled.div`
-    font-size:60px;
+    font-size:40px;
     display:flex;
+    font-weight: bold;
     justify-content: center;
     color: #233f78;
 `
 
 
 
-export const WhiteBG = styled.div`
-  z-index: 3;
-  background-color: #fff;
-  padding: 100px 100px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 70%;
-  border-radius: 30px;
-  justify-content: center;
-  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  @media screen and (max-width: 800px) {
-    padding:20px 5px;
-  }
- `
-
 export const SectionContent = styled.div`
-  /* background: #fff; */
-  border-radius: 30px;
+background: #fff; 
+  border-radius: 10px;
   z-index: 3;
   max-width: 1200px;
   position: absolute;
@@ -109,8 +107,10 @@ export const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* -webkit-box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51);
-  box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51); */
+  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+
 
   @media screen and (max-width: 800px) {
     width: 80%;
