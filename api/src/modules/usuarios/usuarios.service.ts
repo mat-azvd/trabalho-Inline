@@ -65,11 +65,12 @@ export class UsuariosService {
     }
 
     if (data.senha) {
-      const hash = await argon2.hash(data.senha);
-      usuario.senha = hash;
+      data.senha = await argon2.hash(data.senha);
+    } else {
+      delete data.senha;
     }
 
-    const response = await this.usuarioModel.updateOne({ _id: id }, data);
+    const response = await this.usuarioModel.updateOne({ _id: id }, { $set: data });
 
     return response;
   }
