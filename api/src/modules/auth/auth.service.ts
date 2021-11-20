@@ -19,7 +19,7 @@ export class AuthService {
       throw new BadRequestException('CNPJ inválido')
     }
 
-    const user = await this.usuarioModel.findOne({ cpf });
+    const user = await this.usuarioModel.findOne({ cpf: cpf.replace(/[^\d]+/g, '') });
 
     if (!user || !(await argon2.verify(user.senha, senha))) {
       throw new UnauthorizedException('Credenciais inválidas.');
@@ -27,7 +27,7 @@ export class AuthService {
 
     const token = this.jwtService.sign({
       id: user.id,
-      cpf: user.cpf.replace(/[^\d]+/g, ''),
+      cpf: user.cpf,
       lojaId: user.lojaId
     });
 
