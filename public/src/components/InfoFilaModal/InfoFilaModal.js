@@ -18,7 +18,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
     async function getList() {
         const queue = await queueService.get(id)    
         setEditarFila(queue);
-    
+        
     }
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
     }, []);
 
 
-
+    console.log(filaId)
 
     return (
         <ModalAI  isOpen isClose={isClose}>

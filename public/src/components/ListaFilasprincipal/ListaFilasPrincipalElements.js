@@ -36,9 +36,9 @@ display: block;
 align-items: center;
 background-color: white;
 width: 50%;
-min-width: 300px;
+min-width: 400px;
 max-width: 1000px;
-height: 50%;
+height: 60%;
 border: rgb(0, 0, 0);
 
 
@@ -86,10 +86,18 @@ height: 30%;
 margin-top: 4%;
 margin-left: 10%;
 
+
 box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
 
 border-radius: 8px;
-font-size: 10px;
+
+@media screen and (min-width: 1100px) {
+  font-size: 10px;
+
+}
+@media screen and (max-width: 1101px) {
+  font-size: 8px;
+}
 
 &:hover {
   transition: all 0.2s ease-in-out;

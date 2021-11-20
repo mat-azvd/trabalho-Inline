@@ -30,13 +30,14 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
         getList()
     }, []);
 
+
     return(
         <MainSection isOpen={isOpen} onClick={toggle}>
 
             
             <BtnDiv>
             <Titulo>Minhas Filas</Titulo>
-            <Div1 className="container filas">               
+            <Div1 className="container filas">              
                 {fila.map((fila) => (                       
                     <Filas className="filas" key={fila._id} >
                         <Fila fila={fila} 

@@ -26,7 +26,7 @@ async function list () {
 
     return data
   } catch (error) {
-    console.log(error)
+    
     throw error.response.data
     
   }
@@ -92,6 +92,20 @@ async function exit (queueId) {
   }
 }
 
+async function deleteQueue (queueId) {
+  try {
+    const { data } = await api.delete(`/filas/${queueId}`)
+
+    return data
+  } catch (error) {
+    console.log(error)
+    throw error.response.data
+  }
+}
+
+
+
+
 export default {
   create,
   resume,
@@ -101,5 +115,6 @@ export default {
   toMeet,
   getInfoUser,
   get,
-  list
+  list,
+  deleteQueue
 }
