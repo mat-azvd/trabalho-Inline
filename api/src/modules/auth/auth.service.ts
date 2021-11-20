@@ -16,7 +16,7 @@ export class AuthService {
 
   async login(cpf: string, senha: string) {
     if (!validarCPF(cpf)) {
-      throw new BadRequestException('CNPJ inválido')
+      throw new BadRequestException('CPF inválido')
     }
 
     const user = await this.usuarioModel.findOne({ cpf: cpf.replace(/[^\d]+/g, '') });
