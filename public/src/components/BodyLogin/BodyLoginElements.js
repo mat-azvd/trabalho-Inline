@@ -26,17 +26,17 @@ export const WhiteBG = styled.div`
   padding: 50px 50px;
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 70%;
-  border-radius: 30px;
+  width: 420px;
+  border-radius: 1rem;
   justify-content: center;
-  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  @media screen and (max-width: 800px) {
-    padding:20px 5px;
 
+  @media screen and (max-width: 800px) {
+    padding: 30px 30px;
+    width: 100%;
   }
+
   p{
     color: #233f78;
     display: inline-block;
@@ -58,9 +58,7 @@ export const WhiteBG = styled.div`
  `
 
 export const SectionContent = styled.div`
-  /* background: #fff; */
   width: 30%;
-  border-radius: 30px;
   z-index: 3;
   max-width: 1200px;
   position: absolute;
@@ -68,12 +66,9 @@ export const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* -webkit-box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51);
-  box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51); */
 
   @media screen and (max-width: 800px) {
-    width: 80%;
-
+    width: 100%;
   }
 
   h1 {
@@ -82,8 +77,6 @@ export const SectionContent = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
   }
-
-
 `
 
 export const LabelTitle = styled.div`

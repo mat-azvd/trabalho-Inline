@@ -25,7 +25,7 @@ export const FormContent = styled.div`
   min-width: 300px;
   padding: 30px;
   box-sizing: border-box;
-  border-radius: 2rem;
+  border-radius: 1rem;
   -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
@@ -39,11 +39,11 @@ export const FormContent = styled.div`
 export const FormTitle = styled.div`
   color: #233f78;
   text-align: center;
-  margin: 15px 0px 50px 0px;
+  margin: 15px 0px 40px 0px;
 `;
 
 export const FormInput = styled.input`
-  margin: 6px 0px 30px 0px;
+  margin: 6px 0px 10px 0px;
   display: flex;
   width: 100%;
   font-size: 14px;
