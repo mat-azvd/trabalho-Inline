@@ -30,6 +30,13 @@ export class FilasService {
     return fila;
   }
 
+  async listar () {
+    return await this.filaModel
+      .find()
+      .select('-__v')
+      .lean();
+  }
+
   async cadastrar (lojaId: string, data: FilaDto) {
     if (!lojaId) {
       throw new UnauthorizedException('Usuário não tem acesso a este recurso');

@@ -19,6 +19,12 @@ export class FilasController {
   }
 
   @UseGuards(LocalAuthGuard)
+  @Get('/')
+  async listar() {
+    return await this.filasService.listar();
+  }
+
+  @UseGuards(LocalAuthGuard)
   @Get('/:filaId')
   async buscar(@Param('filaId') filaId: string) {
     return await this.filasService.buscar(filaId);

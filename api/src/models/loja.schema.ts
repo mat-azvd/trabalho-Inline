@@ -14,9 +14,7 @@ export class Loja {
 
   @Prop({
     required: true,
-    unique: true,
-    minlength: 14,
-    maxlength: 14
+    unique: true
   })
   cnpj: string;
 
