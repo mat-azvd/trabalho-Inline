@@ -23,7 +23,7 @@ function App() {
         <Route path="/signin" exact component={BodySign} />
         <Route path="/signin/:storeId" exact component={BodySign} />
         <Route path="/user/queue/:queueId" exact component={BodyUserQ} />
-        <Route path="/queue-manger" exact component={ListaDeFilasAdm}/>
+        <Route path="/queue-manager" exact component={ListaDeFilasAdm} />
         <Route path="/store-register" exact component={StoreRegister} />
 
       </Switch>
