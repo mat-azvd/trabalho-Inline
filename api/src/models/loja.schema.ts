@@ -26,17 +26,6 @@ export class Loja {
   @Prop({ required: true })
   telefone: string;
 
-  @Prop({ required: true })
-  @IsNotEmpty()
-  @IsEmail()
-  email: string;
-
-  @Prop({
-    required: true,
-    enum: ['BASICO', 'ESSENCIAL', 'PREMIUM'],
-  })
-  plano: string;
-
   @Prop()
   deletado: boolean;
 
