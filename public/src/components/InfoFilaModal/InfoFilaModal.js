@@ -46,10 +46,10 @@ const InfoFilaModal = ({filaId, isClose}) => {
     }, []);
 
     if(botaoLabel==='Fila retomada'){
-        var label = 'Pausar';
+        var label = 'Retomar';
         console.log(label)
     }   else{
-            label = 'Retomar';
+            label = 'Pausar';
         console.log(label)
     }
 
@@ -60,7 +60,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
                 <ListaDePessoas pessoas={editarFila.usuarios} />
             </ListaPessoasModal>
             <BotaoModal3 onClick={() => clickChange()}>
-                <BotaoPausarRetomar label={editarFila.ativo} />
+                <BotaoPausarRetomar label={label} />
             </BotaoModal3>                 
         </ModalAI> 
     )
