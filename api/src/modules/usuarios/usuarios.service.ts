@@ -58,7 +58,7 @@ export class UsuariosService {
   }
 
   async atualizar (id: string, data: UsuarioDto) {
-    const usuario = await this.usuarioModel.findById(id);
+    const usuario = await this.usuarioModel.findById(id).lean();
 
     if (!usuario) {
       throw new NotFoundException('Usuário não encontrado');
