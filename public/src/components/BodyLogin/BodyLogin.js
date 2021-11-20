@@ -17,6 +17,7 @@ import {
     FormInput,
 } from "../CreateQueue/CreateQueueElements";
 import { useHistory } from "react-router-dom";
+import formatCPF from "../../utils/helpers";
 
 const BodyLogin = (props) => {
     const [hover, setHover] = useState(false);
@@ -47,7 +48,9 @@ const BodyLogin = (props) => {
                         type="text"
                         name="cpf"
                         placeholder="Digite o seu CPF"
-                        onChange={(e) => setCpf(e.target.value)}
+                        onChange={(e) => setCpf(formatCPF(e.target.value))}
+                        value={cpf}
+                        maxLength="14"
                     />
 
                     <LabelTitle>Senha</LabelTitle>

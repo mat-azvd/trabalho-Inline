@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar"
 import SetupScreen from "../components/SetupScreen/SetupScreen"
 import Sidebar from "../components/Sidebar/Sidebar"
 
-const Queue = () => {
+const Setup = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggle = () => {
@@ -19,4 +19,4 @@ const Queue = () => {
     )
 }
 
-export default Queue
+export default Setup
