@@ -6,6 +6,11 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 const ListaDeFilasAdm = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const token = window.localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href = "/login";
+    }
 
     const toggle = () => {
         setIsOpen(!isOpen);

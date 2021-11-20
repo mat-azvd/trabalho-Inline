@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import ModalAI from "./ModalAI";
-import useApi from "../utils/useApi";
 import FilaEstatisticas from "./Fila/FilaEstatisticas"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal,BotaoModal2} from "./ModalElements"
@@ -13,35 +12,31 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     const [modalOpen, setModalOpen] = useState(false)
 
-    const id = filaId;
-
-    async function getList() {
-        const queue = await queueService.get(id)    
-        setEditarFila(queue);
-    
-    }
-
     useEffect(() => {
         getList()
     }, []);
 
 
-
+    async function getList() {
+        const queue = await queueService.get(filaId)
+        setEditarFila(queue);
+    }
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-                <FilaEstatisticas fila={editarFila} />
+            <FilaEstatisticas fila={editarFila} />
+
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
-            </ListaPessoasModal> 
+            </ListaPessoasModal>
             <BotaoModal2 onClick={() => setModalOpen(true)}>
                     Editar Fila
             </BotaoModal2>
 
             {modalOpen && (
             <EditarFilaModal filaId={editarFila._id} isClose={() => setModalOpen(false)}/>
-            ) }          
-        </ModalAI> 
+            ) }
+        </ModalAI>
     )
 
 

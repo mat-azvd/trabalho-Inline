@@ -1,15 +1,10 @@
 import React from "react";
 
-
 const Fila = ({fila, onClickFila}) => (
-
-    <table>
-        <tr></tr>
-    <buttom onClick={onClickFila}>    
+    <buttom onClick={onClickFila}>
         <h1> Nome: {fila.nome}</h1>
         <h1>Inicio:</h1>
     </buttom>
-    </table>
 );
 
 export default Fila;
