@@ -107,7 +107,7 @@ border-radius: 8px;
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 3px solid #233f78;
+  border: 3px solid rgb(6, 130, 200);
 }
 
 

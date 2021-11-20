@@ -45,7 +45,7 @@ const Fila = ({fila, onClickFila}) => {
 
 
     if(!fila || usuariosFila == null){
-        return <div>carregando</div> 
+        return <TitleSecondary>carregando</TitleSecondary> 
        
     } 
 
