@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
-import ListaFilasPrincipal from "../components/ListaFilasPrincipal/ListaFilasPrincipal"
+import ListaFilasPrincipal from "../components/ListaFilasprincipal/ListaFilasprincipal"
 import Sidebar from "../components/Sidebar/Sidebar";
 
 const ListaDeFilasAdm = () => {
