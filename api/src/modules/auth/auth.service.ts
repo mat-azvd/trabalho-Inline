@@ -1,9 +1,10 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import * as argon2 from 'argon2';
 import { Model } from 'mongoose';
 import { Usuario, UsuarioDocument } from 'src/models/usuario.schema';
+import { validarCPF } from 'src/utils';
 
 
 @Injectable()
@@ -14,6 +15,10 @@ export class AuthService {
   ) {}
 
   async login(cpf: string, senha: string) {
+    if (!validarCPF(cpf)) {
+      throw new BadRequestException('CNPJ inválido')
+    }
+
     const user = await this.usuarioModel.findOne({ cpf });
 
     if (!user || !(await argon2.verify(user.senha, senha))) {
@@ -22,7 +27,7 @@ export class AuthService {
 
     const token = this.jwtService.sign({
       id: user.id,
-      cpf: user.cpf,
+      cpf: user.cpf.replace(/[^\d]+/g, ''),
       lojaId: user.lojaId
     });
 
