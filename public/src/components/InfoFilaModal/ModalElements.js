@@ -34,11 +34,10 @@ padding-bottom: 10px;
 `
 
 
-export const BotaoModal1 = styled.nav`
-
+export const BotaoModal1 = styled.div`
+  flex-direction: column;
   display: flex; 
   vertical-align: bottom;
-  justify-content: center;
   align-items: center;
   border-radius: 10px;
   
@@ -49,7 +48,7 @@ export const BotaoModal2 = styled.button`
   border-radius: 10px;
   background: #233f78;
   white-space: nowrap;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 10px 32px;
   color: #fff;
   font-size: 14px;
@@ -57,7 +56,8 @@ export const BotaoModal2 = styled.button`
   border: none;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  
+  width: 50%;
+  max-width: 200px;
 
   &:hover {
     transition: all 0.2s ease-in-out;

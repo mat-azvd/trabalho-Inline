@@ -33,14 +33,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
                 <FilaEstatisticas fila={editarFila} />
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
-            </ListaPessoasModal> 
-            <BotaoModal2 onClick={() => setModalOpen(true)}>
-                    Editar Fila
-            </BotaoModal2>
-
-            {modalOpen && (
-            <EditarFilaModal filaId={editarFila._id} isClose={() => setModalOpen(false)}/>
-            ) }          
+            </ListaPessoasModal>                 
         </ModalAI> 
     )
 
@@ -48,3 +41,13 @@ const InfoFilaModal = ({filaId, isClose}) => {
 }
 
 export default InfoFilaModal;
+
+/*{modalOpen && (
+            <EditarFilaModal filaId={editarFila._id} isClose={() => setModalOpen(false)}/>
+            ) }
+
+            <BotaoModal2 onClick={() => setModalOpen(true)}>
+                    Excluir Fila
+                </BotaoModal2>
+            
+*/

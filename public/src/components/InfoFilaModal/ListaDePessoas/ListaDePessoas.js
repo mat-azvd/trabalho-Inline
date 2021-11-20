@@ -16,7 +16,7 @@ const ListaDePessoas = ({pessoas}) => {
             {pessoas.map((pessoa) => (
                 <Div2>    
                     <ListaPessoasStyle >
-                        {pessoa.nome}
+                        {pessoa.usuarioId.nome}
                     <BtnDeletePessoa>X</BtnDeletePessoa>
                     </ListaPessoasStyle >               
                     

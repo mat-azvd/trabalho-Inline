@@ -22,7 +22,10 @@ return ReactDOM.createPortal (
             <BotaoModal1>
                 <BotaoModal2 onClick={isClose}>
                     Fechar
-                </BotaoModal2>    
+                </BotaoModal2> 
+                <BotaoModal2 >
+                    Excluir Fila
+                </BotaoModal2>   
             </BotaoModal1>
         </Div2Modal>      
 

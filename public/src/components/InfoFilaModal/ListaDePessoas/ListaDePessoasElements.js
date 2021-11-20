@@ -16,17 +16,20 @@ justify-content: center;
 
 export const ListaPessoasStyle = styled.div`
 
-background-color: rgb(0, 155, 255);
+background-color: white;
 margin-top: 10px;
 margin-bottom: 5px;
+
+border: black;
+border-radius: 8px;
+border-width: 20px;
 
 position: relative;
 color: black;
 
 box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
 
-border-radius: 8px;
-border-width: 5px;
+
 
 
 width: 90%;
