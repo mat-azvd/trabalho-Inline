@@ -44,4 +44,6 @@ margin-top: 1px;
 border-radius: 5px;
 border-width: 1px;
 
+background-color: red;
+
 `;

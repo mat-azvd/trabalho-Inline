@@ -5,56 +5,41 @@ import FilaEstatisticas from "./Fila/FilaEstatisticas"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal,BotaoModal2} from "./ModalElements"
 import EditarFilaModal from "./EditarFilaModal";
-
+import queueService from "../../services/queue"
 
 const InfoFilaModal = ({filaId, isClose}) => {
 
-    const [editarFila, setEditarFila] = useState(null);
+    const [editarFila, setEditarFila] = useState({});
+
+    const [modalOpen, setModalOpen] = useState(false)
 
     const id = filaId;
 
-    const [loadFila, loadInfoFila] = useApi({
-        url: "http://localhost:5000/fila",
-        params: {
-            id,
-        }
-
-    });
+    async function getList() {
+        const queue = await queueService.get(id)    
+        setEditarFila(queue);
+    
+    }
 
     useEffect(() => {
-        loadFila();
+        getList()
     }, []);
 
-    const [loadPessoa, loadInfoPessoa] = useApi({
-        url: "http://localhost:5000/pessoas",
-        params: {
-            filaId,
-        }
 
-    });
 
-    useEffect(() => {
-        loadPessoa();
-    }, []);
-
-    console.log(loadInfoPessoa);
-
-    console.log(loadInfoFila);
-
-    console.log(id);
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-                <FilaEstatisticas fila={loadInfoFila.data} />
+                <FilaEstatisticas fila={editarFila} />
             <ListaPessoasModal>
-                <ListaDePessoas pessoas={loadInfoPessoa.data} />
+                <ListaDePessoas pessoas={editarFila.usuarios} />
             </ListaPessoasModal> 
-            <BotaoModal2 onClick={() => setEditarFila(filaId)}>
+            <BotaoModal2 onClick={() => setModalOpen(true)}>
                     Editar Fila
             </BotaoModal2>
 
-            {editarFila && (
-            <EditarFilaModal filaId={editarFila} isClose={() => setEditarFila(null)}/>
+            {modalOpen && (
+            <EditarFilaModal filaId={editarFila._id} isClose={() => setModalOpen(false)}/>
             ) }          
         </ModalAI> 
     )

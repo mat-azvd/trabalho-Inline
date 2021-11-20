@@ -10,14 +10,12 @@ console.log(fila);
     return(
 
         <ul className="Lista-de-pessoas">
-            {fila.map((fila) => (
-                <li >
-                    <h1>{fila.titulo}</h1>
-                    <p>Tempo:{fila.tempo}</p>
-                </li>
-            )
             
-            )}
+                <li >
+                    <h1>{fila.nome}</h1>
+                    <p>Tempo:{fila.inicio}</p>
+                </li>
+           
         </ul>
         
         

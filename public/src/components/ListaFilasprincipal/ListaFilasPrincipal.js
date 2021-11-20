@@ -10,6 +10,8 @@ import {
     BtnDiv,
     Titulo } from "./ListaFilasPrincipalElements"
 import InfoFilaModal from "../InfoFilaModal/InfoFilaModal"
+import queueService from "../../services/queue"
+
 
 
 const ListaFilasPrincipal = ({ isOpen, toggle }) => {
@@ -18,13 +20,14 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     
     const [fila, setFila] = useState([]);
 
-    useEffect(() => {
-        axios.get("http://localhost:5000/fila?_embed=pessoas")
-        .then((response) => {
-            setFila(response.data);
-            console.log(response.data);
-        });
+    async function getList() {
+        const queue = await queueService.list()    
+            setFila(queue);
+    
+    }
 
+    useEffect(() => {
+        getList()
     }, []);
 
     return(
@@ -35,9 +38,9 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
             <Titulo>Minhas Filas</Titulo>
             <Div1 className="container filas">               
                 {fila.map((fila) => (                       
-                    <Filas className="filas" key={fila.id} >
+                    <Filas className="filas" key={fila._id} >
                         <Fila fila={fila} 
-                        onClickFila={() => setfilaID(fila.id)} />                  
+                        onClickFila={() => setfilaID(fila._id)} />                  
                     </Filas>
                 ))}
 
@@ -62,3 +65,17 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 
 export default ListaFilasPrincipal;
 
+/*
+
+
+
+
+
+useEffect(() => {
+    const getData = async () => {
+    const data = await queueService.list();
+    setFila(data)
+    };
+    getData();
+}, []);
+*/

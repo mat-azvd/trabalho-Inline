@@ -20,6 +20,18 @@ async function get (queueId) {
   }
 }
 
+async function list () {
+  try {
+    const { data } = await api.get(`/filas`)
+
+    return data
+  } catch (error) {
+    console.log(error)
+    throw error.response.data
+    
+  }
+}
+
 async function getInfoUser (queueId) {
   try {
     const { data } = await api.get(`/usuarios-fila/${queueId}`)
@@ -88,5 +100,6 @@ export default {
   pause,
   toMeet,
   getInfoUser,
-  get
+  get,
+  list
 }
