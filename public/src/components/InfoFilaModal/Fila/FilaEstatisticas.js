@@ -13,7 +13,7 @@ console.log(fila);
             
                 <li >
                     <h1>{fila.nome}</h1>
-                    <p>Tempo:{fila.inicio}</p>
+                    <p dateFormat="dd/MM/yyyy h:mm aa">Tempo:{fila.inicio}</p>
                 </li>
            
         </ul>
