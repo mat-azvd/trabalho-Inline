@@ -72,6 +72,7 @@ export class UsuariosService {
     }
 
     data.senha = await argon2.hash(data.senha);
+    data.cpf = data.cpf.replace(/[^\d]+/g, '');
     const usuario = new this.usuarioModel(data);
 
     try {

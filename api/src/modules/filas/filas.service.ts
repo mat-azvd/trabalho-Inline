@@ -30,6 +30,13 @@ export class FilasService {
     return fila;
   }
 
+  async listar () {
+    return await this.filaModel
+      .find()
+      .select('-__v')
+      .lean();
+  }
+
   async cadastrar (lojaId: string, data: FilaDto) {
     if (!lojaId) {
       throw new UnauthorizedException('Usuário não tem acesso a este recurso');
@@ -42,6 +49,7 @@ export class FilasService {
     const fila = new this.filaModel(data);
     fila.lojaId = lojaId;
     fila.codigo = Math.random().toString(36).substr(2, 8).toUpperCase();
+    fila.ativo = true;
     fila.nome = `Fila #${fila.codigo}`
 
     try {
