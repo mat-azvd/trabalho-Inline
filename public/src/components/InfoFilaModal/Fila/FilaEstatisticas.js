@@ -1,5 +1,5 @@
 import React /*,{ useState }*/ from "react";
-
+import moment, {duration} from "moment";
 
 const FilaEstatisticas = ({fila}) => {
 
@@ -9,13 +9,26 @@ const FilaEstatisticas = ({fila}) => {
         );
     }
 
+    var timeNow = moment().format('DD/MM/yyyy HH:mm:ss');
+    var timeFila = moment(fila.fim).format('DD/MM/yyyy HH:mm:ss');
+
+    let diff = moment(timeFila,"DD/MM/YYYY HH:mm:ss").diff(moment(timeNow,"DD/MM/YYYY HH:mm:ss"));
+    var duracao = moment.duration(diff)
+    var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
+    
+    console.log('agora ' + timeNow);
+    console.log('Fim ' + timeFila);
+    console.log('inicio ' + fila.inicio);
+    console.log('tempo ' + formato);
+    
     return(
 
         <ul className="Lista-de-pessoas">
             
                 <li >
                     <h1>{fila.nome}</h1>
-                    <p dateFormat="dd/MM/yyyy h:mm aa">Tempo:{fila.inicio}</p>
+                    <p><strong>{formato.match(/-/) ? "Fila Encerrada.": "Tempo: " + formato }
+                    </strong></p>
                 </li>
            
         </ul>

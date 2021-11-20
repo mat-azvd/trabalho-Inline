@@ -43,6 +43,13 @@ const Fila = ({fila, onClickFila}) => {
         getUsuarios()
     }, []);
 
+    var timeNow = moment().format('DD/MM/yyyy HH:mm:ss');
+    var timeFila = moment(fila.fim).format('DD/MM/yyyy HH:mm:ss');
+
+    let diff = moment(timeFila,"DD/MM/YYYY HH:mm:ss").diff(moment(timeNow,"DD/MM/YYYY HH:mm:ss"));
+    var duracao = moment.duration(diff)
+    var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
+
 
     if(!fila || usuariosFila == null){
         return <TitleSecondary>carregando</TitleSecondary> 
@@ -53,7 +60,7 @@ const Fila = ({fila, onClickFila}) => {
     return(
         <div onClick={onClickFila}>
         <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
-        <TitleSecondary><strong>Início: </strong>{moment(fila.inicio).format('DD/MM/yyyy HH:mm:ss')}</TitleSecondary>
+        <TitleSecondary><strong>Tempo: </strong>{formato.match(/-/) ? "Fila Encerrada.": formato }</TitleSecondary>
         <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</TitleSecondary>
         </div>
