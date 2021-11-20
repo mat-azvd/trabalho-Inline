@@ -41,4 +41,6 @@ export class FilasController {
   async retomar(@CurrentUser() usuario: UsuarioPayload, @Param('filaId') filaId: string) {
     return await this.filasService.retomar(filaId, usuario.lojaId);
   }
+
+  
 }

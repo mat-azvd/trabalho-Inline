@@ -26,6 +26,7 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     }, [])
 
 
+
     return (
         <MainSection isOpen={isOpen} onClick={toggle}>
 
