@@ -19,7 +19,7 @@ if (!isOpen){
     return null;
 }
 
-//console.log(children.fila._id);
+//console.log(children.fila);
 
 return ReactDOM.createPortal (
     <DivModal className="overlay">

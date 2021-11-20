@@ -3,10 +3,13 @@ import React /*,{ useState }*/ from "react";
 
 const FilaEstatisticas = ({fila}) => {
 
+    console.log(fila)
     if(!fila) {
-        return <div>carregando</div>
+        return (
+            console.log("entrou")
+        );
     }
-    
+
     return(
 
         <ul className="Lista-de-pessoas">

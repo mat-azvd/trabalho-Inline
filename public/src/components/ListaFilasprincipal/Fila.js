@@ -4,16 +4,8 @@ import queueService from "../../services/queue"
 
 const Fila = ({fila, onClickFila}) => {
 
-    const [usuariosFila, setUsuariosFila] = useState({});
+    const [usuariosFila, setUsuariosFila] = useState(null);
 
-    useEffect(() => {
-        getUsuarios()
-    }, []);
-
-
-    if(!fila) {
-        return <div>carregando</div>
-    }
 
     const id = fila._id;
 
@@ -23,8 +15,18 @@ const Fila = ({fila, onClickFila}) => {
         
     }
 
-    console.log(usuariosFila);
-    
+    useEffect(() => {
+        getUsuarios()
+    }, []);
+
+    console.log(usuariosFila)
+
+    if(!fila || usuariosFila == null){
+        return <div>carregando</div> 
+       
+    } 
+
+     
     return(
     <table>
         <tr></tr>
@@ -45,5 +47,9 @@ export default Fila;
         {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
         <h3>Tempo: {fila.tempo}</h3>
 
-        
+        <h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
+            {usuariosFila.usuarios.length}</h2>
+<h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
+            {usuariosFila.usuarios.length}</h2>
+             
     */
