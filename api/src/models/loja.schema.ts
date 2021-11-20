@@ -1,9 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import {
-  IsNotEmpty,
-  IsEmail
-} from 'class-validator';
 
 export type LojaDocument = Loja & Document;
 

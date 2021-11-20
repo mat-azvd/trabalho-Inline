@@ -23,7 +23,7 @@ export class LojasService {
     if (!validarCNPJ(data.cnpj)) {
       throw new BadRequestException('CNPJ inválido')
     }
-
+    data.cnpj = data.cnpj.replace(/[^\d]+/g, '');
     const loja = new this.lojaModel(data);
 
     return loja.save();
