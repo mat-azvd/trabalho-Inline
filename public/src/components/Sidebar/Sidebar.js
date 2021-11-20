@@ -41,11 +41,8 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to="/manage" onClick={toggle}>
+                    <SidebarLink href="/queue-manger" onClick={ListaDeFilasAdm}>
                         Gerenciar Filas
-                    </SidebarLink>
-                    <SidebarLink to="/ListaDeFilasAdm" onClick={ListaDeFilasAdm}>
-                        Filas
                     </SidebarLink>
                     <SidebarLink href="/setup-screen" onClick={Setup}>
                         Configurações

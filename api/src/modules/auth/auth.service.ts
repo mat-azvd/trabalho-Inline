@@ -1,9 +1,10 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import * as argon2 from 'argon2';
 import { Model } from 'mongoose';
 import { Usuario, UsuarioDocument } from 'src/models/usuario.schema';
+import { validarCPF } from 'src/utils';
 
 
 @Injectable()
@@ -14,7 +15,11 @@ export class AuthService {
   ) {}
 
   async login(cpf: string, senha: string) {
-    const user = await this.usuarioModel.findOne({ cpf });
+    if (!validarCPF(cpf)) {
+      throw new BadRequestException('CPF inválido')
+    }
+
+    const user = await this.usuarioModel.findOne({ cpf: cpf.replace(/[^\d]+/g, '') });
 
     if (!user || !(await argon2.verify(user.senha, senha))) {
       throw new UnauthorizedException('Credenciais inválidas.');

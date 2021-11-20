@@ -36,9 +36,10 @@ const SectionMain = () => {
         if (queueCode) {
             enterQueue(queueCode);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function onSubmit (code) {
+    function onSubmit(code) {
         if (!localStorage.getItem('token')) {
             localStorage.setItem('code', code);
             return history.push('/login')

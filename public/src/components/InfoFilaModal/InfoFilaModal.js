@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ModalAI from "./ModalAI";
-import useApi from "../utils/useApi";
 import FilaEstatisticas from "./Fila/FilaEstatisticas"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal,BotaoModal2} from "./ModalElements"
-import EditarFilaModal from "./EditarFilaModal";
 import queueService from "../../services/queue"
 
 const InfoFilaModal = ({filaId, isClose}) => {
@@ -33,7 +31,8 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-                <FilaEstatisticas fila={editarFila} />
+            <FilaEstatisticas fila={editarFila} />
+
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
             </ListaPessoasModal>

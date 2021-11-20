@@ -5,10 +5,12 @@ import BodyLogin from "../components/BodyLogin/BodyLogin";
 import Sidebar from "../components/Sidebar/Sidebar";
 import authService from '../services/auth'
 import { useHistory } from "react-router-dom";
+import Modal from "../components/ModalAlert/Modal";
 
-const Home = () => {
+const Login = () => {
     const [isOpen, setIsOpen] = useState(false);
     const history = useHistory();
+    const [showModal, setShowModal] = useState(false);
 
     const toggle = () => {
         setIsOpen(!isOpen);
@@ -25,17 +27,27 @@ const Home = () => {
 
             history.push("/");
         } catch (error) {
-            alert(error.message)
+            console.error("Erro ao realizar login: ", error);
+            setShowModal(true);
         }
+
     }
 
     return (
         <>
             <Sidebar isOpen={isOpen} toggle={toggle} />
             <Navbar toggle={toggle} />
-            <BodyLogin onSubmit={onSubmit}/>
+            <BodyLogin onSubmit={onSubmit} />
+            <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                headerText="Erro ao efetuar o login!"
+                text="Verifique seu usuário e/ou senha."
+                btnText="Entendido"
+            />
+
         </>
     );
 };
 
-export default Home;
+export default Login;

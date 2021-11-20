@@ -1,6 +1,6 @@
 import api from '../lib/api'
 
-async function getLoggedUser (payload) {
+async function getLoggedUser(payload) {
   try {
     const { data } = await api.get('/usuarios/logado', payload)
 
@@ -10,7 +10,7 @@ async function getLoggedUser (payload) {
   }
 }
 
-async function create (payload) {
+async function create(payload) {
   try {
     const { data } = await api.post('/usuarios', payload)
 
@@ -20,7 +20,7 @@ async function create (payload) {
   }
 }
 
-async function update (userId, payload) {
+async function update(userId, payload) {
   try {
     const { data } = await api.put(`/usuarios/${userId}`, payload)
 
@@ -30,6 +30,7 @@ async function update (userId, payload) {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getLoggedUser,
   create,
