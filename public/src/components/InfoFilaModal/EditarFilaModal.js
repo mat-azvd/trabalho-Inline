@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ModalAI from "./ModalAI";
 import useApi from "../utils/useApi";
-import FilaEstatisticas from "./Fila/FilaEstatisticas"
+import FormEditarFila from "./Fila/FormEditarFila"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal} from "./ModalElements"
 
@@ -40,7 +40,7 @@ const EditarFilaModal = ({filaId, isClose}) => {
 
     return (
         <ModalAI  isOpen isClose={isClose}>
-                    <FilaEstatisticas fila={loadInfoFila.data} />   
+            <FormEditarFila fila={loadInfoFila.data} />   
         </ModalAI> 
     )
 

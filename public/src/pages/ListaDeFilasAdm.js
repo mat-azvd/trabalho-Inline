@@ -15,8 +15,8 @@ const ListaDeFilasAdm = () => {
     return (
         <>
             
-            <Navbar isOpen={isOpen} toggle={toggle} />
             <Sidebar isOpen={isOpen} toggle={toggle} />
+            <Navbar toggle={toggle} />
             <ListaFilasPrincipal />
 
             

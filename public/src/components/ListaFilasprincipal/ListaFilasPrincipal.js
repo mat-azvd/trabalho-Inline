@@ -1,6 +1,6 @@
-import React ,{ useEffect, useState } from "react";
-import Fila from "./Fila";
-import axios from "axios";
+import React ,{ useEffect, useState } from "react"
+import Fila from "./Fila"
+import axios from "axios"
 import { 
     MainSection,
     Div1,
@@ -8,8 +8,8 @@ import {
     FormBtnLink,
     FormBtn,
     BtnDiv,
-    Titulo } from "./ListaFilasPrincipalElements";
-import InfoFilaModal from "../InfoFilaModal/InfoFilaModal";
+    Titulo } from "./ListaFilasPrincipalElements"
+import InfoFilaModal from "../InfoFilaModal/InfoFilaModal"
 
 
 const ListaFilasPrincipal = ({ isOpen, toggle }) => {
