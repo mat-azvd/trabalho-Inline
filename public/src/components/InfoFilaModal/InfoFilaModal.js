@@ -13,7 +13,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     var [botaoLabel, setBotaoLabel] = useState({});
 
-    const [corBotao, setCorBotao] = useState({});
+    const [corBotao, setCorBotao] = useState('rgb(160, 0, 0)');
 
     console.log(editarFila);
     console.log(editarFila.ativo);
@@ -24,11 +24,13 @@ const InfoFilaModal = ({filaId, isClose}) => {
     async function clickChange(){
         if(botaoLabel==='Fila retomada'){
             const data = await queueService.pause(id);
+            setCorBotao('rgb(160, 0, 0)')
             setBotaoLabel(data.mensagem)
             console.log(data.mensagem)
             console.log(botaoLabel) 
         } else{
         const data = await queueService.resume(id);
+        setCorBotao('green')
         setBotaoLabel(data.mensagem) 
         console.log(data.mensagem)
         console.log(botaoLabel)
@@ -59,7 +61,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
             </ListaPessoasModal>
-            <BotaoModal3 onClick={() => clickChange()}>
+            <BotaoModal3 color={corBotao} onClick={() => clickChange()}>
                 <BotaoPausarRetomar label={label} />
             </BotaoModal3>                 
         </ModalAI> 

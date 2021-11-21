@@ -69,7 +69,8 @@ export const BotaoModal2 = styled.button`
 export const BotaoModal3 = styled.button`
 
   border-radius: 10px;
-  background: rgb(160, 0, 0);
+
+  background: ${props => `${props.color}`};
   white-space: nowrap;
   margin-top: 10px;
   padding: 10px 32px;
