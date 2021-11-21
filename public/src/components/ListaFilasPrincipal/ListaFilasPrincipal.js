@@ -44,7 +44,7 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     return (
         <MainSection isOpen={isOpen} onClick={toggle}>
 
-            <BtnDiv>
+            <BtnDiv className="BntDiv">
                 <Titulo>Minhas Filas</Titulo>
                 <Div1 className="container filas">
                     {fila.map((fila) => (

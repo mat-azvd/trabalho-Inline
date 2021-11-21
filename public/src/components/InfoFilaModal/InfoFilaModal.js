@@ -61,13 +61,13 @@ const InfoFilaModal = ({filaId, isClose}) => {
             <ListaPessoasModal>
                 <ListaDePessoas pessoas={editarFila.usuarios} />
             </ListaPessoasModal>
+            <BotaoModal1>
             <BotaoModal3 color={corBotao} onClick={() => clickChange()}>
                 <BotaoPausarRetomar label={label} />
-            </BotaoModal3>
-            <BotaoModal1>
-                    <BotaoModal2 onClick={isClose}>
-                        Fechar
-                    </BotaoModal2>
+            </BotaoModal3>     
+                <BotaoModal2 onClick={isClose}>
+                    Fechar
+                </BotaoModal2>
             </BotaoModal1>                 
         </ModalAI> 
     )

@@ -46,13 +46,15 @@ background-color: white;
 width: 50%;
 min-width: 400px;
 max-width: 1000px;
-height: 65%;
+height: 70%;
 border: rgb(0, 0, 0);
-
 
 border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
+
+overflow: hidden;
+overflow-y: auto;
 
 `
 
@@ -71,7 +73,7 @@ border-radius: 8px;
 padding-bottom: 10px;
 
 overflow: hidden;
-overflow-y: scroll;
+overflow-y: auto;
 
 
 margin-bottom: 20px;

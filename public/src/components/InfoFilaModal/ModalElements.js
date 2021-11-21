@@ -13,10 +13,7 @@ display: flex;
 
 `;
 
-export const DivChild = styled.div`
 
-height: 90%;
-`;
 
 export const Div2Modal = styled.div`
 
@@ -28,22 +25,23 @@ width: 50%;
 min-width: 300px;
 max-width: 1000px;
 height: 50%;
-border: rgb(0, 0, 0);
 
 margin:150px auto 0 auto;
 
-border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
 
 overflow: hidden;
-overflow-y: scroll;
+overflow-y: auto;
 
 `
-
+export const DivChild = styled.div`
+  height: 100%;
+`;
 
 export const BotaoModal1 = styled.div`
-  
+  display: float;
+  justify-content: center;
 `;
 
 export const BotaoModal2 = styled.button`
