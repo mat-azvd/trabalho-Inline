@@ -64,7 +64,7 @@ const Fila = ({fila, onClickFila}) => {
      
     return(
         <DivElementosFila onClick={onClickFila}>
-        <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
+        <TitlePrincipal> <strong>Código: </strong>{fila.nome}</TitlePrincipal>
         <TitleSecondary><strong>Tempo: </strong>{formato.match(/-/) ? "Fila Encerrada.": formato }</TitleSecondary>
         <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</TitleSecondary>
