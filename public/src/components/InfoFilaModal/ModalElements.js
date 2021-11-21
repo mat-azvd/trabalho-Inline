@@ -85,7 +85,7 @@ export const BotaoModal3 = styled.button`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: rgb(215, 0, 0);
+    background: ${props => props.color==='rgb(160, 0, 0)' ? 'rgb(215, 0, 0)' : 'rgb(0, 200, 0)'};
     color: #fff;
   }
 
