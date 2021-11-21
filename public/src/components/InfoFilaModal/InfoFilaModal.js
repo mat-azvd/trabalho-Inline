@@ -11,49 +11,59 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     const [editarFila, setEditarFila] = useState({});
 
-    var [botaoLabel, setBotaoLabel] = useState({});
+    const [botaoLabel, setBotaoLabel] = useState({});
 
-    const [corBotao, setCorBotao] = useState('rgb(160, 0, 0)');
+    const [corBotao, setCorBotao] = useState({});
 
-    console.log(editarFila);
-    console.log(editarFila.ativo);
-    
     const id = filaId;
-
-
-    async function clickChange(){
-        if(botaoLabel==='Fila retomada'){
-            const data = await queueService.pause(id);
-            setCorBotao('rgb(160, 0, 0)')
-            setBotaoLabel(data.mensagem)
-            console.log(data.mensagem)
-            console.log(botaoLabel) 
-        } else{
-        const data = await queueService.resume(id);
-        setCorBotao('green')
-        setBotaoLabel(data.mensagem) 
-        console.log(data.mensagem)
-        console.log(botaoLabel)
-        }
-    }
-
-    async function getList() {
-        const queue = await queueService.get(id)    
-        setEditarFila(queue);
-        
-    }
 
     useEffect(() => {
         getList()
     }, []);
 
-    if(botaoLabel==='Fila retomada'){
-        var label = 'Retomar';
+    async function getList() {
+        const queue = await queueService.get(id)    
+        setEditarFila(queue);
+        setBotaoLabel(queue.ativo)
+        if(queue.ativo===true){          
+            setCorBotao('rgb(160, 0, 0)')
+        } else {
+            setCorBotao('green')
+        }
+        
+    }
+    console.log(botaoLabel);
+    console.log(editarFila.ativo);
+    console.log(editarFila);
+    
+    if(botaoLabel===true){
+        var label = 'Pausar';
         console.log(label)
     }   else{
-            label = 'Pausar';
+            label = 'Retomar';
         console.log(label)
     }
+
+    const estado = editarFila.ativo;
+
+    async function clickChange(){
+        if(botaoLabel===true){
+            const data = await queueService.pause(id);          
+            setCorBotao('green')
+            setBotaoLabel(false)
+            console.log(data)
+            console.log(editarFila) 
+        } else{
+        const data =  await queueService.resume(id);
+        setCorBotao('rgb(160, 0, 0)')
+        setBotaoLabel(true)     
+        console.log(data)
+        console.log(editarFila)  
+        }
+    }
+
+    
+    
 
     return (
         <ModalAI  isOpen isClose={isClose}>
