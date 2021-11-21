@@ -1,8 +1,0 @@
-{
-    "scripts": {
-        "start": "json-server --watch apiTest.json --port 5000"
-    },
-    "dependencies": {
-        "json-server": "^0.17.0"
-    }
-}

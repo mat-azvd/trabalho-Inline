@@ -37,6 +37,7 @@ export class FilasService {
   async listar () {
     return await this.filaModel
       .find()
+      .sort( { inicio: -1 })
       .select('-__v')
       .lean();
   }
