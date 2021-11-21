@@ -26,6 +26,10 @@ const TitleSecondary = styled.div`
 
 `;
 
+const DivElementosFila = styled.div`
+width: 100%;
+`;
+
 const Fila = ({fila, onClickFila}) => {
 
     const [usuariosFila, setUsuariosFila] = useState(null);
@@ -58,12 +62,12 @@ const Fila = ({fila, onClickFila}) => {
 
      
     return(
-        <div onClick={onClickFila}>
+        <DivElementosFila onClick={onClickFila}>
         <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
         <TitleSecondary><strong>Tempo: </strong>{formato.match(/-/) ? "Fila Encerrada.": formato }</TitleSecondary>
         <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</TitleSecondary>
-        </div>
+        </DivElementosFila>
 
     );
 };
