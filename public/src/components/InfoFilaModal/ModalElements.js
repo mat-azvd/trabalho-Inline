@@ -36,6 +36,9 @@ border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
 
+overflow: hidden;
+overflow-y: scroll;
+
 `
 
 

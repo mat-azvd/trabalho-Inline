@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import ModalAI from "./ModalAI";
 import FilaEstatisticas from "./Fila/FilaEstatisticas"
 import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
-import {ListaPessoasModal,BotaoModal2, BotaoModal3} from "./ModalElements"
+import {ListaPessoasModal,BotaoModal2, BotaoModal3,BotaoModal1} from "./ModalElements"
 import queueService from "../../services/queue"
 import BotaoPausarRetomar from "./BotaoPausarRetomar"
 import queue from "../../services/queue";
@@ -63,7 +63,12 @@ const InfoFilaModal = ({filaId, isClose}) => {
             </ListaPessoasModal>
             <BotaoModal3 color={corBotao} onClick={() => clickChange()}>
                 <BotaoPausarRetomar label={label} />
-            </BotaoModal3>                 
+            </BotaoModal3>
+            <BotaoModal1>
+                    <BotaoModal2 onClick={isClose}>
+                        Fechar
+                    </BotaoModal2>
+            </BotaoModal1>                 
         </ModalAI> 
     )
 

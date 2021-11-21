@@ -54,6 +54,7 @@ const Fila = ({fila, onClickFila}) => {
     var duracao = moment.duration(diff)
     var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
 
+    
 
     if(!fila || usuariosFila == null){
         return <TitleSecondary>carregando</TitleSecondary> 

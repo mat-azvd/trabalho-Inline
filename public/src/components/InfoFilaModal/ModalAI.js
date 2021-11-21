@@ -16,14 +16,8 @@ const ModalAI = ({children, isOpen, isClose}) => {
     return ReactDOM.createPortal (
         <DivModal className="overlay">
             <Div2Modal className="Modal">
-                <DivChild className="Children">{children}</DivChild>
-                <BotaoModal1>
-                    <BotaoModal2 onClick={isClose}>
-                        Fechar
-                    </BotaoModal2>
-                </BotaoModal1>
+                <DivChild className="Children" isClose={isClose}>{children}</DivChild>
             </Div2Modal>
-
         </DivModal>
         ,portalRoot,
     );
