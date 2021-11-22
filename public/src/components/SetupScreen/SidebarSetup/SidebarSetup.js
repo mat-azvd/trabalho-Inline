@@ -22,7 +22,7 @@ const SidebarSetup = () => {
   async function getUser() {
     const user = await userService.getLoggedUser()
     setNameUser(user.nome)
-    setNameStore(user.loja.nome)
+    setNameStore((user.loja || {}).nome || '-')
   }
 
   return (
