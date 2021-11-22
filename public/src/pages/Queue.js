@@ -26,6 +26,7 @@ const Queue = () => {
 
         if (!user.lojaId) {
             alert('Você não tem permissão para acessar essa página')
+            history.push('/')
         }
 
         setIsPermitted(Boolean(user.lojaId))
