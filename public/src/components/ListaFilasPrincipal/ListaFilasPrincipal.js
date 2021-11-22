@@ -24,7 +24,7 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 
     useEffect(() => {
         getList()
-    }, [])
+    }, [fila])
 
     return (
         <MainSection isOpen={isOpen} onClick={toggle}>
@@ -52,18 +52,3 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 }
 
 export default ListaFilasPrincipal
-
-/*
-
-
-
-
-
-useEffect(() => {
-    const getData = async () => {
-    const data = await queueService.list();
-    setFila(data)
-    };
-    getData();
-}, []);
-*/

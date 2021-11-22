@@ -44,15 +44,17 @@ display: block;
 align-items: center;
 background-color: white;
 width: 50%;
-min-width: 300px;
+min-width: 400px;
 max-width: 1000px;
-height: 65%;
+height: 70%;
 border: rgb(0, 0, 0);
-
 
 border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
+
+overflow: hidden;
+overflow-y: auto;
 
 `
 
@@ -71,7 +73,7 @@ border-radius: 8px;
 padding-bottom: 10px;
 
 overflow: hidden;
-overflow-y: scroll;
+overflow-y: auto;
 
 
 margin-bottom: 20px;
@@ -88,18 +90,26 @@ color: black;
 background-color: #233f78;
 width: 80%;
 max-width: 1000px;
-height: 25%;
+height: 30%;
 margin-top: 4%;
 margin-left: 10%;
+
 
 box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
 
 border-radius: 8px;
-font-size: 10px;
+
+@media screen and (min-width: 1100px) {
+  font-size: 10px;
+
+}
+@media screen and (max-width: 1101px) {
+  font-size: 8px;
+}
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 3px solid #233f78;
+  border: 3px solid rgb(6, 130, 200);
 }
 
 
@@ -111,8 +121,8 @@ export const FormBtn = styled.nav`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-margin-bottom: 20px;
-padding: 4px;
+  margin-bottom: 20px;
+  padding: 4px;
 `;
 
 export const FormBtnLink = styled(Link)`
