@@ -40,16 +40,10 @@ const Fila = ({fila, onClickFila}) => {
         getUsuarios()
     }, []);
 
-    var timeNow = moment().format('DD/MM/yyyy HH:mm:ss');
-    var timeFila = moment(fila.fim).format('DD/MM/yyyy HH:mm:ss');
-
-    let diff = moment(timeFila,"DD/MM/YYYY HH:mm:ss").diff(moment(timeNow,"DD/MM/YYYY HH:mm:ss"));
-    var duracao = moment.duration(diff)
-    var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
-
     if(!fila || usuariosFila == null) {
         return <TitleSecondary>carregando</TitleSecondary>
     }
+
     return(
         <DivElementosFila onClick={onClickFila}>
         <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
