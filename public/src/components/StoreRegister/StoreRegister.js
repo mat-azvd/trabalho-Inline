@@ -36,7 +36,6 @@ const StoreRegister = () => {
                 cnpj: cnpj,
                 endereco: address,
                 telefone: phone,
-
             });
 
             history.push(`/signin/${loja._id}`);
@@ -44,9 +43,6 @@ const StoreRegister = () => {
             alert(error.message);
         }
     }
-
-
-
 
     return (
         <SectionContainer>

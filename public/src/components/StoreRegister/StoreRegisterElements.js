@@ -23,25 +23,22 @@ export const SectionContainer = styled.div`
 export const WhiteBG = styled.div`
   z-index: 3;
   background-color: #fff;
-  padding: 80px 80px;
+  padding: 60px 60px;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 70%;
   border-radius: 30px;
   justify-content: center;
-  -webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
-  @media screen and (max-width: 800px) {
-    padding:20px 5px;
 
+  @media screen and (max-width: 800px) {
+    padding: 40px;
   }
  `;
 
 export const SectionContent = styled.div`
-  /* background: #fff; */
-  width: 30%;
+  width: 40%;
   border-radius: 30px;
   z-index: 3;
   max-width: 1200px;
@@ -50,12 +47,10 @@ export const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* -webkit-box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51);
-  box-shadow: 5px 7px 8px 3px rgba(0, 0, 0, 0.51); */
 
   @media screen and (max-width: 800px) {
-    width: 80%;
-
+    padding: 20px;
+    width: 100%;
   }
 
   h1 {
@@ -64,8 +59,6 @@ export const SectionContent = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
   }
-
-
 `;
 
 export const LabelTitle = styled.div`
@@ -94,7 +87,7 @@ export const InputSetup = styled.input`
   @media screen and (max-width: 480px) {
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 100%;
     font-size: 16px;
   }
 `;

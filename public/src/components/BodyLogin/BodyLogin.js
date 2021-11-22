@@ -35,6 +35,10 @@ const BodyLogin = (props) => {
         history.push(`/signin`);
     }
 
+    function onRedirectCreteStore (params) {
+        history.push(`/store-register`);
+    }
+
     return (
         <SectionContainer>
             <SectionContent>
@@ -61,7 +65,17 @@ const BodyLogin = (props) => {
                     <div className="row">
                         <p>Ainda não possui conta?</p><a onClick={() => onRedirect()}>Cadastre-se</a>
                     </div>
+
                 </WhiteBG>
+                    <div style={{
+                        marginTop: '20px',
+                        textAlign: 'center',
+                        fontSize: '12px',
+                        color: '#fff',
+                        cursor: 'pointer'
+                    }}>
+                        <a onClick={() => onRedirectCreteStore()}>Clique aqui para cadastrar a sua loja</a>
+                    </div>
 
                 <SectionWrapper>
                     <Button to="enter" onMouseEnter={onHover} onMouseLeave={onHover} onClick={() => onSubmit()}>
