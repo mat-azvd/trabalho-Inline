@@ -15,7 +15,7 @@ const InfoFilaModal = ({ filaId, isClose }) => {
 
     useEffect(() => {
         getQueue()
-    }, [filaId])
+    }, [])
 
     async function getQueue() {
         const queue = await queueService.get(filaId)

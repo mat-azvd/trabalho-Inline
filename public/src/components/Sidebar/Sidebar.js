@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Setup from "../../pages/Setup";
 import ListaDeFilasAdm from "../../pages/ListaDeFilasAdm";
 
@@ -13,9 +13,36 @@ import {
     SidebarRoute,
 } from "./SidebarElements";
 import { useHistory } from "react-router-dom";
+import userService from '../../services/user';
 
 const Sidebar = ({ isOpen, toggle }) => {
     const history = useHistory();
+    const [isPermitted, setIsPermitted] = useState(false);
+    const token = window.localStorage.getItem("token");
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
+    async function getUser() {
+        if (!token) {
+            return setIsPermitted(false);
+        }
+
+        const user = await userService.getLoggedUser();
+
+        setIsPermitted(Boolean(user.lojaId))
+    }
+
+    function hasPermisison () {
+        if (isPermitted) {
+            return (
+                <SidebarLink href="/queue-manager" onClick={ListaDeFilasAdm}>
+                    Gerenciar Filas
+                </SidebarLink>
+            )
+        }
+    }
 
     function exit() {
         localStorage.clear();
@@ -41,9 +68,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink href="/queue-manager" onClick={ListaDeFilasAdm}>
-                        Gerenciar Filas
-                    </SidebarLink>
+                    {hasPermisison()}
                     <SidebarLink href="/setup-screen" onClick={Setup}>
                         Configurações
                     </SidebarLink>
