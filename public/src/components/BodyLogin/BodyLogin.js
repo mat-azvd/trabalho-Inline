@@ -59,8 +59,7 @@ const BodyLogin = (props) => {
                         onChange={(e) => setSenha(e.target.value)}
                     />
                     <div className="row">
-
-                        <p>Ainda não possui conta?</p><a href="/signin" onClick={() => onRedirect()}>Cadastre-se</a>
+                        <p>Ainda não possui conta?</p><a onClick={() => onRedirect()}>Cadastre-se</a>
                     </div>
                 </WhiteBG>
 
