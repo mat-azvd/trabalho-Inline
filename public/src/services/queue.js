@@ -90,6 +90,16 @@ async function exit(queueId) {
   }
 }
 
+async function remover (queueId,userId) {
+  try {
+    const { data } = await api.delete(`/usuarios-fila/${queueId}/remover/${userId}`)
+
+    return data
+  } catch (error) {
+    throw error.response.data
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,
@@ -100,5 +110,6 @@ export default {
   toMeet,
   getInfoUser,
   get,
-  list
+  list,
+  remover
 }

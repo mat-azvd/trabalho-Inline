@@ -9,9 +9,13 @@ import {
 import queueService from "../../../services/queue.js"
 
 const ListaDePessoas = ({pessoas}) => {
-    async function onClickDelete(usuario){
-        await queueService.exit(usuario);
+    
+    async function onClickDelete(fila, usuario){
+        console.log(fila, usuario)
+        await queueService.remover(fila, usuario);
     }
+
+    
 
     if (!pessoas) {
         return <div>carregando</div>
@@ -28,7 +32,9 @@ const ListaDePessoas = ({pessoas}) => {
                     <ListaPessoasStyle >
                         {pessoa.posicao}{" "}
                         {pessoa.usuarioId.nome}
-                    <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
+                    <BtnDeletePessoa
+                    onClick={() => onClickDelete(pessoa.filaId, pessoa.usuarioId._id)}>X
+                    </BtnDeletePessoa>
                     </ListaPessoasStyle >               
                     
                 </Div2>
