@@ -18,7 +18,8 @@ const InfoFilaModal = ({filaId, isClose}) => {
     const id = filaId;
 
     useEffect(() => {
-        getList()
+        setTimeout(()=>{
+        getList()}, 500)
     }, [editarFila]);
 
     async function getList() {

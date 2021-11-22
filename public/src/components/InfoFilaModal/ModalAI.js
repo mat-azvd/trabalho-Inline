@@ -1,6 +1,6 @@
 import React, {  } from "react";
 import ReactDOM from "react-dom";
-import { DivModal, Div2Modal,BotaoModal1, BotaoModal2,DivChild } from "./ModalElements";
+import { DivModal, Div2Modal, DivChild } from "./ModalElements";
 
 
 const portalRoot = document.getElementById('portal-root');

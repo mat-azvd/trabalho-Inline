@@ -73,14 +73,3 @@ const Fila = ({fila, onClickFila}) => {
     );
 };
 export default Fila;
-/*
-<h2> {fila.pessoas.length}
-        {fila.pessoas.length === 1 ? ' Pessoa' : ' Pessoas' }  </h2>
-        <h3>Tempo: {fila.tempo}</h3>
-
-        <h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
-            {usuariosFila.usuarios.length}</h2>
-<h2>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
-            {usuariosFila.usuarios.length}</h2>
-             
-    */
