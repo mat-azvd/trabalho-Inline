@@ -38,7 +38,7 @@ const Fila = ({fila, onClickFila}) => {
 
     useEffect(() => {
         getUsuarios()
-    }, []);
+    }, [usuariosFila]);
 
     var timeNow = moment().format('DD/MM/yyyy HH:mm:ss');
     var timeFila = moment(fila.fim).format('DD/MM/yyyy HH:mm:ss');
