@@ -11,30 +11,16 @@ import {
 } from "./ListaFilasPrincipalElements"
 import InfoFilaModal from "../InfoFilaModal/InfoFilaModal"
 import queueService from "../../services/queue"
-import storeService from "../../services/store"
 
 
 const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     const [filaId, setfilaID] = useState(null)
-    
     const [fila, setFila] = useState([])
 
-   /* 
-   const [lojaId, setlojaID] = useState(null)
-   useEffect(() => {
-        getLoja()
-    }, [])
-
-    async function getLoja() {
-        const loja = await storeService.getLoja()
-        setlojaID(loja)
-    }
-    console.log(lojaId)
-*/
     async function getList() {
         const queue = await queueService.list()
         setFila(queue)
-    } 
+    }
 
     useEffect(() => {
         getList()
@@ -43,7 +29,7 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
     return (
         <MainSection isOpen={isOpen} onClick={toggle}>
 
-            <BtnDiv className="BntDiv">
+            <BtnDiv>
                 <Titulo>Minhas Filas</Titulo>
                 <Div1 className="container filas">
                     {fila.map((fila) => (
@@ -66,18 +52,3 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 }
 
 export default ListaFilasPrincipal
-
-/*
-
-
-
-
-
-useEffect(() => {
-    const getData = async () => {
-    const data = await queueService.list();
-    setFila(data)
-    };
-    getData();
-}, []);
-*/

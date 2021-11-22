@@ -1,35 +1,27 @@
-import React, {useState} from "react";
-import {ListaPessoasStyle,
-        BtnDeletePessoa,
-        Div1,
-        Div2} from "./ListaDePessoasElements";
+import React from "react";
+import {
+    ListaPessoasStyle,
+    BtnDeletePessoa,
+    Div1,
+    Div2
+} from "./ListaDePessoasElements";
 
 import queueService from "../../../services/queue.js"
 
 const ListaDePessoas = ({pessoas}) => {
-
-    const [clickDelete, setClickDelete] = useState();
-
     async function onClickDelete(usuario){
         await queueService.exit(usuario);
-        console.log(usuario)
-
     }
 
- 
-    if(!pessoas) {
+    if (!pessoas) {
         return <div>carregando</div>
-    } else{
-
+    } else {
         if(!pessoas.length) {
             return <div>Sem Usuarios</div>
         }
     }
-    
-
 
     return (
-
         <Div1 className="Lista-de-pessoas">
             {pessoas.map((pessoa) => (
                 <Div2>    
@@ -44,9 +36,7 @@ const ListaDePessoas = ({pessoas}) => {
             
             )}
         </Div1>
-
     );
-
 };
 
 export default ListaDePessoas;

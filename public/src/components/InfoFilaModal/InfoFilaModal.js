@@ -5,21 +5,18 @@ import ListaDePessoas from "./ListaDePessoas/ListaDePessoas";
 import {ListaPessoasModal,BotaoModal2, BotaoModal3,BotaoModal1} from "./ModalElements"
 import queueService from "../../services/queue"
 import BotaoPausarRetomar from "./BotaoPausarRetomar"
-import queue from "../../services/queue";
 
 const InfoFilaModal = ({filaId, isClose}) => {
-
     const [editarFila, setEditarFila] = useState({});
-
     const [botaoLabel, setBotaoLabel] = useState({});
-
     const [corBotao, setCorBotao] = useState({});
 
     const id = filaId;
 
+    let label;
+
     useEffect(() => {
-        setTimeout(()=>{
-        getList()}, 500)
+        getList()
     }, [editarFila]);
 
     async function getList() {
@@ -31,36 +28,25 @@ const InfoFilaModal = ({filaId, isClose}) => {
         } else {
             setCorBotao('green')
         }
-        
-    }
-    
-    
-    if(botaoLabel===true){
-        var label = 'Pausar';
-        
-    }   else{
-            label = 'Retomar';
-        
     }
 
-    const estado = editarFila.ativo;
+    if (botaoLabel === true) {
+        label = 'Pausar';
+    }   else{
+        label = 'Retomar';
+    }
 
     async function clickChange(){
         if(botaoLabel===true){
-            await queueService.pause(id);          
+            await queueService.pause(id);
             setCorBotao('green')
             setBotaoLabel(false)
-           
-        } else{
-        await queueService.resume(id);
-        setCorBotao('rgb(160, 0, 0)')
-        setBotaoLabel(true)     
-       
+        } else {
+            await queueService.resume(id);
+            setCorBotao('rgb(160, 0, 0)')
+            setBotaoLabel(true)
         }
     }
-
-    
-    
 
     return (
         <ModalAI  isOpen isClose={isClose}>
@@ -78,20 +64,14 @@ const InfoFilaModal = ({filaId, isClose}) => {
             </BotaoModal1>                 
         </ModalAI> 
     )
-
-
 }
 
 export default InfoFilaModal;
 
-/*{modalOpen && (
-            <EditarFilaModal filaId={editarFila._id} isClose={() => setModalOpen(false)}/>
-            ) }
+/*if(botaoLabel===true){
+        var label = 'Pausar';
+        
+    }   else{
+            label = 'Retomar';
 
-            <BotaoModal2 onClick={() => setModalOpen(true)}>
-                    Excluir Fila
-                </BotaoModal2>
-
-                {botaoLabel==='Fila Pausada' ? botaoLabel = 'teste': botaoLabel = 'teste2'}
-            
-*/
+            */

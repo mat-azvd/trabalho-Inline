@@ -8,11 +8,9 @@ const TitlePrincipal = styled.div`
     font-size: 20px;
     padding: 6px;
 
-
     @media only screen and (max-width: 640px) {
         font-size: 14px;
     }
-
 `;
 
 const TitleSecondary = styled.div`
@@ -23,7 +21,6 @@ const TitleSecondary = styled.div`
     @media only screen and (max-width: 640px) {
         font-size: 14px;
     }
-
 `;
 
 const DivElementosFila = styled.div`
@@ -31,16 +28,12 @@ width: 100%;
 `;
 
 const Fila = ({fila, onClickFila}) => {
-
     const [usuariosFila, setUsuariosFila] = useState(null);
-
-
     const id = fila._id;
 
     async function getUsuarios() {
         const queue = await queueService.get(id)    
         setUsuariosFila(queue);
-        
     }
 
     useEffect(() => {
@@ -54,14 +47,9 @@ const Fila = ({fila, onClickFila}) => {
     var duracao = moment.duration(diff)
     var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
 
-    
-
-    if(!fila || usuariosFila == null){
+    if(!fila || usuariosFila == null) {
         return <TitleSecondary>carregando</TitleSecondary> 
-       
     } 
-
-     
     return(
         <DivElementosFila onClick={onClickFila}>
         <TitlePrincipal> <strong>Código: </strong>{fila.nome}</TitlePrincipal>
@@ -69,7 +57,6 @@ const Fila = ({fila, onClickFila}) => {
         <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</TitleSecondary>
         </DivElementosFila>
-
     );
 };
 export default Fila;

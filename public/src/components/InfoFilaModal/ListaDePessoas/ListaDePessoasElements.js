@@ -4,15 +4,12 @@ export const Div1 = styled.div`
 overflow: hidden;
 overflow-y: auto;
 max-height: 200px;
-
 `;
 
 export const Div2 = styled.div`
 display: flex;
 justify-content: center;
-
 `;
-
 
 export const ListaPessoasStyle = styled.div`
 
@@ -27,7 +24,6 @@ box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
 
 width: 90%;
 max-height: 20px;
-
 `;
 
 export const BtnDeletePessoa = styled.button`
@@ -44,5 +40,4 @@ background-color: rgb(160, 0, 0);
     background: rgb(215, 0, 0);
     color: #fff;
   }
-
 `;

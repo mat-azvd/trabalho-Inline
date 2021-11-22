@@ -86,15 +86,11 @@ async function exit(queueId) {
 
     return data
   } catch (error) {
-    console.log(error)
     throw error.response.data
   }
 }
 
-
-
-
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,
   resume,

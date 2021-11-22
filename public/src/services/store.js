@@ -20,26 +20,8 @@ async function update(payload) {
   }
 }
 
-
-
-
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,
   update
 }
-
-/*
-async function getLoja(payload) {
-  try {
-    const { data } = await api.get('/lojas', payload)
-
-    return data
-  } catch (error) {
-    console.log(error)
-    throw error.response.data
-  }
-}
-getLoja
-*/
