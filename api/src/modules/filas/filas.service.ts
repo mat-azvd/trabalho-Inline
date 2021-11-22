@@ -34,9 +34,13 @@ export class FilasService {
     return fila;
   }
 
-  async listar () {
+  async listar (lojaId) {
+    if (!lojaId) {
+      throw new UnauthorizedException('Usuário não tem acesso a este recurso');
+    }
+
     return await this.filaModel
-      .find()
+      .find({ lojaId })
       .sort( { inicio: -1 })
       .select('-__v')
       .lean();

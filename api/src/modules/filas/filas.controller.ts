@@ -20,8 +20,9 @@ export class FilasController {
 
   @UseGuards(LocalAuthGuard)
   @Get('/')
-  async listar() {
-    return await this.filasService.listar();
+  async listar(@CurrentUser() usuario: UsuarioPayload) {
+    const lojaId = usuario ? usuario.lojaId : null;
+    return await this.filasService.listar(lojaId);
   }
 
   @UseGuards(LocalAuthGuard)

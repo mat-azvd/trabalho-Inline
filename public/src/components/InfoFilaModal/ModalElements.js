@@ -13,8 +13,8 @@ display: flex;
 `;
 
 export const Div2Modal = styled.div`
-
-display: block; 
+position: relative;
+display: block;
 text-align: center;
 align-items: center;
 background-color: white;
@@ -33,8 +33,12 @@ export const DivChild = styled.div`
 `;
 
 export const BotaoModal1 = styled.div`
-  display: float;
   justify-content: center;
+  display: flex;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 `;
 
 export const BotaoModal2 = styled.button`
@@ -49,7 +53,6 @@ export const BotaoModal2 = styled.button`
   border: none;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  width: 50%;
   max-width: 200px;
 
   &:hover {
@@ -70,8 +73,8 @@ export const BotaoModal3 = styled.button`
   border: none;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  width: 50%;
   max-width: 200px;
+  margin-right: 10px;
 
   &:hover {
     transition: all 0.2s ease-in-out;

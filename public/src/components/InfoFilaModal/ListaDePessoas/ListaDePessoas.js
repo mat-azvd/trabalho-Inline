@@ -1,22 +1,24 @@
-import React from "react";
+import React from "react"
 import {
     ListaPessoasStyle,
     BtnDeletePessoa,
     Div1,
     Div2
-} from "./ListaDePessoasElements";
+} from "./ListaDePessoasElements"
 
 import queueService from "../../../services/queue.js"
 
-const ListaDePessoas = ({pessoas}) => {
-    async function onClickDelete(usuario){
-        await queueService.exit(usuario);
+const ListaDePessoas = ({ pessoas, refresh }) => {
+    async function onClickDelete(usuario) {
+        await queueService.exit(usuario)
+
+        refresh()
     }
 
     if (!pessoas) {
         return <div>carregando</div>
     } else {
-        if(!pessoas.length) {
+        if (!pessoas.length) {
             return <div>Sem Usuarios</div>
         }
     }
@@ -24,19 +26,16 @@ const ListaDePessoas = ({pessoas}) => {
     return (
         <Div1 className="Lista-de-pessoas">
             {pessoas.map((pessoa) => (
-                <Div2>    
-                    <ListaPessoasStyle >
-                        {pessoa.posicao}{" "}
+                <Div2>
+                    <ListaPessoasStyle>
+                        {pessoa.posicao}{"º "}
                         {pessoa.usuarioId.nome}
-                    <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
-                    </ListaPessoasStyle >               
-                    
+                        <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
+                    </ListaPessoasStyle >
                 </Div2>
-            )
-            
-            )}
+            ))}
         </Div1>
-    );
-};
+    )
+}
 
-export default ListaDePessoas;
+export default ListaDePessoas

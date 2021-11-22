@@ -3,7 +3,6 @@ import {
     SectionContainer,
     SectionContent,
     SectionTopWrapper,
-    WhiteBG,
     WrapperPosition,
     PositionQ,
     WrapperTime,
@@ -20,12 +19,21 @@ const BodyUserQ = () => {
     const [nameQueue, setNameQueue] = useState("");
     let { queueId } = useParams();
     const history = useHistory();
+    let interval;
 
     useEffect(() => {
         getUserQueue()
         getQueue()
+        createInterval()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    function createInterval () {
+        console.log('Registrou interval')
+        interval = setInterval(() => {
+            getUserQueue()
+        }, 10 * 1000);
+    }
 
     async function getQueue() {
         const info = await queueService.get(queueId);
@@ -36,7 +44,13 @@ const BodyUserQ = () => {
     async function getUserQueue() {
         try {
             const info = await queueService.getInfoUser(queueId)
-            const timeFormatted = new Date((info.tempoPrevistoAtendimento || 0) * 1000).toISOString().substr(11, 8)
+            const timeFormatted = new Date((info.tempoPrevistoAtendimento || 0) * 1000).toISOString().substr(11, 8) || 60
+
+            if (!info) {
+                alert('Você foi removido ou não se encontra mais na fila')
+                clearInterval(interval)
+                return history.push(`/`);
+            }
 
             setPosition(info.posicao)
             setTime(timeFormatted)
