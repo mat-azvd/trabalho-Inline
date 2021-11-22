@@ -30,7 +30,6 @@ const Login = () => {
             console.error("Erro ao realizar login: ", error);
             setShowModal(true);
         }
-
     }
 
     return (

@@ -17,7 +17,7 @@ const Queue = () => {
 
     async function getUser() {
         const token = window.localStorage.getItem("token");
-        console.log(token)
+
         if (!token) {
             return history.push('/login')
         }
