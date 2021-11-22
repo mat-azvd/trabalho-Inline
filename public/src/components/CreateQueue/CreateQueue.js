@@ -46,7 +46,7 @@ const CreateQueue = ({ isOpen, toggle }) => {
                         type="text"
                         name="name"
                         placeholder="Digite o nome da fila"
-                        onClick={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <label htmlFor="date">Data Início:</label>
                     <Datepicker
