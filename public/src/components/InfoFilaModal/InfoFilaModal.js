@@ -47,12 +47,12 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     async function clickChange(){
         if(botaoLabel===true){
-            const data = await queueService.pause(id);          
+            await queueService.pause(id);          
             setCorBotao('green')
             setBotaoLabel(false)
            
         } else{
-        const data =  await queueService.resume(id);
+        await queueService.resume(id);
         setCorBotao('rgb(160, 0, 0)')
         setBotaoLabel(true)     
        
