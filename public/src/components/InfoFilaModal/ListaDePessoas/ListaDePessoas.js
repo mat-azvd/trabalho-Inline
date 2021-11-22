@@ -10,8 +10,8 @@ import {
 import queueService from "../../../services/queue.js"
 
 const ListaDePessoas = ({ pessoas, refresh }) => {
-    async function onClickDelete(usuario) {
-        await queueService.exit(usuario)
+    async function onClickDelete(queueId, userId) {
+        await queueService.remove(queueId, userId)
 
         refresh()
     }
@@ -43,7 +43,7 @@ const ListaDePessoas = ({ pessoas, refresh }) => {
                         {pessoa.atendido ? null : (
                             <div>
                                 <BtnAtenderPessoa onClick={() => onClickAtender(pessoa.filaId, pessoa.usuarioId._id)}>Atender</BtnAtenderPessoa>
-                                <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
+                                <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId, pessoa.usuarioId._id)}>X</BtnDeletePessoa>
                             </div>
                         )}
                     </ListaPessoasStyle >
