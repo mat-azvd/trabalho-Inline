@@ -89,7 +89,7 @@ const SectionMain = () => {
                     <SectionRowCreate>
                         <h4>
                             Crie sua própria fila{" "}
-                            <a href="/create-queue" onClick={Queue}>
+                            <a href="#" onClick={() =>history.push('/create-queue') }>
                                 AQUI
                             </a>
                         </h4>
