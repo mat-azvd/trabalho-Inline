@@ -19,7 +19,7 @@ const InfoFilaModal = ({filaId, isClose}) => {
 
     useEffect(() => {
         getList()
-    }, []);
+    }, [editarFila]);
 
     async function getList() {
         const queue = await queueService.get(id)    
@@ -32,16 +32,14 @@ const InfoFilaModal = ({filaId, isClose}) => {
         }
         
     }
-    console.log(botaoLabel);
-    console.log(editarFila.ativo);
-    console.log(editarFila);
+    
     
     if(botaoLabel===true){
         var label = 'Pausar';
-        console.log(label)
+        
     }   else{
             label = 'Retomar';
-        console.log(label)
+        
     }
 
     const estado = editarFila.ativo;
@@ -51,14 +49,12 @@ const InfoFilaModal = ({filaId, isClose}) => {
             const data = await queueService.pause(id);          
             setCorBotao('green')
             setBotaoLabel(false)
-            console.log(data)
-            console.log(editarFila) 
+           
         } else{
         const data =  await queueService.resume(id);
         setCorBotao('rgb(160, 0, 0)')
         setBotaoLabel(true)     
-        console.log(data)
-        console.log(editarFila)  
+       
         }
     }
 

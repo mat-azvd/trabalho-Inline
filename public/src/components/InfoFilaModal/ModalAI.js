@@ -11,7 +11,7 @@ const ModalAI = ({children, isOpen, isClose}) => {
         return null;
     }
 
-    console.log(children);
+  
 
     return ReactDOM.createPortal (
         <DivModal className="overlay">

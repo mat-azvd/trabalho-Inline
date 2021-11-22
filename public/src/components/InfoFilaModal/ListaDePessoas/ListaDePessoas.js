@@ -16,7 +16,7 @@ const ListaDePessoas = ({pessoas}) => {
 
     }
 
-    console.log(pessoas)
+ 
     if(!pessoas) {
         return <div>carregando</div>
     } else{
@@ -26,7 +26,7 @@ const ListaDePessoas = ({pessoas}) => {
         }
     }
     
-    console.log(pessoas)
+
 
     return (
 

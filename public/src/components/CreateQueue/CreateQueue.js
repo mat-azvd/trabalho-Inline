@@ -27,7 +27,7 @@ const CreateQueue = ({ isOpen, toggle }) => {
                 fim: endDate,
             });
 
-            history.push(`/queue-manger`);
+            history.push(`/queue-manager`);
         } catch (error) {
             alert(error.message)
         }

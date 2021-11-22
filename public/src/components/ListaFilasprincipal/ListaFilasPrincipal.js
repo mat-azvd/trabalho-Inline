@@ -38,9 +38,8 @@ const ListaFilasPrincipal = ({ isOpen, toggle }) => {
 
     useEffect(() => {
         getList()
-    }, [])
+    }, [fila])
 
-    console.log(fila)
     return (
         <MainSection isOpen={isOpen} onClick={toggle}>
 
