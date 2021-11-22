@@ -24,7 +24,7 @@ const ListaDePessoas = ({ pessoas, refresh }) => {
         }
     }
 
-    async function onClickAtender (queueId, userId) {
+    async function onClickAtender(queueId, userId) {
         await queueService.toMeet(queueId, userId)
         refresh()
     }
@@ -39,10 +39,13 @@ const ListaDePessoas = ({ pessoas, refresh }) => {
                         <p>
                             {pessoa.atendido ? "Atendido" : "Aguardando"}
                         </p>
-                        <div>
-                            <BtnAtenderPessoa onClick={() => onClickAtender(pessoa.filaId, pessoa.usuarioId._id)}>Atender</BtnAtenderPessoa>
-                            <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
-                        </div>
+
+                        {pessoa.atendido ? null : (
+                            <div>
+                                <BtnAtenderPessoa onClick={() => onClickAtender(pessoa.filaId, pessoa.usuarioId._id)}>Atender</BtnAtenderPessoa>
+                                <BtnDeletePessoa onClick={() => onClickDelete(pessoa.filaId)}>X</BtnDeletePessoa>
+                            </div>
+                        )}
                     </ListaPessoasStyle >
                 </Div2>
             ))}

@@ -5,7 +5,7 @@ import moment from "moment";
 
 const TitlePrincipal = styled.div`
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     padding: 6px;
 
     @media only screen and (max-width: 640px) {
@@ -32,7 +32,7 @@ const Fila = ({fila, onClickFila}) => {
     const id = fila._id;
 
     async function getUsuarios() {
-        const queue = await queueService.get(id)    
+        const queue = await queueService.get(id)
         setUsuariosFila(queue);
     }
 
@@ -48,11 +48,12 @@ const Fila = ({fila, onClickFila}) => {
     var formato = Math.floor(duracao.asHours()) + moment.utc(diff).format(":mm:ss");
 
     if(!fila || usuariosFila == null) {
-        return <TitleSecondary>carregando</TitleSecondary> 
-    } 
+        return <TitleSecondary>carregando</TitleSecondary>
+    }
     return(
         <DivElementosFila onClick={onClickFila}>
-        <TitlePrincipal> <strong>Código: </strong>{fila.nome}</TitlePrincipal>
+        <TitlePrincipal> <strong>Nome: </strong>{fila.nome}</TitlePrincipal>
+        <TitlePrincipal> <strong>Código: </strong>{fila.codigo}</TitlePrincipal>
         <TitleSecondary><strong>Tempo: </strong>{formato.match(/-/) ? "Fila Encerrada.": formato }</TitleSecondary>
         <TitleSecondary>{usuariosFila.usuarios.length === 1 ? ' Pessoa:' : ' Pessoas:' }
             {usuariosFila.usuarios.length}</TitleSecondary>
