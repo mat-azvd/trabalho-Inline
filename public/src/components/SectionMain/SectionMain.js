@@ -40,6 +40,10 @@ const SectionMain = () => {
     }, [])
 
     function onSubmit(code) {
+        if (!code) {
+            return;
+        }
+
         if (!localStorage.getItem('token')) {
             localStorage.setItem('code', code);
             return history.push('/login')

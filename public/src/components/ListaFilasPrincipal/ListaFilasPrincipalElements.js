@@ -17,10 +17,13 @@ background: rgb(2, 0, 36);
   );
 
   padding: 0 30px;
-  height: 100vh;
+  height: calc(100vh - 80px);
   position: relative;
   z-index: 1;
-  
+
+  @media screen and (max-width: 640px) {
+    height: 100%;
+  }
 `;
 
 export const Titulo = styled.label`
@@ -52,10 +55,13 @@ border: rgb(0, 0, 0);
 border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
-
 overflow: hidden;
-overflow-y: auto;
 
+overflow-y: auto;@media only screen and (max-width: 640px) {
+  min-width: 100%;
+  height: 100%;
+  margin-bottom: 50px
+}
 `
 
 export const Div1 = styled.div`
@@ -71,49 +77,38 @@ border: rgb(0, 0, 0);
 border-width: 5px;
 border-radius: 8px;
 padding-bottom: 10px;
-
 overflow: hidden;
 overflow-y: auto;
-
-
 margin-bottom: 20px;
-margin:20px auto 0 auto;    
-
+margin:20px auto 0 auto;
 `;
 
 export const Filas = styled.div`
 display:flex;
-
 align-items: center;
 position: relative;
 color: black;
 background-color: #233f78;
 width: 80%;
 max-width: 1000px;
-height: 30%;
 margin-top: 4%;
 margin-left: 10%;
-
-
 box-shadow: 0 5px 7px 0 rgba(0,0,0, 0.75);
-
 border-radius: 8px;
+cursor: pointer;
 
 @media screen and (min-width: 1100px) {
   font-size: 10px;
-
 }
+
 @media screen and (max-width: 1101px) {
   font-size: 8px;
 }
 
 &:hover {
   transition: all 0.2s ease-in-out;
-  border: 3px solid rgb(6, 130, 200);
+  border: 1px solid rgb(6, 130, 200);
 }
-
-
-
 `;
 
 export const FormBtn = styled.nav`
@@ -121,8 +116,12 @@ export const FormBtn = styled.nav`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+<<<<<<< HEAD
 margin-bottom: 20px;
 padding: 4px;
+=======
+  margin-bottom: 20px;
+>>>>>>> 55f43fafaa4d43482f5575bcee1a180ccdfa20d1
 `;
 
 export const FormBtnLink = styled(Link)`
@@ -137,7 +136,7 @@ export const FormBtnLink = styled(Link)`
   border: none;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  
+
 
   &:hover {
     transition: all 0.2s ease-in-out;

@@ -95,7 +95,12 @@ export class UsuariosService {
     }
 
     return {
-      mensagem: 'Usuário cadastrado com sucesso'
+      mensagem: 'Usuário cadastrado com sucesso',
+      usuario: {
+        _id: usuario._id,
+        nome: usuario.nome,
+        cpf: usuario.cpf,
+      }
     }
   }
 }

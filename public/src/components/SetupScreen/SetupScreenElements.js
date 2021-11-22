@@ -41,6 +41,7 @@ export const ContainerSection = styled.div`
   @media screen and (max-width: 800px) {
     padding: 80px 20px;
     height: 100%;
+    border-radius: 0;
   }
 `;
 

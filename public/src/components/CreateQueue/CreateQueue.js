@@ -12,11 +12,12 @@ import {
 } from "./CreateQueueElements";
 import queueService from "../../services/queue";
 import { useHistory } from "react-router-dom";
+import moment from 'moment';
 
 const CreateQueue = ({ isOpen, toggle }) => {
     const [name, setName] = useState("");
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(moment().add(1, 'days').toDate());
     const history = useHistory();
 
     async function onSubmit() {
@@ -45,7 +46,7 @@ const CreateQueue = ({ isOpen, toggle }) => {
                         type="text"
                         name="name"
                         placeholder="Digite o nome da fila"
-                        onClick={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <label htmlFor="date">Data Início:</label>
                     <Datepicker
