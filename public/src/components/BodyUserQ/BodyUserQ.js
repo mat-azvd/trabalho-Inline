@@ -44,7 +44,7 @@ const BodyUserQ = () => {
     async function getUserQueue() {
         try {
             const info = await queueService.getInfoUser(queueId)
-            const timeFormatted = new Date((info.tempoPrevistoAtendimento || 0) * 1000).toISOString().substr(11, 8) || 60
+            const timeFormatted = new Date((info.tempoPrevistoAtendimento || 60) * 1000).toISOString().substr(11, 8)
 
             if (!info) {
                 alert('Você foi removido ou não se encontra mais na fila')
