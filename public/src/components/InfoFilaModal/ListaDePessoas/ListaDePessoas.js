@@ -9,19 +9,11 @@ import {
 
 import queueService from "../../../services/queue.js"
 
-<<<<<<< HEAD
-const ListaDePessoas = ({pessoas}) => {
-    
-    async function onClickDelete(fila, usuario){
-        console.log(fila, usuario)
-        await queueService.remover(fila, usuario);
-=======
 const ListaDePessoas = ({ pessoas, refresh }) => {
     async function onClickDelete(usuario) {
         await queueService.exit(usuario)
 
         refresh()
->>>>>>> 55f43fafaa4d43482f5575bcee1a180ccdfa20d1
     }
 
     
