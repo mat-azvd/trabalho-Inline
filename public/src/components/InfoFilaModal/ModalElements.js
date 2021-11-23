@@ -19,7 +19,7 @@ text-align: center;
 align-items: center;
 background-color: white;
 width: 50%;
-min-width: 300px;
+min-width: 400px;
 max-width: 1000px;
 height: 50%;
 margin:150px auto 0 auto;

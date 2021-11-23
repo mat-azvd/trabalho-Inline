@@ -21,6 +21,7 @@ background: rgb(2, 0, 36);
   position: relative;
   z-index: 1;
 
+  
   @media screen and (max-width: 640px) {
     height: 100%;
   }
