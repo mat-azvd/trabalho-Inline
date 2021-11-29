@@ -41,12 +41,14 @@ export const WhiteBG = styled.div`
     color: #233f78;
     display: inline-block;
   }
+
   a{
     color: #233f78;
     text-align: center;
     font-weight: bold;
     padding: 8px;
     float: right;
+    cursor: pointer;
 
     &:hover{
       transition: all 0.2s ease-in-out;

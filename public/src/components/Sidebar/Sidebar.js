@@ -40,9 +40,6 @@ const Sidebar = ({ isOpen, toggle }) => {
     if (isPermitted) {
       return (
         <>
-          <SidebarLink href="/store-register" onClick={StoreRegister}>
-            Login
-          </SidebarLink>
           <SidebarLink href="/create-queue" onClick={CreateQueue}>
             Criar Fila
           </SidebarLink>
@@ -51,6 +48,14 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </>
       );
+    }
+
+    if (!token) {
+      return (
+        <SidebarLink href="/store-register" onClick={StoreRegister}>
+          Login
+        </SidebarLink>
+      )
     }
   }
 

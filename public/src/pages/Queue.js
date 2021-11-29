@@ -19,7 +19,7 @@ const Queue = () => {
         const token = window.localStorage.getItem("token");
 
         if (!token) {
-            history.push('/login')
+            return history.push('/login')
         }
 
         const user = await userService.getLoggedUser();

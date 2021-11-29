@@ -36,9 +36,9 @@ export class NotificaUsuarioWorker {
         .sendMail({
           to: usuarioInline.email, // list of receivers
           from: process.env.MAILER_FROM, // sender address
-          subject: 'Testing Nest MailerModule ✔', // Subject line
+          subject: 'Inline ✔', // Subject line
           text: 'Você é o próximo da fila', // plaintext body
-          html: '<b>Hello</b>', // HTML body content
+          html: '<b>Você é o próximo da fila</b>, siga até o estabelecimento para ser atendido', // HTML body content
         })
 
       } catch (error) {

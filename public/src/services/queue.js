@@ -90,7 +90,7 @@ async function exit(queueId) {
   }
 }
 
-async function remover (queueId,userId) {
+async function remove(queueId, userId) {
   try {
     const { data } = await api.delete(`/usuarios-fila/${queueId}/remover/${userId}`)
 
@@ -111,5 +111,5 @@ export default {
   getInfoUser,
   get,
   list,
-  remover
+  remove
 }
